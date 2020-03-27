@@ -1,0 +1,58 @@
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  font-family: inherit;
+}
+/* * {    color:                    hsla(210, 100%, 100%, 0.9) !important;    background:               hsla(210, 100%,  50%, 0.5) !important;    outline:    solid 0.25rem hsla(210, 100%, 100%, 0.5) !important;} */
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+p {
+    margin: 10px 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    padding: 10px 0;
+}
+
+.container {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 70rem;
+    padding: 3rem 3rem;
+    min-height: 100vh;
+}
+
+a {
+    box-shadow: none;
+    text-decoration: none;
+    color: inherit;
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+}
+

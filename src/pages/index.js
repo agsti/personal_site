@@ -1,72 +1,67 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
+import Image from "gatsby-image"
+import '../css/index.css'
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
-
-  return (
-    <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
-      <Bio />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </article>
-        )
-      })}
-    </Layout>
-  )
-}
-
-export default BlogIndex
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
+const Index = ({ location }) => {
+    const data = useStaticQuery(graphql`
+    query IndexQuery {
+      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+        childImageSharp {
+          fixed(width: 100, height: 100) {
+            ...GatsbyImageSharpFixed
           }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
+        }
+      }
+      site {
+        siteMetadata {
+          author {
+            name
+            summary
+          }
+          social {
+            twitter
           }
         }
       }
     }
-  }
-`
+  `)
+    const { author, social } = data.site.siteMetadata
+    // const siteTitle = data.site.siteMetadata.title;
+    return (<Layout location={location}>
+        <SEO title="Bending software here and there" />
+        <div class="greeter-container">
+            <div class="greeter-box">
+                <h1>Hey, I'm Agusti.</h1>
+                <h2>Full-stack software engineer.</h2>
+            </div>
+            <ul class='section-list'>
+                <li>
+                <Link to='blog'>
+                    Projects
+                </Link>
+                </li>
+                <li>
+                <Link to='blog'>
+                        CV
+                </Link>
+                </li>
+                <li>
+                <Link to='blog'>
+                    Writtings
+                </Link>
+                </li>
+                <li>
+                <Link to='blog'>
+                    Contact
+                </Link>
+                </li>
+            </ul>
+        </div>
+    </Layout>)
+}
+
+export default Index
+

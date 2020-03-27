@@ -1,0 +1,29 @@
+.greeter-box {
+    padding: 20px;
+}
+
+.greeter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 6rem) ;
+}
+
+.section-list {
+    list-style-type: none;
+    font-size: 1.5em;
+    
+}
+
+.section-list > li {
+    display: inline;
+    margin: 20px;
+    border-bottom: 3px cadetblue solid;
+}
+
+.section-list > li:hover {
+    display: inline;
+    margin: 20px;
+    border-bottom: 10px cadetblue solid;
+}
