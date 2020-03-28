@@ -1,3 +1,5 @@
+@import "colors";
+
 body,
 h1,
 h2,
@@ -17,7 +19,7 @@ dd {
   margin: 0;
   font-family: inherit;
 }
-/* * {    color:                    hsla(210, 100%, 100%, 0.9) !important;    background:               hsla(210, 100%,  50%, 0.5) !important;    outline:    solid 0.25rem hsla(210, 100%, 100%, 0.5) !important;} */
+//  * {    color:                    hsla(210, 100%, 100%, 0.9) !important;    background:               hsla(210, 100%,  50%, 0.5) !important;    outline:    solid 0.25rem hsla(210, 100%, 100%, 0.5) !important;} 
 /* Set core body defaults */
 body {
   min-height: 100vh;
@@ -27,6 +29,7 @@ body {
   font-family: 'Merriweather Sans', sans-serif;
   font-size: 18px;
   color: #333;
+  background-color: $white-2;
 }
 
 p {
@@ -60,15 +63,6 @@ h6 {
     font-size: 1.2em;
 }
 
-.container {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 50rem;
-    padding: 3rem 3rem;
-    min-height: 100vh;
-}
-
 a {
     box-shadow: none;
     text-decoration: none;
@@ -80,3 +74,20 @@ footer {
     bottom: 10px;
 }
 
+.container {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50rem;
+    padding: 3rem 3rem;
+    min-height: 100vh;
+}
+
+.background {
+    position: absolute;
+    height: 90vh;
+    width: 90vw;
+    top: 0;
+    left:0;
+    z-index: -1;
+}

@@ -1,6 +1,4 @@
-.greeter-box {
-    padding: 20px;
-}
+@import "colors";
 
 .greeter-container {
     display: flex;
@@ -10,20 +8,46 @@
     height: calc(100vh - 6rem) ;
 }
 
+.greeter-box {
+    padding: 20px;
+    background-color :$white-2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40%;
+    box-shadow: 0 0 100px 100px $white-2;
+    transition-property: box-shadow, background-color;
+    transition-duration: 1s;
+}
+
+.greeter-box:hover {
+    box-shadow: 0 0 500px 500px $white-1;
+    background-color :$white-1;
+
+}
+
+.greeter-text {
+    margin-bottom: 20px;
+}
+
 .section-list {
+    margin-top: 40px;
     list-style-type: none;
     font-size: 1.5em;
-    
 }
 
 .section-list > li {
     display: inline;
     margin: 20px;
-    border-bottom: 3px cadetblue solid;
+
+    box-shadow: 0 12px 0px -6px $accent-blue;
+    
+    transition-property: box-shadow;
+    transition-duration: 0.5s;
 }
 
 .section-list > li:hover {
-    display: inline;
-    margin: 20px;
-    border-bottom: 10px cadetblue solid;
+    box-shadow: 0 8px 0px 0px $accent-blue;
+
 }

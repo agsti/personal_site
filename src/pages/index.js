@@ -2,8 +2,10 @@ import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Background from "../components/background"
 import Image from "gatsby-image"
 import '../css/index.scss'
+import colors from '../css/_colors.scss';
 
 const Index = ({ location }) => {
     const data = useStaticQuery(graphql`
@@ -30,13 +32,18 @@ const Index = ({ location }) => {
   `)
     const { author, social } = data.site.siteMetadata
     // const siteTitle = data.site.siteMetadata.title;
-    return (<Layout location={location}>
+    return (<div>
+        <Background color={colors.white1} n_elements={30} size={50} opacity={0.6}/>
+        <Background color={colors.accentBlue} n_elements={5} size={50} opacity={1}/>
+        <Background color={colors.accentRed} n_elements={2} size={50} opacity={0.6}/>
+        <Background color={colors.dark} n_elements={3} size={50} opacity={0.5}/>
+    <Layout location={location}>
         <SEO title="Bending software here and there" />
         <div class="greeter-container">
-            <div class="greeter-box">
+            <div class='greeter-box'>
+            <div class='greeter-text'>
                 <h1>Hey, I'm Agusti.</h1>
-                <h2>I'm a full-stack software engineer. Currently based in london.
-                    
+                <h2>I'm a full-stack software engineer. Currently based in London.
                 </h2>
             </div>
             <ul class='section-list'>
@@ -61,8 +68,12 @@ const Index = ({ location }) => {
                 </Link>
                 </li>
             </ul>
+            </div>
+            
         </div>
-    </Layout>)
+        
+    </Layout>
+    </div>)
 }
 
 export default Index
