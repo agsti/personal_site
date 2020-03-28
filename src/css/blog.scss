@@ -1,0 +1,35 @@
+header > h1 {
+    border-bottom: 3px black solid;
+}
+
+header > h2 {
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+header > h3 {
+    border-bottom: 1px black solid;
+}
+
+.date {
+    font-size: 1em;
+    margin-bottom: 1em;
+}
+
+.blog-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 10px 0;
+}
+
+.post-item {
+    border: 3px black solid;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+ul, ol {
+    margin-left: 1.75rem;
+}

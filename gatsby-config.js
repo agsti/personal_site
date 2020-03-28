@@ -3,7 +3,7 @@ module.exports = {
     title: `Agusti Bau & Tech`,
     author: {
       name: `Agusti Bau`,
-      summary: `Software Engineer, based in London. I like building stuff and keeping my tools sharp.`,
+      summary: `Bending software for fun and for a living`,
     },
     description: `My online presence.`,
     siteUrl: `https://agustibau.com/`,

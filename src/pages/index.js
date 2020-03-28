@@ -3,7 +3,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Image from "gatsby-image"
-import '../css/index.css'
+import '../css/index.scss'
 
 const Index = ({ location }) => {
     const data = useStaticQuery(graphql`
@@ -35,7 +35,9 @@ const Index = ({ location }) => {
         <div class="greeter-container">
             <div class="greeter-box">
                 <h1>Hey, I'm Agusti.</h1>
-                <h2>Full-stack software engineer.</h2>
+                <h2>I'm a full-stack software engineer. Currently based in london.
+                    
+                </h2>
             </div>
             <ul class='section-list'>
                 <li>

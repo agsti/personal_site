@@ -5,26 +5,22 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Header from "../components/header"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
+import "../css/blog.scss"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout location={location} title={siteTitle} header={<Header title={siteTitle} />}>
+    <Layout location={location} header={<Header title={siteTitle} />}>
       <SEO title="All posts" />
-      <Bio />
+      {/* <Bio /> */}
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
-          <article key={node.fields.slug}>
+          <article key={node.fields.slug} className="post-item">
             <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
+              <h3>
                 <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                   {title}
                 </Link>
