@@ -49,5 +49,11 @@
 
 .section-list > li:hover {
     box-shadow: 0 8px 0px 0px $accent-blue;
+}
 
+em {
+    font-style: normal;
+    background-color: $accent-red;
+    color: $white-1
+    // box-shadow: 0 12px 0px -6px $accent-red;
 }

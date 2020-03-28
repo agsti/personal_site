@@ -42,7 +42,7 @@ const Index = ({ location }) => {
         <div class="greeter-container">
             <div class='greeter-box'>
             <div class='greeter-text'>
-                <h1>Hey, I'm Agusti.</h1>
+                <h1>Hey, <em>I'm Agusti.</em></h1>
                 <h2>I'm a full-stack software engineer. Currently based in London.
                 </h2>
             </div>
