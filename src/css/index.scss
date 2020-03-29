@@ -51,9 +51,9 @@
     box-shadow: 0 8px 0px 0px $accent-blue;
 }
 
-em {
+em.name {
     font-style: normal;
     background-color: $accent-red;
-    color: $white-1
-    // box-shadow: 0 12px 0px -6px $accent-red;
+    color: $white-1;
+    outline: 5px solid $accent-red;
 }

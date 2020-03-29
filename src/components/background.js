@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { TechIcons } from './svg';
-import posed, { PoseGroup } from 'react-pose';
+import posed from 'react-pose';
 
 import '../css/base.scss';
 
@@ -35,14 +35,19 @@ export default ({ color, n_elements, size, opacity }) => {
     }
 
     const PosedEl = posed.div({
+        from: { 
+            left:'50%', 
+            top:'50%', 
+            width: `0%`, 
+            height: '0%', 
+            transition: { duration: 5000 } },
         to: { 
-            left:'0', top:'0', 
+            left:'0', 
+            top:'0', 
             width: `100%`, 
             height: `100%`,
             transition: { duration: 5000 }
         },
-        from: { left:'50%', top:'50%', 
-            width: `0%`, height: '0%', transition: { duration: 5000 } }
     });
 
     return <PosedEl initialPose="from" pose="to" className="background">{svgs}</PosedEl>

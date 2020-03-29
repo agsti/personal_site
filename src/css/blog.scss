@@ -1,6 +1,13 @@
+@import "colors";
+
 header > h1 {
-    border-bottom: 3px black solid;
+    border: 5px $white-1 solid;
+    font-style: normal;
+    background-color: $accent-red;
+    color: $white-1;
+    padding-left: 10px;
 }
+
 
 header > h2 {
     font-weight: bold;
@@ -14,6 +21,7 @@ header > h3 {
 .date {
     font-size: 1em;
     margin-bottom: 1em;
+    color: $accent-red;
 }
 
 .blog-nav {
@@ -32,4 +40,21 @@ header > h3 {
 
 ul, ol {
     margin-left: 1.75rem;
+}
+
+blockquote {
+    border-left: 5px solid $accent-red;
+}
+
+.blog-nav > li {
+    background-color: $accent-red;
+    font-size: 1.6rem;
+    color: $white-1;
+    padding: 10px;
+    border: 5px solid $white-1;
+    
+}
+
+.blog-nav > li > a {
+    box-shadow: none;
 }
