@@ -9,7 +9,7 @@ const getRandomValue = (max) => Math.floor(Math.random() * max)
 
 const getRandomIcon = () => TechIcons[getRandomValue(TechIcons.length)];
 
-export default ({ color, n_elements, size, opacity }) => {
+export default ({ color, n_elements, size, opacity, animationDuration=5000 }) => {
     
 
 
@@ -40,13 +40,13 @@ export default ({ color, n_elements, size, opacity }) => {
             top:'50%', 
             width: `0%`, 
             height: '0%', 
-            transition: { duration: 5000 } },
+            transition: { duration: animationDuration } },
         to: { 
             left:'0', 
             top:'0', 
             width: `100%`, 
             height: `100%`,
-            transition: { duration: 5000 }
+            transition: { duration: animationDuration }
         },
     });
 

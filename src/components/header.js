@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 export default ({ title }) => {
     return <header>
         <h1>
-            <Link to={`/`} >
+            <Link to={`blog`} >
                 {title}
             </Link>
         </h1>
