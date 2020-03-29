@@ -33,9 +33,17 @@ header > h3 {
 }
 
 .post-item {
-    border: 3px black solid;
+    border: 1px $dark solid;
     margin: 1rem;
     padding: 1rem;
+    border-radius: 10px;
+    background-color: $white-1;
+    box-shadow: 0 2px 8px 0 $dark;
+    transition: 0.3s;
+}
+
+.post-item:hover {
+    box-shadow: 0 4px 16px 0 $dark;
 }
 
 ul, ol {
