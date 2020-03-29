@@ -18,15 +18,8 @@ export default ({ color, n_elements, size, opacity }) => {
         const y = getRandomValue(100);
         const x = getRandomValue(100);
 
-        const PosedEl = posed.div({
-            to: { 
-                top: `calc(${y}% - ${size}px)`, 
-                left: `calc(${x}% - ${size}px)`,
-                transition: { duration: 20000 }
-            },
-            from: { top: `50%`, left: '50%', transition: { duration: 20000 } }
-        });
-        svgs.push(<PosedEl
+
+        svgs.push(<div
             initialPose="from" pose="to"
             key={`svg-${index}`}
             style={{
@@ -34,12 +27,23 @@ export default ({ color, n_elements, size, opacity }) => {
                 width: size,
                 height: size,
                 opacity: opacity,
+                top: `calc(${y}% - ${size}px)`, 
+                left: `calc(${x}% - ${size}px)`,
             }}>
             {getRandomIcon()(color)}
-        </PosedEl>)
+        </div>)
     }
 
+    const PosedEl = posed.div({
+        to: { 
+            left:'0', top:'0', 
+            width: `100%`, 
+            height: `100%`,
+            transition: { duration: 5000 }
+        },
+        from: { left:'50%', top:'50%', 
+            width: `0%`, height: '0%', transition: { duration: 5000 } }
+    });
 
-
-    return <div className="background">{svgs}</div>
+    return <PosedEl initialPose="from" pose="to" className="background">{svgs}</PosedEl>
 }

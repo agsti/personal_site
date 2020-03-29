@@ -33,10 +33,12 @@ const Index = ({ location }) => {
     const { author, social } = data.site.siteMetadata
     // const siteTitle = data.site.siteMetadata.title;
     return (<div>
+      <div className="background-container">
         <Background color={colors.white1} n_elements={30} size={50} opacity={0.6}/>
         <Background color={colors.accentBlue} n_elements={5} size={50} opacity={1}/>
         <Background color={colors.accentRed} n_elements={2} size={50} opacity={0.6}/>
         <Background color={colors.dark} n_elements={3} size={50} opacity={0.5}/>
+      </div>
     <Layout location={location}>
         <SEO title="Bending software here and there" />
         <div class="greeter-container">
