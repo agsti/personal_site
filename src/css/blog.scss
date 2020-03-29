@@ -54,6 +54,12 @@ blockquote {
     border-left: 5px solid $accent-red;
 }
 
+.blog-content {
+    background-color: $white-1;
+    // outline: $white-1 solid 5px;
+    padding: 20px;
+}
+
 .blog-nav-button {
     background-color: $accent-red;
     font-size: 1.6rem;
