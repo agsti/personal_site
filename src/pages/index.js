@@ -47,7 +47,7 @@ const Index = ({ location }) => {
             </div>
             <ul class='section-list'>
                 <li>
-                <Link to='blog'>
+                <Link to='projects'>
                     Projects
                 </Link>
                 </li>

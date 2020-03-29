@@ -1,0 +1,47 @@
+@import "colors";
+
+header > h1 {
+    border: 5px $accent-2 solid;
+    font-style: normal;
+    background-color: $light-1;
+    color: $dark;
+    padding: 10px;
+    margin: 20px 0px;
+}
+
+.project-container{
+    
+}
+
+.project-item{
+    background-color: $light-1;
+    margin: 1.5rem;
+    padding: 1.5rem;
+    border: 5px solid $accent-1;
+}
+
+
+.project-data > p{
+    margin-bottom: 30px;
+}
+
+.project-data > h2 {
+    border-bottom: 1px black solid;
+}
+
+.project-tech {
+    padding-left: 0;
+}
+
+
+.project-tech > li{
+    display: inline;
+    padding: 5px;
+    margin: 0 10px;
+    border-radius: 15px;
+    color: $accent-1;
+    text-transform: uppercase;
+    font-weight: bold;
+    // background-color: $accent-1;
+    border: 5px solid $accent-1;
+}

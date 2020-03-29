@@ -19,6 +19,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                project
               }
             }
           }
@@ -38,27 +39,43 @@ exports.createPages = async ({ graphql, actions }) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
 
-    createPage({
-      path: post.node.fields.slug,
-      component: blogPost,
-      context: {
-        slug: post.node.fields.slug,
-        previous,
-        next,
-      },
-    })
+    const { project } = post.node.frontmatter;
+
+    const slug = post.node.fields.slug;
+    if (project) {
+      createPage({
+        path: slug,
+        component: blogPost,
+        context: {
+          slug: slug,
+          previous,
+          next,
+        },
+      })
+    } else {
+      createPage({
+        path: slug,
+        component: blogPost,
+        context: {
+          slug: slug,
+          previous,
+          next,
+        },
+      })
+    }
   })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
+    const { project } = node.frontmatter;
+    let slug = project ? `/projects${value}`:`/blog${value}`;
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value : slug
     })
   }
 }
