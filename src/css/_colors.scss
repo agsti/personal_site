@@ -1,13 +1,17 @@
-$dark: #222222;
-$accent-red: #880d1e;
-$accent-blue: #89cff0;
-$white-1: #f9f8f8;
-$white-2: #cdd3ce;
+
+$accent-1: #5D21D0;
+$accent-2: #BFF128;
+$light-1: #f9f8f8;
+$light-2: #85cfb6;
+$light-3: #10A674;
+$dark: #062E03;
+
 
 :export {
+    accent-1: $accent-1;
+    accent-2: $accent-2;
+    light-1: $light-1;
+    light-2: $light-2;
+    light-3: $light-3;
     dark: $dark;
-    accent-red: $accent-red;
-    accent-blue: $accent-blue;
-    white-1: $white-1;
-    white-2: $white-2;
 }

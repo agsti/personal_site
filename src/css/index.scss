@@ -5,27 +5,26 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 6rem) ;
-    
+    height: calc(100vh - 6rem);
 }
 
 .greeter-box {
     padding: 20px;
-    background-color :$white-2;
+    background-color: $light-3;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 40%;
-    box-shadow: 0 0 100px 100px $white-2;
+    border-radius: 30%;
+    box-shadow: 0 0 100px 100px $light-3;
     transition-property: box-shadow, background-color;
     transition-duration: 1s;
 }
 
 .greeter-box:hover {
-    box-shadow: 0 0 300px 300px $white-1;
-    background-color :$white-1;
-
+    box-shadow: 0 0 300px 300px $light-2;
+    background-color: $light-2;
+    border-color: $light-2;
 }
 
 .greeter-text {
@@ -42,8 +41,8 @@
     display: inline;
     margin: 20px;
 
-    box-shadow: 0 12px 0px -6px $accent-blue;
-    
+    box-shadow: 0 12px 0px -6px $accent-2;
+
     transition-property: box-shadow;
     transition-duration: 0.5s;
 }
@@ -53,28 +52,27 @@
 }
 
 .section-list > li:hover {
-    box-shadow: 0 8px 0px 0px $accent-blue;
+    box-shadow: 0 12px 0px 0px $accent-2;
 }
 
 em.name {
     font-style: normal;
-    background-color: $accent-red;
-    color: $white-1;
-    outline: 5px solid $accent-red;
+    background-color: $accent-1;
+    color: $light-1;
+    outline: 5px solid $accent-1;
     white-space: nowrap;
-    
 }
 
-@media only screen and  (max-device-width : 480px) {
+@media only screen and (max-device-width: 480px) {
     .section-list > li {
         display: block;
     }
-    .greeter-text { 
+    .greeter-text {
         font-size: 1rem;
     }
     .greeter-box {
-        box-shadow: 0 0 70px 70px $white-1;
-        background-color: $white-1;
+        box-shadow: 0 0 70px 70px $light-1;
+        background-color: $light-1;
     }
 
     .background-container {
