@@ -15,7 +15,7 @@ const BlogIndex = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <div>
+    <div class='root'>
       <div className="background-container">
         <Background color={colors.white1} n_elements={10} size={50} opacity={0.6} animationDuration={1000} />
         <Background color={colors.accentBlue} n_elements={5} size={50} opacity={1} />

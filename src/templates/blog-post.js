@@ -16,7 +16,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const { previous, next } = pageContext
 
   return (
-    <div>
+    <div class='root'>
       <div className="background-container">
         <Background color={colors.white1} n_elements={20} size={50} opacity={0.3} animationDuration={1000} />
         <Background color={colors.accentBlue} n_elements={5} size={50} opacity={1} animationDuration={2000} />

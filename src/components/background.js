@@ -1,16 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useRef} from 'react';
 import { TechIcons } from './svg';
 import posed from 'react-pose';
-
+import useComponentSize from '@rehooks/component-size'
 import '../css/base.scss';
 
 
 const getRandomValue = (max) => Math.floor(Math.random() * max)
-
 const getRandomIcon = () => TechIcons[getRandomValue(TechIcons.length)];
 
 export default ({ color, n_elements, size, opacity, animationDuration=5000 }) => {
-    
+
 
 
     const svgs = [];

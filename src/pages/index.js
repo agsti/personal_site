@@ -3,7 +3,6 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Background from "../components/background"
-import Image from "gatsby-image"
 import '../css/index.scss'
 import colors from '../css/_colors.scss';
 
@@ -30,9 +29,7 @@ const Index = ({ location }) => {
       }
     }
   `)
-    const { author, social } = data.site.siteMetadata
-    // const siteTitle = data.site.siteMetadata.title;
-    return (<div>
+    return (<div class='root'>
       <div className="background-container">
         <Background color={colors.white1} n_elements={30} size={50} opacity={0.6} animationDuration={3000}/>
         <Background color={colors.accentBlue} n_elements={5} size={50} opacity={1} />

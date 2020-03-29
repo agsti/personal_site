@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: center;
     height: calc(100vh - 6rem) ;
+    
 }
 
 .greeter-box {
@@ -47,6 +48,10 @@
     transition-duration: 0.5s;
 }
 
+.section-list > li > a {
+    box-shadow: none;
+}
+
 .section-list > li:hover {
     box-shadow: 0 8px 0px 0px $accent-blue;
 }
@@ -56,4 +61,23 @@ em.name {
     background-color: $accent-red;
     color: $white-1;
     outline: 5px solid $accent-red;
+    white-space: nowrap;
+    
+}
+
+@media only screen and  (max-device-width : 480px) {
+    .section-list > li {
+        display: block;
+    }
+    .greeter-text { 
+        font-size: 1rem;
+    }
+    .greeter-box {
+        box-shadow: 0 0 70px 70px $white-1;
+        background-color: $white-1;
+    }
+
+    .background-container {
+        opacity: 0.5;
+    }
 }

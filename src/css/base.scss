@@ -79,9 +79,12 @@ h1 > a {
     box-shadow: none;
 }
 
-footer {
-    position: absolute;
-    bottom: 10px;
+.root {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2rem 2rem;
 }
 
 .container {
@@ -89,8 +92,11 @@ footer {
     margin-left: auto;
     margin-right: auto;
     max-width: 50rem;
-    padding: 3rem 3rem;
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100%;
 }
 
 .background-container {
@@ -104,4 +110,13 @@ footer {
 .background {
     position: absolute;
     z-index: -1;
+}
+
+@media only screen and  (max-device-width : 480px) {
+    .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+  
 }
