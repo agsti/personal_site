@@ -1,6 +1,6 @@
 @import "colors";
 
-header > h1 {
+.blog-header {
     border: 5px $light-1 solid;
     font-style: normal;
     background-color: $accent-1;
@@ -44,9 +44,10 @@ header > h2 {
     padding: 1.5rem;
     background-color: $light-1;
     border: 5px solid $accent-2;
-    box-shadow: none;
-    transition: 0.3s;
     min-width: calc(100% - 1.5rem * 2);
+
+    transition: 0.3s;
+    box-shadow: none;
 }
 
 .post-item:hover {

@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Agusti\'s Blog`,
+    title: `Agusti Bau`,
     author: {
       name: `Agusti Bau`,
       summary: `Bending software for fun and for a living`,
@@ -72,10 +72,10 @@ module.exports = {
         name: `Gatsby Starter Blog`,
         short_name: `GatsbyJS`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
+        background_color: `#f9f8f8`,
+        theme_color: `#5D21D0`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/favicon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,

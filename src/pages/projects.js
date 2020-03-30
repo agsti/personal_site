@@ -21,7 +21,7 @@ const ProjectsIndex = ({ data, location }) => {
                 <Background color={colors.accent2} n_elements={2} size={50} opacity={0.6} animationDuration={500} />
                 <Background color={colors.dark} n_elements={3} size={50} opacity={0.5} animationDuration={500} />
             </div>
-            <Layout location={location} header={<Header title={title} links_to="projects" />}>
+            <Layout location={location} header={<Header title={title} links_to="projects" className="projects-header" />}>
                 <SEO title={title} />
                 <div className='project-container'>
                     {
@@ -62,7 +62,6 @@ export const pageQuery = graphql`
             title
             description
             technologies
-            image
           }
         }
       }

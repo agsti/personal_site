@@ -41,7 +41,7 @@ const Index = ({ location }) => {
       <Background color={colors.dark} n_elements={3} size={50} opacity={0.5} animationDuration={1000} />
     </div>
     <Layout location={location}>
-      <SEO title="Bending software here and there" />
+      <SEO title="Hi :)" />
       <div className="greeter-container">
         <div className='greeter-box'>
           <div className='greeter-text'>
