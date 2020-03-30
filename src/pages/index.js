@@ -7,7 +7,6 @@ import Contact from "../components/contact"
 import Background from "../components/background"
 
 import '../css/index.scss'
-import colors from '../css/_colors.scss';
 
 const Index = ({ location }) => {
   const data = useStaticQuery(graphql`
@@ -32,7 +31,14 @@ const Index = ({ location }) => {
   const onContactClick = () => {
     setContactVisible(prev => !prev);
   }
-
+  const colors = {
+    "accent1": "#5D21D0",
+    "accent2": "#BFF128",
+    "light1": "#f9f8f8",
+    "light2": "#85cfb6",
+    "light3": "#10A674",
+    "dark": "#062E03"
+  }
   return (<div className='root'>
     <div className="background-container">
       <Background color={colors.light1} n_elements={30} size={50} opacity={0.4} animationDuration={3000} />
