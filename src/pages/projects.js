@@ -12,7 +12,7 @@ import colors from '../css/_colors.scss';
 
 const ProjectsIndex = ({ data, location }) => {
     const Projects = data.allMarkdownRemark.edges
-
+    const title = "Projects";
     return (
         <div class='root'>
             <div className="background-container">
@@ -21,8 +21,8 @@ const ProjectsIndex = ({ data, location }) => {
                 <Background color={colors.accent2} n_elements={2} size={50} opacity={0.6} animationDuration={500} />
                 <Background color={colors.dark} n_elements={3} size={50} opacity={0.5} animationDuration={500} />
             </div>
-            <Layout location={location} header={<Header title={"Projects"} />}>
-                <SEO title="Projects" />
+            <Layout location={location} header={<Header title={title} links_to="projects" />}>
+                <SEO title={title} />
                 <div className='project-container'>
                     {
                         Projects.map(({ node }) => {

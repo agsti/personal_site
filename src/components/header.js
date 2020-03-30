@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-export default ({ title }) => {
+export default ({ title, links_to }) => {
     return <header>
         <h1>
-            <Link to={`blog`} >
+            <Link to={links_to} >
                 {title}
             </Link>
         </h1>

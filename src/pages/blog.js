@@ -22,7 +22,7 @@ const BlogIndex = ({ data, location }) => {
         <Background color={colors.accent2} n_elements={2} size={50} opacity={0.6} animationDuration={500} />
         <Background color={colors.dark} n_elements={3} size={50} opacity={0.5} animationDuration={500} />
       </div>
-      <Layout location={location} header={<Header title={siteTitle} />}>
+      <Layout location={location} header={<Header title={siteTitle} links_to='blog' />}>
         <SEO title="All posts" />
         {/* <Bio /> */}
         {posts.map(({ node }) => {
