@@ -1,6 +1,7 @@
 
 $accent-1: #5D21D0;
 $accent-2: #BFF128;
+$accent-2-d: darken($accent-2, 0.1);
 $light-1: #f9f8f8;
 $light-2: #85cfb6;
 $light-3: #10A674;
@@ -11,6 +12,7 @@ $base-font: #333;
 :export {
     accent-1: $accent-1;
     accent-2: $accent-2;
+    accent-2-d: $accent-2-d;
     light-1: $light-1;
     light-2: $light-2;
     light-3: $light-3;

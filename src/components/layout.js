@@ -6,7 +6,7 @@ const Layout = ({ children, header }) => {
   return (
     <div className="container" >
       {header}
-      <main>{children}</main>
+      {children}
       <footer>
         © {new Date().getFullYear()}, Agusti Bau
       </footer>

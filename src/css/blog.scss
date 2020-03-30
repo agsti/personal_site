@@ -9,8 +9,6 @@ header > h1 {
     margin: 20px 0px;
 }
 
-
-
 header > h1 > a:hover {
     box-shadow: none;
 }
@@ -47,8 +45,8 @@ header > h2 {
     background-color: $light-1;
     border: 5px solid $accent-2;
     box-shadow: none;
-    // box-shadow: 0 2px 8px 0 $dark;
     transition: 0.3s;
+    min-width: calc(100% - 1.5rem * 2);
 }
 
 .post-item:hover {
@@ -93,6 +91,7 @@ blockquote {
         border-radius: 0px;
         border-width: 1px 0px;
         box-shadow: none;
+        
     }
     .blog-content {
         border-radius: 0px;

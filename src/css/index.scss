@@ -35,23 +35,25 @@
     margin-top: 40px;
     list-style-type: none;
     font-size: 1.5em;
+    padding-left: 0px;
+    font-weight: bold;
+    text-align: center;
 }
+
 
 .section-list > li {
     display: inline;
     margin: 20px;
 
-    box-shadow: 0 12px 0px -6px $accent-2;
+}
 
+.section-list > li > a {
+    box-shadow: 0 12px 0px -6px $accent-2;
     transition-property: box-shadow;
     transition-duration: 0.5s;
 }
 
-.section-list > li > a {
-    box-shadow: none;
-}
-
-.section-list > li:hover {
+.section-list > li > a:hover {
     box-shadow: 0 12px 0px 0px $accent-2;
 }
 
@@ -67,6 +69,8 @@ em.name {
     color: $light-1;
 }
 
+
+
 .contact-container > a {
     transition-property: box-shadow;
     transition-duration: 0.5s;
@@ -77,19 +81,33 @@ em.name {
     box-shadow: 0 12px 0px 0px $accent-2;
 }
 
+.cb-icon {
+    visibility: hidden;
+    font-size: 0.6em;
+    margin-left: 5px;
+}
+
+.contact-container a:hover ~ .cb-icon {
+    visibility: visible;
+}
+
 @media only screen and (max-device-width: 480px) {
     .section-list > li {
         display: block;
     }
+
     .greeter-text {
         font-size: 1rem;
     }
     .greeter-box {
-        box-shadow: 0 0 70px 70px $light-1;
-        background-color: $light-1;
+        box-shadow: 0 0 70px 70px $light-3;
     }
 
-    .background-container {
-        opacity: 0.5;
+    .greeter-container {
+        height: 100%;
+    }
+
+    .cb-icon {
+        visibility: visible;
     }
 }
