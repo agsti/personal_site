@@ -31,9 +31,13 @@ header > h2 {
     color: $accent-1;
 }
 
+nav {
+    width: 100%;
+}
+
 .blog-nav {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     list-style: none;
     padding: 10px 0;
