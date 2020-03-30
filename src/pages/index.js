@@ -24,7 +24,6 @@ const Index = ({ location }) => {
       }
     }
   `)
-  console.log("colors", colors);
   const {twitter, email} = data.site.siteMetadata.social;
 
   const [contactVisible, setContactVisible] = useState(false);
