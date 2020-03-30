@@ -4,7 +4,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Contact from "../components/contact"
-import Background from "../components/background"
+import {BackgroundSet} from "../components/background"
 
 import '../css/index.scss'
 
@@ -30,21 +30,32 @@ const Index = ({ location }) => {
   const onContactClick = () => {
     setContactVisible(prev => !prev);
   }
-  const colors = {
-    "accent1": "#5D21D0",
-    "accent2": "#BFF128",
-    "light1": "#f9f8f8",
-    "light2": "#85cfb6",
-    "light3": "#10A674",
-    "dark": "#062E03"
-  }
+
   return (<div className='root'>
-    <div className="background-container">
-      <Background color={colors.light1} n_elements={30} size={50} opacity={0.4} animationDuration={3000} />
-      <Background color={colors.accent1} n_elements={5} size={50} opacity={0.6} />
-      <Background color={colors.accent2} n_elements={2} size={50} opacity={0.6} />
-      <Background color={colors.dark} n_elements={3} size={50} opacity={0.5} animationDuration={1000} />
-    </div>
+    <BackgroundSet
+      light1props={{
+        n_elements: 30,
+        size: 50,
+        opacity: 0.4,
+        animationDuration: 3000,
+      }}
+      accent1props={{
+        n_elements: 5,
+        size: 50,
+        opacity: 0.6,
+      }}
+      accent2props={{
+        n_elements: 2,
+        size: 50,
+        opacity: 0.6,
+      }}
+      darkprops={{
+        n_elements: 3,
+        size: 50,
+        opacity: 0.5,
+        animationDuration: 1000,
+      }}
+    />
     <Layout location={location}>
       <SEO title="Hi :)" />
       <div className="greeter-container">

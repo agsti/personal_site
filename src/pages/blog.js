@@ -8,7 +8,8 @@ import SEO from "../components/seo"
 
 import "../css/blog.scss"
 import "../css/base.scss"
-import colors from '../css/_colors.scss';
+import colors from '../css/colors'
+
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
