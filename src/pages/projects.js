@@ -62,9 +62,7 @@ export const pageQuery = graphql`
             title
             description
             technologies
-            image {
-              id
-            }
+            image
           }
         }
       }

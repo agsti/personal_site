@@ -1,7 +1,6 @@
 import React, {useRef} from 'react';
 import { TechIcons } from './svg';
 import posed from 'react-pose';
-import useComponentSize from '@rehooks/component-size'
 import '../css/base.scss';
 
 

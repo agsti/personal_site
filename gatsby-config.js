@@ -9,6 +9,7 @@ module.exports = {
     siteUrl: `https://agustibau.com/`,
     social: {
       twitter: `agustibau`,
+      email: `agustibau@gmail.com`,
     },
   },
   plugins: [

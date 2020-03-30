@@ -63,6 +63,20 @@ em.name {
     white-space: nowrap;
 }
 
+.contact-container {
+    color: $light-1;
+}
+
+.contact-container > a {
+    transition-property: box-shadow;
+    transition-duration: 0.5s;
+    box-shadow: 0 6px 0px 0px $accent-2;
+}
+
+.contact-container a:hover {
+    box-shadow: 0 12px 0px 0px $accent-2;
+}
+
 @media only screen and (max-device-width: 480px) {
     .section-list > li {
         display: block;

@@ -1,78 +1,83 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Contact from "../components/contact"
 import Background from "../components/background"
+
 import '../css/index.scss'
 import colors from '../css/_colors.scss';
 
 const Index = ({ location }) => {
-    const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query IndexQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-        childImageSharp {
-          fixed(width: 100, height: 100) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
       site {
         siteMetadata {
           author {
             name
-            summary
           }
           social {
             twitter
+            email
           }
         }
       }
     }
   `)
-    return (<div class='root'>
-      <div className="background-container">
-        <Background color={colors.light1} n_elements={30} size={50} opacity={0.4} animationDuration={3000}/>
-        <Background color={colors.accent1} n_elements={5} size={50} opacity={0.6} />
-        <Background color={colors.accent2} n_elements={2} size={50} opacity={0.6}/>
-        <Background color={colors.dark} n_elements={3} size={50} opacity={0.5} animationDuration={1000}/>
-      </div>
+  console.log(data);
+  const {twitter, email} = data.site.siteMetadata.social;
+
+  const [contactVisible, setContactVisible] = useState(false);
+  const onContactClick = () => {
+    setContactVisible(prev => !prev);
+  }
+
+  return (<div className='root'>
+    <div className="background-container">
+      <Background color={colors.light1} n_elements={30} size={50} opacity={0.4} animationDuration={3000} />
+      <Background color={colors.accent1} n_elements={5} size={50} opacity={0.6} />
+      <Background color={colors.accent2} n_elements={2} size={50} opacity={0.6} />
+      <Background color={colors.dark} n_elements={3} size={50} opacity={0.5} animationDuration={1000} />
+    </div>
     <Layout location={location}>
-        <SEO title="Bending software here and there" />
-        <div class="greeter-container">
-            <div class='greeter-box'>
-            <div class='greeter-text'>
-                <h1>Hey, <em class='name'>I'm Agusti.</em></h1>
-                <h2>I'm a full-stack software engineer. Currently based in London.
+      <SEO title="Bending software here and there" />
+      <div className="greeter-container">
+        <div className='greeter-box'>
+          <div className='greeter-text'>
+            <h1>Hey, <em className='name'>I'm Agusti.</em></h1>
+            <Contact isShown={contactVisible} twitter={twitter} emailAddress={email}/>
+            <h2>I'm a full-stack software engineer. Currently based in London.
                 </h2>
-            </div>
-            <ul class='section-list'>
-                <li>
-                <Link to='projects'>
-                    Projects
+          </div>
+          <ul className='section-list'>
+            <li>
+              <Link to='projects'>
+                Projects
                 </Link>
-                </li>
-                <li>
-                <Link to='blog'>
-                        CV
+            </li>
+            <li>
+              <Link to='blog'>
+                CV
                 </Link>
-                </li>
-                <li>
-                <Link to='blog'>
-                    Writtings
+            </li>
+            <li>
+              <Link to='blog'>
+                Writtings
                 </Link>
-                </li>
-                <li>
-                <Link to='blog'>
-                    Contact
-                </Link>
-                </li>
-            </ul>
-            </div>
-            
+            </li>
+            <li>
+              <a href="#" onClick={onContactClick}>
+                Contact
+                </a>
+            </li>
+          </ul>
         </div>
-        
+
+      </div>
+
     </Layout>
-    </div>)
+  </div>)
 }
 
 export default Index
