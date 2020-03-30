@@ -26,16 +26,18 @@ const ProjectsIndex = ({ data, location }) => {
                 <div className='project-container'>
                     {
                         Projects.map(({ node }) => {
-                            const { title, description, image, technologies } = node.frontmatter;
+                            const { title, link, status, technologies } = node.frontmatter;
                             return <div className="project-item">
                                 {/* <Image /> */}
                                 <div className="project-data">
                                     <h2>{title}</h2>
-                                    <p>{description}</p>
+                                    <small className="status">{status}</small>
+                                    {link && <p>{link}</p>}
+                                    {}
                                     <ul className="project-tech">
-                                    {
-                                        technologies.map(t => <li key={t}>{t}</li>)
-                                    }
+                                        {
+                                            technologies.map(t => <li key={t}>{t}</li>)
+                                        }
                                     </ul>
                                 </div>
                             </div>

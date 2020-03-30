@@ -28,7 +28,7 @@ export default ({ color, n_elements, size, opacity, animationDuration=5000 }) =>
                 top: `calc(${y}% - ${size}px)`, 
                 left: `calc(${x}% - ${size}px)`,
             }}>
-            {getRandomIcon()(color)}
+            {getRandomIcon()(color, index)}
         </div>)
     }
 
