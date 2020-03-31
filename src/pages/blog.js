@@ -8,7 +8,6 @@ import SEO from "../components/seo"
 
 import "../css/blog.scss"
 import "../css/base.scss"
-import colors from '../css/colors'
 
 
 const BlogIndex = ({ data, location }) => {
@@ -80,7 +79,7 @@ export const pageQuery = graphql`
       title
     }
   }
-  allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, filter: {frontmatter: {project: {nin: true}}}) {
+  allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, filter: {frontmatter: {project: {nin: true}, draft: {ne: true}}}) {
     edges {
       node {
         excerpt
@@ -90,11 +89,11 @@ export const pageQuery = graphql`
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
-          description
         }
       }
     }
   }
 }
+
 
 `
