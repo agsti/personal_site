@@ -1,30 +1,49 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+
+const findNextIndex = (array, from_index, matcher) => {
+  for (let index = from_index + 1; index < array.length; index++) {
+    const element = array[index];
+    if (matcher(element)){
+      return element.node;
+    }
+  }
+  return null;
+}
+const findPrevIndex = (array, from_index, matcher) => {
+  for (let index = from_index -1; index >= 0; index--) {
+    const element = array[index];
+    if (matcher(element)){
+      return element.node;
+    }
+  }
+  return null;
+}
+
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const result = await graphql(
     `
-      {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                project
-              }
+    {
+      allMarkdownRemark(sort: {order: ASC, fields: [frontmatter___date]}, limit: 1000, filter: {frontmatter: {draft: {ne: true}}}) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              project
             }
           }
         }
       }
+    }
+    
     `
   )
 
@@ -36,11 +55,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const posts = result.data.allMarkdownRemark.edges
 
   posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
-
+    
     const { project } = post.node.frontmatter;
-
+    
     const slug = post.node.fields.slug;
     if (project) {
       createPage({
@@ -48,11 +65,12 @@ exports.createPages = async ({ graphql, actions }) => {
         component: blogPost,
         context: {
           slug: slug,
-          previous,
-          next,
         },
       })
     } else {
+      const previous = findPrevIndex(posts, index, (element)=> !element.node.frontmatter.project)
+      const next = findNextIndex(posts, index, (element)=> !element.node.frontmatter.project)
+
       createPage({
         path: slug,
         component: blogPost,
