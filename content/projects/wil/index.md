@@ -7,14 +7,14 @@ technologies:
 status: active
 link: http://maps.agustibau.com
 project: true
-project_index: 1
+project_index: 2
 ---
 
-Wow! I love blogging so much already.
+This is my latest project! Again I'm trying to look at my nuances when I was looking for a place to live in London.
 
-Did you know that "despite its name, salted duck eggs can also be made from
-chicken eggs, though the taste and texture will be somewhat different, and the
-egg yolk will be less rich."?
-([Wikipedia Link](https://en.wikipedia.org/wiki/Salted_duck_egg))
+I noticed that my pattern when checking out flats online. I'd match price & all that, then go to google maps and check commute times to a couple of places I'd go frequently. I would make sure were under some reasonable time, and if so I'd move ahead.
 
-Yeah, I didn't either.
+Now repeat the milion emails I sent when looking for a place, and it's a nuance. :p
+
+So I'm building a website that allows to search properties within a comute time from a point. 
+I'm also experimenting with diferent backend technologies in order to spice my developer life a bit.

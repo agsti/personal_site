@@ -6,22 +6,13 @@ technologies:
     - sql
 status: abandoned
 project: true
-project_index: 2
+project_index: 1
 ---
 
-This is my first post on my new fake blog! How exciting!
+This was my first experience at self developing something and releasing it to the wild.
 
-I'm sure I'll write a lot more interesting things in the future.
+It was an Android app made to control OSX devices from said smartphones. Media controls, volume control, remote shutdown... among those lines.
+The neat trick that it had, was that it didn't need any specific software running on the mac itself! It used a combination of SSH access and inlining AppleScript commands. 
+But it required ssh credentials, which I would not recomment anyone to share in exchange of comfort.
 
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](https://en.wikipedia.org/wiki/Salted_duck_egg).
-
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
-
-![Chinese Salty Egg](./salty_egg.jpg)
+It got [some](https://lifehacker.com/mac-remote-controls-your-mac-from-the-comfort-of-your-a-5991748) [press](https://www.xda-developers.com/use-your-android-as-a-remote-control-on-mac/) atention and got about 200k downloads. After a 3 year run and about 20 updates. Eventually better solutions appeared and I lost interest.

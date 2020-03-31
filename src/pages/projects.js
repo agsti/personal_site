@@ -72,7 +72,7 @@ export default ProjectsIndex;
 
 export const pageQuery = graphql`
 {
-    allMarkdownRemark(sort: {order: ASC, fields: [frontmatter___project_index]}, filter: {frontmatter: {project: {eq: true}}}) {
+    allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___project_index]}, filter: {frontmatter: {project: {eq: true}}}) {
       edges {
         node {
           excerpt
