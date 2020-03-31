@@ -1,11 +1,10 @@
 ---
 title: Mac Remote
-description: "An android app I made back in 2008. Allowed to remotely control OSX devices from Android phones"
-image: salty_egg.jpg
 technologies:
     - android
     - java
     - sql
+status: abandoned
 project: true
 project_index: 2
 ---

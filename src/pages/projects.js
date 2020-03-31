@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql, Image } from "gatsby"
 
-import {BackgroundSet} from "../components/background"
+import { BackgroundSet } from "../components/background"
 import Layout from "../components/layout"
 import Header from "../components/header"
 import SEO from "../components/seo"
@@ -44,20 +44,21 @@ const ProjectsIndex = ({ data, location }) => {
                 <div className='project-container'>
                     {
                         Projects.map(({ node }) => {
+                            const { html, fields } = node;
                             const { title, link, status, technologies } = node.frontmatter;
                             return <div className="project-item">
                                 {/* <Image /> */}
                                 <div className="project-data">
                                     <h2>{title}</h2>
-                                    <small className="status">{status}</small>
-                                    {link && <p>{link}</p>}
-                                    {}
-                                    <ul className="project-tech">
-                                        {
-                                            technologies.map(t => <li key={t}>{t}</li>)
-                                        }
-                                    </ul>
+                                    <small className={`status-${status}`}>{status}</small>
                                 </div>
+                                <ul className="project-tech">
+                                    {
+                                        technologies.map(t => <li key={t}>{t}</li>)
+                                    }
+                                </ul>
+                                <section dangerouslySetInnerHTML={{ __html: html }} />
+                                {link && <a className="project-link" href={link}>link</a>}
                             </div>
                         })
                     }
@@ -71,17 +72,19 @@ export default ProjectsIndex;
 
 export const pageQuery = graphql`
 {
-    allMarkdownRemark(sort: {order: ASC, fields: [frontmatter___project_index]}, filter: {frontmatter: {project: {eq: true}, image: {}}}) {
+    allMarkdownRemark(sort: {order: ASC, fields: [frontmatter___project_index]}, filter: {frontmatter: {project: {eq: true}}}) {
       edges {
         node {
           excerpt
           fields {
             slug
           }
+          html
           frontmatter {
             title
-            description
             technologies
+            link
+            status
           }
         }
       }

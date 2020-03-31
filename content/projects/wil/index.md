@@ -1,11 +1,11 @@
 ---
 title: Where in London
-description: "My latest pet project. Aims at showing you where to live in a big city such as london based on commute time"
-image: salty_egg.jpg
 technologies: 
     - react
     - django
     - Docker
+status: active
+link: http://maps.agustibau.com
 project: true
 project_index: 1
 ---
