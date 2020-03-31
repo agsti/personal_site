@@ -10,21 +10,22 @@
 
 .greeter-box {
     padding: 20px;
-    background-color: $light-3;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border-radius: 30%;
-    box-shadow: 0 0 100px 100px $light-3;
+    // background-color: $light-3;
+    // box-shadow: 0 0 100px 100px $light-3;
     transition-property: box-shadow, background-color;
     transition-duration: 1s;
 }
 
-.greeter-box:hover {
-    box-shadow: 0 0 300px 300px $light-2;
-    background-color: $light-2;
-    border-color: $light-2;
+@-moz-document url-prefix() {
+    .greeter-box:hover {
+        box-shadow: 0 0 300px 300px $light-2;
+        background-color: $light-2;
+    }
 }
 
 .greeter-text {
@@ -110,4 +111,4 @@ em.name {
     .cb-icon {
         visibility: visible;
     }
-}
+}	
