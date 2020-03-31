@@ -22,6 +22,14 @@ const Index = ({ location }) => {
           }
         }
       }
+      allFile(filter: { extension: { eq: "pdf" } }) {
+        edges {
+          node {
+            publicURL
+            name
+          }
+        }
+      }
     }
   `)
   const {twitter, email} = data.site.siteMetadata.social;
@@ -31,6 +39,8 @@ const Index = ({ location }) => {
     setContactVisible(prev => !prev);
   }
 
+  const cvPdf = data.allFile.edges[0].node.publicURL;
+  console.log(cvPdf);
   return (<div className='root'>
     <BackgroundSet
       light1props={{
@@ -68,17 +78,17 @@ const Index = ({ location }) => {
           </div>
           <ul className='section-list'>
             <li>
-              <Link to='projects'>
+              <Link to='/projects'>
                 Projects
                 </Link>
             </li>
             <li>
-              <Link to='blog'>
+              <Link to={cvPdf}>
                 CV
                 </Link>
             </li>
             <li>
-              <Link to='blog'>
+              <Link to='/blog'>
                 Writtings
                 </Link>
             </li>
