@@ -4,7 +4,7 @@ technologies:
     - android
     - java
     - sql
-status: abandoned
+status: inactive
 project: true
 project_index: 1
 ---
