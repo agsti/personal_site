@@ -63,7 +63,7 @@ module.exports = {
       resolve: 'gatsby-plugin-matomo',
       options: {
         siteId: '1',
-        matomoUrl: 'http://matomo.agustibau.com',
+        matomoUrl: 'https://matomo.agustibau.com',
         siteUrl: 'agustibau.com'
       }
     },
