@@ -60,10 +60,12 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-matomo',
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
+        siteId: '1',
+        matomoUrl: 'http://matomo.agustibau.com',
+        siteUrl: 'agustibau.com'
+      }
     },
     `gatsby-plugin-feed`,
     {
