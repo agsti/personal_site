@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import {BackgroundSet} from "../components/background"
-import Layout from "../components/layout"
+import {Layout, Content} from "../components/layout"
 import Header from "../components/header"
 import SEO from "../components/seo"
 
@@ -40,9 +40,11 @@ const BlogIndex = ({ data, location }) => {
         animationDuration: 1000,
       }}
     />
-      <Layout location={location} header={<Header title={"Agusti's Blog"} links_to='blog' className="blog-header" />}>
+      <Layout location={location} >
         <SEO title="All posts" />
+        <Header title={"Agusti's Blog"} links_to='blog' className="blog-header" />
         {/* <Bio /> */}
+        <Content>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
@@ -65,6 +67,7 @@ const BlogIndex = ({ data, location }) => {
             </article>
           )
         })}
+        </Content>
       </Layout>
     </div>
   )

@@ -1,0 +1,39 @@
+
+@import "colors";
+
+.h-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    // background-color: lightblue;
+}
+
+.h-title {
+    border: 5px $accent-2 solid;
+    font-style: normal;
+    background-color: $light-1;
+    color: $dark;
+    padding: 10px;
+    height: 60px;
+}
+
+.back {
+    font-size: 2rem;
+    color: $light-1;
+    width: 200px;
+    & > a {
+        box-shadow: none;
+    }
+    & > a > span {
+        opacity: 0;
+        transition: opacity 0.3s ease-out;
+    }
+    &:hover > a > span {
+        opacity: 1;
+    } 
+}
+
+.filler {
+    width: 200px;
+}

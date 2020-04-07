@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import { Link, graphql, Image } from "gatsby"
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
+
 import { BackgroundSet } from "../components/background"
-import Layout from "../components/layout"
+import {Layout, Content} from "../components/layout"
 import Header from "../components/header"
 import SEO from "../components/seo"
 
@@ -42,8 +44,10 @@ const ProjectsIndex = ({ data, location }) => {
           animationDuration: 1000,
         }}
       />
-      <Layout location={location} header={<Header title={title} links_to="projects" className="projects-header" />}>
+      <Layout location={location}>
         <SEO title={title} />
+        <Header title={title} links_to="projects" className="projects-header" />
+        <Content>
         <p>This is a showcase of things I've built and got to the point where I can name them :). Some of them are built because I thought someone would benefit from them. Most of them were built because it was fun.</p>
         <div className='project-container'>
           {
@@ -78,7 +82,7 @@ const ProjectsIndex = ({ data, location }) => {
             })
           }
         </div>
-
+        </Content>
       </Layout>
     </div>);
 }

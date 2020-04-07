@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 
-import Layout from "../components/layout"
+import {Layout, Content} from "../components/layout"
 import SEO from "../components/seo"
 import Contact from "../components/contact"
 import {BackgroundSet} from "../components/background"
@@ -40,7 +40,6 @@ const Index = ({ location }) => {
   }
 
   const cvPdf = data.allFile.edges[0].node.publicURL;
-  console.log(cvPdf);
   return (<div className='root'>
     <BackgroundSet
       light1props={{
@@ -68,6 +67,7 @@ const Index = ({ location }) => {
     />
     <Layout location={location}>
       <SEO title="Hi :)" />
+    <Content>
       <div className="greeter-container">
         <div className='greeter-box'>
           <div className='greeter-text'>
@@ -101,7 +101,7 @@ const Index = ({ location }) => {
         </div>
 
       </div>
-
+      </Content>
     </Layout>
   </div>)
 }

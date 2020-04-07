@@ -1,10 +1,9 @@
 import React from "react"
-import '../css/base.scss'
-const Layout = ({ children, header }) => {
-  
+import '../css/layout.scss'
+
+export const Layout = ({ children }) => {
   return (
-    <div className="container" >
-      {header}
+    <div className="n-container" >
       {children}
       <footer>
         © {new Date().getFullYear()}, Agusti Bau
@@ -13,4 +12,9 @@ const Layout = ({ children, header }) => {
   )
 }
 
-export default Layout
+
+export const Content = ({children}) => (
+  <div className="content">
+    {children}
+  </div>
+)

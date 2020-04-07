@@ -1,0 +1,29 @@
+@import "colors";
+
+.n-container {
+    display:grid;
+    height: 100vh;
+    grid-template-columns: auto 70rem auto;
+    grid-template-rows: 100px auto 40px;
+    grid-template-areas: 
+        "header header header"
+        ". content ."
+        "footer footer footer";
+    gap: 20px;
+}
+
+header {
+    grid-area: header;
+    // background-color: lightgreen;
+}
+
+.content {
+    grid-area: content;
+}
+
+footer {
+    grid-area: footer;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
