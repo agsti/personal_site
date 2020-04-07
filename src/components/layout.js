@@ -1,5 +1,4 @@
 import React from "react"
-import Header from './header'
 import '../css/base.scss'
 const Layout = ({ children, header }) => {
   

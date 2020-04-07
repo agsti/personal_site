@@ -7,6 +7,7 @@ technologies:
 status: inactive
 project: true
 project_index: 1
+thumbnail: ./salty_egg.jpg
 ---
 
 This was my first experience at self developing something and releasing it to the wild.

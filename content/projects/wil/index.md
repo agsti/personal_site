@@ -8,6 +8,7 @@ status: active
 link: http://maps.agustibau.com
 project: true
 project_index: 2
+thumbnail: ./salty_egg2.jpg
 ---
 
 This is my latest project! Again I'm trying to look at my nuances when I was looking for a place to live in London.

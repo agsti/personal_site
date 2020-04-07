@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, graphql, Image } from "gatsby"
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { BackgroundSet } from "../components/background"
 import Layout from "../components/layout"
 import Header from "../components/header"
@@ -10,61 +11,76 @@ import "../css/base.scss"
 import "../css/projects.scss"
 
 const ProjectsIndex = ({ data, location }) => {
-    const Projects = data.allMarkdownRemark.edges
-    const title = "Projects";
-    return (
-        <div class='root'>
-            <BackgroundSet
-                light1props={{
-                    n_elements: 10,
-                    size: 50,
-                    opacity: 0.4,
-                    animationDuration: 3000,
-                }}
-                accent1props={{
-                    n_elements: 5,
-                    size: 50,
-                    opacity: 0.6,
-                }}
-                accent2props={{
-                    n_elements: 2,
-                    size: 50,
-                    opacity: 0.6,
-                    animationDuration: 500,
-                }}
-                darkprops={{
-                    n_elements: 3,
-                    size: 50,
-                    opacity: 0.5,
-                    animationDuration: 1000,
-                }}
-            />
-            <Layout location={location} header={<Header title={title} links_to="projects" className="projects-header" />}>
-                <SEO title={title} />
-                <div className='project-container'>
-                    {
-                        Projects.map(({ node }) => {
-                            const { html, fields } = node;
-                            const { title, link, status, technologies } = node.frontmatter;
-                            return <div className="project-item">
-                                {/* <Image /> */}
-                                <div className="project-data">
-                                    <h2>{title}</h2>
-                                    <small className={`status-${status}`}>{status}</small>
-                                </div>
-                                <ul className="project-tech">
-                                    {
-                                        technologies.map(t => <li key={t}>{t}</li>)
-                                    }
-                                </ul>
-                                <section dangerouslySetInnerHTML={{ __html: html }} />
-                                {link && <a className="project-link" href={link}>link</a>}
-                            </div>
-                        })
-                    }
+  const Projects = data.allMarkdownRemark.edges
+  const title = "Projects";
+
+
+  return (
+    <div className='root'>
+      <BackgroundSet
+        light1props={{
+          n_elements: 10,
+          size: 50,
+          opacity: 0.4,
+          animationDuration: 3000,
+        }}
+        accent1props={{
+          n_elements: 5,
+          size: 50,
+          opacity: 0.6,
+        }}
+        accent2props={{
+          n_elements: 2,
+          size: 50,
+          opacity: 0.6,
+          animationDuration: 500,
+        }}
+        darkprops={{
+          n_elements: 3,
+          size: 50,
+          opacity: 0.5,
+          animationDuration: 1000,
+        }}
+      />
+      <Layout location={location} header={<Header title={title} links_to="projects" className="projects-header" />}>
+        <SEO title={title} />
+        <p>This is a showcase of things I've built and got to the point where I can name them :). Some of them are built because I thought someone would benefit from them. Most of them were built because it was fun.</p>
+        <div className='project-container'>
+          {
+            Projects.map((p, i) => {
+              const { title, thumbnail, technologies } = p.node.frontmatter;
+              console.log(thumbnail.childImageSharp)
+              return <Link className="p-item-link" to={p.node.fields.slug} >
+                <div
+                  className={"project-item-g"}
+                  >
+                  <img src={thumbnail.childImageSharp.fixed.src} />
+                  <div className="project-card">
+                    <div className="project-left-card">
+                      <div className="project-item-title">
+                        <span>
+                          {title}
+                        </span>
+                      </div>
+                      <ul className="project-tech">
+                        {
+                          technologies.map(t => <li>{t}</li>)
+                        }
+                      </ul>
+                    </div>
+                    <div className="project-right-card">
+                      <FontAwesomeIcon icon={faHeart} />
+                    </div>
+                  </div>
+
                 </div>
-            </Layout>
-        </div>);
+            </Link>
+            })
+          }
+        </div>
+
+      </Layout>
+    </div>);
 }
 
 export default ProjectsIndex;
@@ -85,10 +101,18 @@ export const pageQuery = graphql`
             technologies
             link
             status
+            thumbnail {
+              id
+              childImageSharp {
+                fixed(height: 300, width: 300) {
+                    src
+                }
+              }
+            }
           }
+          id
         }
       }
     }
-  }
-  
+  }   
 `
