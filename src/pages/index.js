@@ -73,7 +73,7 @@ const Index = ({ location }) => {
           <div className='greeter-text'>
             <h1>Hey, <em className='name'>I'm Agusti.</em></h1>
             <Contact isShown={contactVisible} twitter={twitter} emailAddress={email}/>
-            <h2>I'm a full-stack software engineer. Currently based in London.
+            <h2>I'm a full-stack software engineer. <br/>Currently based in London.
                 </h2>
           </div>
           <ul className='section-list'>

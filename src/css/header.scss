@@ -15,12 +15,13 @@
     background-color: $light-1;
     color: $dark;
     padding: 10px;
-    height: 60px;
+    text-align: center;
 }
 
 .back {
     font-size: 2rem;
     color: $light-1;
+    padding-left: 10px;
     width: 200px;
     & > a {
         box-shadow: none;
@@ -36,4 +37,10 @@
 
 .filler {
     width: 200px;
+}
+
+@media only screen and (max-width: 380px) {
+    .back, .filler {
+        display: none;
+    }
 }

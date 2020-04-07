@@ -1,7 +1,7 @@
 ---
 title: Why you should have a personal project.
 date: "2020-03-31 21:10:53"
-draft: false
+draft: true
 ---
 
 #### Blank canvas

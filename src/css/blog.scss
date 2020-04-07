@@ -46,16 +46,20 @@ nav {
 .post-item {
     margin: 1.5rem;
     padding: 1.5rem;
+    min-width: calc(100% - 1.5rem * 2);
+    
     background-color: $light-1;
     border: 5px solid $accent-2;
-    min-width: calc(100% - 1.5rem * 2);
 
     transition: 0.3s;
     box-shadow: none;
+    &:hover {
+        box-shadow: 0 0px 0px 5px $accent-2
+    }
 }
 
 .post-item:hover {
-     box-shadow: 0 0px 0px 5px $accent-2
+     
 
 }
 

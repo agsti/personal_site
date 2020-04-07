@@ -7,10 +7,13 @@ technologies:
 status: inactive
 project: true
 project_index: 1
-thumbnail: ./salty_egg.jpg
+thumbnail: ./featured.png
 ---
 
-This was my first experience at self developing something and releasing it to the wild.
+![Hopper The Rabbit](./featured.png)
+
+
+This was my first experience at self developing something and releasing it into the wild.
 
 It was an Android app made to control OSX devices from said smartphones. Media controls, volume control, remote shutdown... among those lines.
 The neat trick that it had, was that it didn't need any specific software running on the mac itself! It used a combination of SSH access and inlining AppleScript commands. 

@@ -48,7 +48,8 @@ const ProjectsIndex = ({ data, location }) => {
         <SEO title={title} />
         <Header title={title} links_to="projects" className="projects-header" />
         <Content>
-        <p>This is a showcase of things I've built and got to the point where I can name them :). Some of them are built because I thought someone would benefit from them. Most of them were built because it was fun.</p>
+          <div className="main-container">
+        <p className="p-brief">This is a showcase of things I've built and got to the point where I can name them :). Some of them are built because I thought someone would benefit from them. Most of them were built because it was fun.</p>
         <div className='project-container'>
           {
             Projects.map((p, i) => {
@@ -82,6 +83,7 @@ const ProjectsIndex = ({ data, location }) => {
             })
           }
         </div>
+        </div>
         </Content>
       </Layout>
     </div>);
@@ -108,7 +110,7 @@ export const pageQuery = graphql`
             thumbnail {
               id
               childImageSharp {
-                fixed(height: 300, width: 300) {
+                fixed(height: 300, width: 300, fit: CONTAIN, background:"#f9f8f8") {
                     src
                 }
               }

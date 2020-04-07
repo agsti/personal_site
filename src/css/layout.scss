@@ -4,12 +4,24 @@
     display:grid;
     height: 100vh;
     grid-template-columns: auto 70rem auto;
-    grid-template-rows: 100px auto 40px;
+    grid-template-rows: 200px auto 40px;
     grid-template-areas: 
         "header header header"
         ". content ."
         "footer footer footer";
     gap: 20px;
+}
+
+@media only screen and (max-width: 70rem) {
+    /* your CSS here */
+    .n-container {
+        grid-template-columns: 100%;
+        grid-template-rows: 200px auto 40px;
+        grid-template-areas: 
+            "header"
+            "content"
+            "footer";
+    }
 }
 
 header {
