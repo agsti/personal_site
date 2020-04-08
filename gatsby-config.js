@@ -9,6 +9,7 @@ module.exports = {
     siteUrl: `https://agustibau.com/`,
     social: {
       twitter: `agustibau`,
+      github: `ihatetothink`,
       email: `agustibau@gmail.com`,
     },
   },

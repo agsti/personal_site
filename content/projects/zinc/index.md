@@ -18,8 +18,6 @@ I tried to kickstar this venture with my good friend [Tom Hedley](https://www.li
 
 We wanted to reduce the price of running clinical trials by conducting part of the trial remotely.
 
-We stopped working on it because
-
 ## Pain-point
 What we wanted to do was to was to help conduct 4th phase clinical trials remotely. Those kind of trials are done for a long time, when the treatment has already been tested, and its main purpose is to watch its effect on the public.
 

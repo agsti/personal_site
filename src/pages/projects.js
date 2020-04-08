@@ -73,9 +73,9 @@ const ProjectsIndex = ({ data, location }) => {
                         }
                       </ul>
                     </div>
-                    <div className="project-right-card">
+                    {/* <div className="project-right-card">
                       <FontAwesomeIcon icon={faHeart} />
-                    </div>
+                    </div> */}
                   </div>
 
                 </div>

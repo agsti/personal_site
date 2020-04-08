@@ -3,7 +3,7 @@ import posed, { PoseGroup } from 'react-pose';
 import { MdContentCopy } from "react-icons/md";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
-export default ({ isShown, emailAddress, twitter }) => {
+export default ({ isShown, emailAddress, github }) => {
     const Modal = posed.div({
         enter: {
             y: 0,
@@ -43,8 +43,8 @@ export default ({ isShown, emailAddress, twitter }) => {
                         </span>
                     </CopyToClipboard>
                     <br /> or contact me on {` `}
-                    <a className="twitter" href={`https://twitter.com/${twitter}`}>
-                        twitter
+                    <a className="twitter" href={`https://github.com/${github}`}>
+                        github
         </a>
                 </h1>
             </Modal>

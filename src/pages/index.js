@@ -17,7 +17,7 @@ const Index = ({ location }) => {
             name
           }
           social {
-            twitter
+            github
             email
           }
         }
@@ -32,7 +32,7 @@ const Index = ({ location }) => {
       }
     }
   `)
-  const {twitter, email} = data.site.siteMetadata.social;
+  const {github, email} = data.site.siteMetadata.social;
 
   const [contactVisible, setContactVisible] = useState(false);
   const onContactClick = () => {
@@ -72,7 +72,7 @@ const Index = ({ location }) => {
         <div className='greeter-box'>
           <div className='greeter-text'>
             <h1>Hey, <em className='name'>I'm Agusti.</em></h1>
-            <Contact isShown={contactVisible} twitter={twitter} emailAddress={email}/>
+            <Contact isShown={contactVisible} github={github} emailAddress={email}/>
             <h2>I'm a full-stack software engineer. <br/>Currently based in London.
                 </h2>
           </div>
