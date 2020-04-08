@@ -8,14 +8,28 @@ status: active
 link: http://maps.agustibau.com
 project: true
 project_index: 2
-thumbnail: ./salty_egg2.jpg
+thumbnail: ./thumbnail2.png
 ---
 
-This is my latest project! Again I'm trying to look at my nuances when I was looking for a place to live in London.
+![Where in london thumbnail](./thumbnail2.png)
+## The pain-point
+This is my latest project! I'm trying to look at my nuances when I was looking for a place to live in London.
 
-I noticed that my pattern when checking out flats online. I'd match price & all that, then go to google maps and check commute times to a couple of places I'd go frequently. I would make sure were under some reasonable time, and if so I'd move ahead.
+I noticed a pattern when looking for flats online. I would __Input all the parameters__ that every portal would allow me, budget, area, number of flatmates... __then go to google maps and check commute times__ to a couple of places I'd go frequently. I would make sure were reasonable, and if so I'd move ahead.
+It was painful enough for me, so I assume it might be annoying to someone else.
 
-Now repeat the milion emails I sent when looking for a place, and it's a nuance. :p
+Therefore I'm building a website that allows us to search properties within a commute time from a point. 
 
-So I'm building a website that allows to search properties within a comute time from a point. 
-I'm also experimenting with diferent backend technologies in order to spice my developer life a bit.
+## So far I've...
+- Chosen technologies, Django + react will be
+- Infrastructure based on Docker + Docker-machine
+- Created a dev environment that hot reloads most of the code (except dependencies) BE&FE
+- Created deployment in [production](http://maps.agustibau.com)
+- FE: Basically what you can see in [production](http://maps.agustibau.com)
+- BE: I'm able to get Isochronic areas, register users and get listings, I scrap data from multiple sources.
+- Added basic analytics with a matomo instance.
+
+
+## I still have to...
+- Make infrastructure scalable using Kubernetes
+- Automate scraping ETL with Celery
