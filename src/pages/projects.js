@@ -49,7 +49,7 @@ const ProjectsIndex = ({ data, location }) => {
         <Header title={title} links_to="projects" className="projects-header" />
         <Content>
           <div className="main-container">
-        <p className="p-brief">This is a showcase of things I've built and got to the point where I can name them :). Some of them are built because I thought someone would benefit from them. Most of them were built because it was fun.</p>
+        <p className="p-brief">Showcase of stuff I've built</p>
         <div className='project-container'>
           {
             Projects.map((p, i) => {

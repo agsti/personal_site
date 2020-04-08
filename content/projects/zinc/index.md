@@ -12,7 +12,7 @@ thumbnail: ./thumbnail.jpg
 
 ## Background
 This is not a personal project, but as I was the only developer it would be very close to one.
-This project took place while I was part of [zinc](www.zinc.vc), a startup incubator with a social mission. 
+This project took place while I was part of [Zinc.vc](http://www.zinc.vc), a startup incubator with a social mission. 
 
 I tried to kickstar this venture with my good friend [Tom Hedley](https://www.linkedin.com/in/hedleyconsulting/). 
 

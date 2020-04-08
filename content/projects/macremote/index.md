@@ -10,7 +10,7 @@ project_index: 1
 thumbnail: ./featured.png
 ---
 
-![macremote first screenshot]featured.png)
+![macremote first screenshot](./featured.png)
 
 ## The pain-point
 Apple remotes were getting discontinued after the Macbook Retinas. All the remote controlling apps needed some software running on the computer and I was not comfortable with that.
