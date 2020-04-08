@@ -7,7 +7,7 @@ draft: true
 #### Blank canvas
 
 
-I like to think of software engineering as the repeating process of
+I like to think of software development as the repeating process of
 
 - Define the problem to solve
 - Analyzing constraints
@@ -16,7 +16,7 @@ I like to think of software engineering as the repeating process of
 
 The first three parts are the parts that make for the engineering part of this job. The last one is where I'd say the where the art is.  
 
-Let's start with the engineering bit I mentioned. Just like every change in the code depends on the previous code. Every decision you take also depends on all the previous decisions that have been taken since the inception of that software.
+Let's start with the engineering bit I mentioned. Just like every change in the code depends on the history of such code. Every decision you take also depends on all the previous decisions that have been taken since the inception of that software.
 
 It is a very different environment to take decisions with few constraints than it is to be taking decisions down the line.
 Some decisions will have really big impact! and we better take them right.
@@ -37,3 +37,4 @@ Both environments have its pros and cons.
 
 
 
+## How i got burnt k
