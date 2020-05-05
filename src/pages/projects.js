@@ -46,7 +46,7 @@ const ProjectsIndex = ({ data, location }) => {
       />
       <Layout location={location}>
         <SEO title={title} />
-        <Header title={title} links_to="projects" className="projects-header" />
+        <Header title={title} links_to="/" className="projects-header" />
         <Content>
           <div className="main-container">
         <p className="p-brief">Showcase of stuff I've built</p>

@@ -42,7 +42,7 @@ const BlogIndex = ({ data, location }) => {
     />
       <Layout location={location} >
         <SEO title="All posts" />
-        <Header title={"Agusti's Blog"} links_to='blog' className="blog-header" />
+        <Header title={"Agusti's Blog"} links_to='/' className="blog-header" />
         {/* <Bio /> */}
         <Content>
         {posts.map(({ node }) => {

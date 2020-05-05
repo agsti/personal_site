@@ -1,5 +1,5 @@
 ---
-title: Where in London
+title: TubeHabit
 technologies: 
     - react
     - django
@@ -11,7 +11,7 @@ project_index: 2
 thumbnail: ./thumbnail2.png
 ---
 
-![Where in london thumbnail](./thumbnail2.png)
+![TubeHabit thumbnail](./thumbnail2.png)
 ## The pain-point
 This is my latest project! I'm trying to look at my nuances when I was looking for a place to live in London.
 
@@ -24,12 +24,11 @@ Therefore I'm building a website that allows us to search properties within a co
 - Chosen technologies, Django + react will be
 - Infrastructure based on Docker + Docker-machine
 - Created a dev environment that hot reloads most of the code (except dependencies) BE&FE
-- Created deployment in [production](http://maps.agustibau.com)
-- FE: Basically what you can see in [production](http://maps.agustibau.com)
+- Created deployment 
+- FE: Basically what you can see [here](http://maps.agustibau.com)
 - BE: I'm able to get Isochronic areas, register users and get listings, I scrap data from multiple sources.
-- Added basic analytics with a matomo instance.
 
 
 ## I still have to...
 - Make infrastructure scalable using Kubernetes
-- Automate scraping ETL with Celery
+- Add analytics with a matomo instance.

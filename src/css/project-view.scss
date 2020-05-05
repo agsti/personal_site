@@ -1,0 +1,24 @@
+@import "colors";
+
+.project-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px black solid;
+    & > h1 {
+        border-bottom: none;
+    }
+}
+
+.project-link {
+    background-color: $accent-1;
+    padding: 10px;
+    color: $light-1;
+    font-weight: bold;
+    font-size: 1.4rem;
+    box-shadow: 0 0 0px 6px  $accent-2;
+    &:hover {
+        box-shadow: 0 0 0px 8px $accent-2;
+    }
+}

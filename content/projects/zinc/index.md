@@ -4,7 +4,6 @@ technologies:
     - react-native
     - nodejs
 status: active
-link: http://maps.agustibau.com
 project: true
 project_index: 1
 thumbnail: ./thumbnail.jpg

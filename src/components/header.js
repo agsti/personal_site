@@ -10,7 +10,7 @@ import '../css/header.scss'
 export default ({ title, className, links_to }) => {
     return <header className="h-container">
         <div className="back">
-        <Link to={"/"}>
+        <Link to={links_to}>
             <FontAwesomeIcon className="arrow" icon={faArrowLeft} /> 
             <span>
                 Back
@@ -18,7 +18,7 @@ export default ({ title, className, links_to }) => {
         </Link>
         </div>
         <h1 className="h-title">
-            <Link to={links_to}>
+            <Link to={"/"}>
             {title}
             </Link>
         </h1>

@@ -26,6 +26,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const projectPage = path.resolve(`./src/templates/project-page.js`)
   const result = await graphql(
     `
     {
@@ -62,7 +63,7 @@ exports.createPages = async ({ graphql, actions }) => {
     if (project) {
       createPage({
         path: slug,
-        component: blogPost,
+        component: projectPage,
         context: {
           slug: slug,
         },
