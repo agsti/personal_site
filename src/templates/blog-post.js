@@ -13,7 +13,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
-
+  console.log(post)
   return (
     <div class='root'>
       <BackgroundSet
@@ -37,14 +37,19 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         <Header title={siteTitle} links_to="blog" className="blog-header" />
         <Content>
           <article className='blog-content'>
-            <header>
-              <h1>
-                {post.frontmatter.title}
-              </h1>
-              <p className='date'>
-                {post.frontmatter.date}
-              </p>
-            </header>
+              <header>
+                  <h1>
+                      {post.frontmatter.title}
+                  </h1>
+                  <div className="sub-header">
+                      <p className='date'>
+                          {post.frontmatter.date}
+                      </p>
+                      <p className='date'>
+                          {post.timeToRead} minutes
+                      </p>
+                  </div>
+              </header>
             <section dangerouslySetInnerHTML={{ __html: post.html }} />
             <hr
               style={{
@@ -95,6 +100,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
       }
+      timeToRead
     }
   }
 `

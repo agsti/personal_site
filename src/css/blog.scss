@@ -21,6 +21,12 @@ header > h1 {
 header > h3 {
     border-bottom: 1px black solid;
 }
+.sub-header {
+    display: flex;
+
+    justify-content: space-between;
+}
+
 
 .date {
     font-size: 1em;
