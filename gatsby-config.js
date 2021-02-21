@@ -3,13 +3,13 @@ module.exports = {
     title: `Agusti Bau`,
     author: {
       name: `Agusti Bau`,
-      summary: `Bending software for fun and for a living`,
+      summary: `Bending software for fun and for a profit`,
     },
     description: `My online presence.`,
     siteUrl: `https://agustibau.com/`,
     social: {
-      twitter: `agustibau`,
-      github: `ihatetothink`,
+      twitter: `agstib`,
+      github: `agsti`,
       email: `agustibau@gmail.com`,
     },
   },
@@ -43,7 +43,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
-                linkImagesToOriginal: false,
+              linkImagesToOriginal: false,
             },
           },
           {
@@ -55,19 +55,19 @@ module.exports = {
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
-          `gatsby-plugin-sass`
+          `gatsby-plugin-sass`,
         ],
       },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: 'gatsby-plugin-matomo',
+      resolve: "gatsby-plugin-matomo",
       options: {
-        siteId: '1',
-        matomoUrl: 'https://matomo.agustibau.com',
-        siteUrl: 'agustibau.com'
-      }
+        siteId: "1",
+        matomoUrl: "https://matomo.agustibau.com",
+        siteUrl: "agustibau.com",
+      },
     },
     `gatsby-plugin-feed`,
     {
@@ -86,12 +86,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          `Merriweather Sans\:400,700`,
-        ],
-        display: 'swap'
-      }
-    }
+        fonts: [`Merriweather Sans\:400,700`],
+        display: "swap",
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
