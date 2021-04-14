@@ -7,8 +7,8 @@ import { Layout, Content } from "../components/layout"
 import SEO from "../components/seo"
 import { BackgroundSet } from "../components/background"
 
-import '../css/blog.scss'
-import '../css/project-view.scss'
+import "../css/blog.scss"
+import "../css/project-view.scss"
 
 const ProjectPageTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -17,7 +17,7 @@ const ProjectPageTemplate = ({ data, pageContext, location }) => {
   const { previous, next } = pageContext
 
   return (
-    <div class='root'>
+    <div class="root">
       <BackgroundSet
         light1props={{
           n_elements: 20,
@@ -31,21 +31,24 @@ const ProjectPageTemplate = ({ data, pageContext, location }) => {
           opacity: 0.6,
         }}
       />
-      <Layout location={location} >
-        <SEO
-          title={post.frontmatter.title}
-          description={post.excerpt}
+      <Layout location={location}>
+        <SEO title={post.frontmatter.title} description={post.excerpt} />
+        <Header
+          title={siteTitle}
+          links_to="/projects"
+          className="blog-header"
         />
-        <Header title={siteTitle} links_to="projects" className="blog-header" />
         <Content>
-          <article className='blog-content'>
-            <header className='project-header'>
-              <h1>
-                {post.frontmatter.title}
-              </h1>
-                <p>
-                    {project_link && <a className='project-link' href={project_link}>Visit project</a>}
-                </p>
+          <article className="blog-content">
+            <header className="project-header">
+              <h1>{post.frontmatter.title}</h1>
+              <p>
+                {project_link && (
+                  <a className="project-link" href={project_link}>
+                    Visit project
+                  </a>
+                )}
+              </p>
             </header>
             <section dangerouslySetInnerHTML={{ __html: post.html }} />
             <hr
@@ -57,15 +60,15 @@ const ProjectPageTemplate = ({ data, pageContext, location }) => {
           </article>
 
           <nav>
-            <ul className='blog-nav'>
-              <li className={previous ? 'blog-nav-button' : ''}>
+            <ul className="blog-nav">
+              <li className={previous ? "blog-nav-button" : ""}>
                 {previous && (
                   <Link to={previous.fields.slug} rel="prev">
                     ← {previous.frontmatter.title}
                   </Link>
                 )}
               </li>
-              <li className={next ? 'blog-nav-button' : ''}>
+              <li className={next ? "blog-nav-button" : ""}>
                 {next && (
                   <Link to={next.fields.slug} rel="next">
                     {next.frontmatter.title} →

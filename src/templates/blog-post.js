@@ -7,7 +7,7 @@ import { Layout, Content } from "../components/layout"
 import SEO from "../components/seo"
 import { BackgroundSet } from "../components/background"
 
-import '../css/blog.scss'
+import "../css/blog.scss"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -15,7 +15,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const { previous, next } = pageContext
   console.log(post)
   return (
-    <div class='root'>
+    <div class="root">
       <BackgroundSet
         light1props={{
           n_elements: 20,
@@ -29,27 +29,18 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           opacity: 0.6,
         }}
       />
-      <Layout location={location} >
-        <SEO
-          title={post.frontmatter.title}
-          description={post.excerpt}
-        />
-        <Header title={siteTitle} links_to="blog" className="blog-header" />
+      <Layout location={location}>
+        <SEO title={post.frontmatter.title} description={post.excerpt} />
+        <Header title={siteTitle} links_to="/blog" className="blog-header" />
         <Content>
-          <article className='blog-content'>
-              <header>
-                  <h1>
-                      {post.frontmatter.title}
-                  </h1>
-                  <div className="sub-header">
-                      <p className='date'>
-                          {post.frontmatter.date}
-                      </p>
-                      <p className='date'>
-                          {post.timeToRead} minutes
-                      </p>
-                  </div>
-              </header>
+          <article className="blog-content">
+            <header>
+              <h1>{post.frontmatter.title}</h1>
+              <div className="sub-header">
+                <p className="date">{post.frontmatter.date}</p>
+                <p className="date">{post.timeToRead} minutes</p>
+              </div>
+            </header>
             <section dangerouslySetInnerHTML={{ __html: post.html }} />
             <hr
               style={{
@@ -60,15 +51,15 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </article>
 
           <nav>
-            <ul className='blog-nav'>
-              <li className={previous ? 'blog-nav-button' : ''}>
+            <ul className="blog-nav">
+              <li className={previous ? "blog-nav-button" : ""}>
                 {previous && (
                   <Link to={previous.fields.slug} rel="prev">
                     ← {previous.frontmatter.title}
                   </Link>
                 )}
               </li>
-              <li className={next ? 'blog-nav-button' : ''}>
+              <li className={next ? "blog-nav-button" : ""}>
                 {next && (
                   <Link to={next.fields.slug} rel="next">
                     {next.frontmatter.title} →
