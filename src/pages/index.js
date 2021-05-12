@@ -85,7 +85,7 @@ const Index = ({ location }) => {
                   <a href={cvPdf}>CV</a>
                 </li>
                 <li>
-                  <Link to="/blog">Writtings</Link>
+                  <Link to="/blog">Writings</Link>
                 </li>
                 <li>
                   <a href="#" onClick={onContactClick}>
