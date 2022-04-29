@@ -73,8 +73,8 @@ const Index = ({ location }) => {
                   emailAddress={email}
                 />
                 <h2>
-                  I'm a full-stack software engineer. <br />
-                  Currently working at <a href="https://www.kasaz.com">Kasaz</a>
+                  I'm a software engineer. <br />
+                  Currently working at <a href="https://www.clovrlabs.com/">Clovr Labs</a>
                 </h2>
               </div>
               <ul className="section-list">
