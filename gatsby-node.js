@@ -1,26 +1,54 @@
 const path = require(`path`)
+const axios = require("axios")
 const { createFilePath } = require(`gatsby-source-filesystem`)
-
 
 const findNextIndex = (array, from_index, matcher) => {
   for (let index = from_index + 1; index < array.length; index++) {
-    const element = array[index];
-    if (matcher(element)){
-      return element.node;
+    const element = array[index]
+    if (matcher(element)) {
+      return element.node
     }
   }
-  return null;
+  return null
 }
 const findPrevIndex = (array, from_index, matcher) => {
-  for (let index = from_index -1; index >= 0; index--) {
-    const element = array[index];
-    if (matcher(element)){
-      return element.node;
+  for (let index = from_index - 1; index >= 0; index--) {
+    const element = array[index]
+    if (matcher(element)) {
+      return element.node
     }
   }
-  return null;
+  return null
 }
 
+exports.sourceNodes = async ({
+  actions,
+  createNodeId,
+  createContentDigest,
+}) => {
+  const linkding_token = process.env.LINKDING_TOKEN
+  const { data } = await axios.get(
+    `https://links.agustibau.com/api/bookmarks`,
+    {
+      headers: {
+        Authorization: `Token ${linkding_token}`,
+      },
+    }
+  )
+
+  data.results.forEach(d => {
+    console.log(d)
+
+    actions.createNode({
+      ...d,
+      id: createNodeId(d.id),
+      internal: {
+        type: "bookmark",
+        contentDigest: createContentDigest(data),
+      },
+    })
+  })
+}
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -29,22 +57,25 @@ exports.createPages = async ({ graphql, actions }) => {
   const projectPage = path.resolve(`./src/templates/project-page.js`)
   const result = await graphql(
     `
-    {
-      allMarkdownRemark(sort: {order: ASC, fields: [frontmatter___date]}, limit: 1000, filter: {frontmatter: {draft: {ne: true}}}) {
-        edges {
-          node {
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-              project
+      {
+        allMarkdownRemark(
+          sort: { order: ASC, fields: [frontmatter___date] }
+          limit: 1000
+          filter: { frontmatter: { draft: { ne: true } } }
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                project
+              }
             }
           }
         }
       }
-    }
-    
     `
   )
 
@@ -56,10 +87,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const posts = result.data.allMarkdownRemark.edges
 
   posts.forEach((post, index) => {
-    
-    const { project } = post.node.frontmatter;
-    
-    const slug = post.node.fields.slug;
+    const { project } = post.node.frontmatter
+
+    const slug = post.node.fields.slug
     if (project) {
       createPage({
         path: slug,
@@ -69,8 +99,16 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       })
     } else {
-      const previous = findPrevIndex(posts, index, (element)=> !element.node.frontmatter.project)
-      const next = findNextIndex(posts, index, (element)=> !element.node.frontmatter.project)
+      const previous = findPrevIndex(
+        posts,
+        index,
+        element => !element.node.frontmatter.project
+      )
+      const next = findNextIndex(
+        posts,
+        index,
+        element => !element.node.frontmatter.project
+      )
 
       createPage({
         path: slug,
@@ -89,12 +127,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
-    const { project } = node.frontmatter;
-    let slug = project ? `/projects${value}`:`/blog${value}`;
+    const { project } = node.frontmatter
+    let slug = project ? `/projects${value}` : `/blog${value}`
     createNodeField({
       name: `slug`,
       node,
-      value : slug
+      value: slug,
     })
   }
 }
