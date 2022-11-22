@@ -63,13 +63,17 @@ const BookmarkIndex = ({ data, location }) => {
 export default BookmarkIndex
 
 export const pageQuery = graphql`
-  {
+  query blogListQuery($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
       }
     }
-    allBookmark {
+    allBookmark(
+      limit: $limit
+      skip: $skip
+      sort: { order: DESC, fields: date_added }
+    ) {
       nodes {
         id
         tag_names

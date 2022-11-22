@@ -122,6 +122,33 @@ exports.createPages = async ({ graphql, actions }) => {
       })
     }
   })
+
+  const bookmark_query = await graphql(
+    `
+      {
+        allBookmark(sort: { order: DESC, fields: date_added }) {
+          nodes {
+            id
+          }
+        }
+      }
+    `
+  )
+  const bookmarks = bookmark_query.data.allBookmark.nodes
+  const bookmarksPerPage = 20
+  const numPages = Math.ceil(bookmarks.length / bookmarksPerPage)
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/bookmarks` : `/bookmarks/${i + 1}`,
+      component: path.resolve("./src/templates/bookmarks-list.js"),
+      context: {
+        limit: bookmarksPerPage,
+        skip: i * bookmarksPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    })
+  })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
