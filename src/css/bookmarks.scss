@@ -1,7 +1,16 @@
 @import "colors";
 
-.link-container {
+.bookmark-container {
     background-color: $light-1;
     border: 5px solid $accent-2;
+    margin: 5px;
+    padding: 5px;
 }
 
+.bookmark-link{
+    border: $light-1;
+}
+
+.bookmark-desc{
+
+}

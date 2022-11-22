@@ -50,11 +50,13 @@ const BookmarkIndex = props => {
           {bookmarks.map(bookmark => {
             const title = bookmark.website_title || bookmark.url
             const url = bookmark.url
+            const description = bookmark.website_description
             return (
-              <div className="link-container">
-                <a href={url} target="_blank">
+              <div className="bookmark-container">
+                <a href={url} target="_blank" className="bookmark_link">
                   {title}
                 </a>
+                <div className="bookmark-desc">{description}</div>
               </div>
             )
           })}
@@ -84,6 +86,7 @@ export const pageQuery = graphql`
         tag_names
         url
         website_title
+        website_description
         date_added
       }
     }
