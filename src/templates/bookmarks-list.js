@@ -5,14 +5,17 @@ import { BackgroundSet } from "../components/background"
 import { Layout, Content } from "../components/layout"
 import Header from "../components/header"
 import SEO from "../components/seo"
+import BookmarkNavigation from "../components/bookmark_navigation"
 
 import "../css/bookmarks.scss"
 import "../css/base.scss"
 
-const BookmarkIndex = ({ data, location }) => {
+const BookmarkIndex = props => {
+  const { data, location, pageContext } = props
   const bookmarks = data.allBookmark.nodes
-  console.log(bookmarks)
+  console.log(props)
 
+  const { numPages, currentPage } = pageContext
   return (
     <div class="root">
       <BackgroundSet
@@ -43,6 +46,7 @@ const BookmarkIndex = ({ data, location }) => {
         <SEO title="Bookmarks" />
         <Header title={"Bookmarks"} links_to="/" className="blog-header" />
         <Content>
+          <BookmarkNavigation numPages={numPages} currentPage={currentPage} />
           {bookmarks.map(bookmark => {
             const title = bookmark.website_title || bookmark.url
             const url = bookmark.url
@@ -54,6 +58,7 @@ const BookmarkIndex = ({ data, location }) => {
               </div>
             )
           })}
+          <BookmarkNavigation numPages={numPages} currentPage={currentPage} />
         </Content>
       </Layout>
     </div>

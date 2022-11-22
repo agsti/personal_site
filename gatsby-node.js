@@ -139,13 +139,13 @@ exports.createPages = async ({ graphql, actions }) => {
   const numPages = Math.ceil(bookmarks.length / bookmarksPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
-      path: i === 0 ? `/bookmarks` : `/bookmarks/${i + 1}`,
+      path: i === 0 ? `/bookmarks` : `/bookmarks/${i}`,
       component: path.resolve("./src/templates/bookmarks-list.js"),
       context: {
         limit: bookmarksPerPage,
         skip: i * bookmarksPerPage,
         numPages,
-        currentPage: i + 1,
+        currentPage: i,
       },
     })
   })
