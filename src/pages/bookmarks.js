@@ -41,16 +41,16 @@ const BookmarkIndex = ({ data, location }) => {
       />
       <Layout location={location}>
         <SEO title="Bookmarks" />
-        <Header title={"Agusti's Blog"} links_to="/" className="blog-header" />
+        <Header title={"Bookmarks"} links_to="/" className="blog-header" />
         <Content>
           {bookmarks.map(bookmark => {
-            const title = bookmark.website_title || bookmark.website_url
-            const url = bookmark.website_url
+            const title = bookmark.website_title || bookmark.url
+            const url = bookmark.url
             return (
               <div className="link-container">
-                <Link style={{ boxShadow: `none` }} to={url}>
+                <a href={url} target="_blank">
                   {title}
-                </Link>
+                </a>
               </div>
             )
           })}

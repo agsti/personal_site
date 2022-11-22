@@ -27,8 +27,9 @@ exports.sourceNodes = async ({
   createContentDigest,
 }) => {
   const linkding_token = process.env.LINKDING_TOKEN
+  console.log(`Found linkding_token: ${linkding_token}`)
   const { data } = await axios.get(
-    `https://links.agustibau.com/api/bookmarks`,
+    `https://links.agustibau.com/api/bookmarks?limit=9999`,
     {
       headers: {
         Authorization: `Token ${linkding_token}`,
