@@ -9,8 +9,17 @@
 
 .bookmark-link{
     border: $light-1;
+    box-shadow: none;
+    border: 1;
+    font-weight: bold;
 }
 
 .bookmark-desc{
+    margin-top: 5px;
+}
 
+.bookmark-date {
+    font-size: 2em;
+    color: $light-1;
+    margin-left: 5px;
 }

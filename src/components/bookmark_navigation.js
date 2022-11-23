@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 import "../css/base.scss"
+import "../css/bookmarks.scss"
 
 const BookmarkNavigation = props => {
   const { numPages, currentPage } = props
