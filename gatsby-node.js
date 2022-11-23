@@ -38,8 +38,6 @@ exports.sourceNodes = async ({
   )
 
   data.results.forEach(d => {
-    console.log(d)
-
     actions.createNode({
       ...d,
       id: createNodeId(d.id),
