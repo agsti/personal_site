@@ -36,11 +36,14 @@
     text-align: center;
 }
 
+.section-bookmarks {
+    margin-top: 20px;
+    box-shadow: none;
+}
 
 .section-list > li {
     display: inline;
     margin: 20px;
-
 }
 
 .section-list > li > a {

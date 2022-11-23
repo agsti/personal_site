@@ -74,7 +74,8 @@ const Index = ({ location }) => {
                 />
                 <h2>
                   I'm a software engineer. <br />
-                  Currently working at <a href="https://www.clovrlabs.com/">Clovr Labs</a>
+                  Currently working at{" "}
+                  <a href="https://www.clovrlabs.com/">Clovr Labs</a>
                 </h2>
               </div>
               <ul className="section-list">
@@ -91,6 +92,11 @@ const Index = ({ location }) => {
                   <a href="#" onClick={onContactClick}>
                     Contact
                   </a>
+                </li>
+              </ul>
+              <ul className="section-list section-bookmarks">
+                <li>
+                  <Link to="/bookmarks">Best of the internet</Link>
                 </li>
               </ul>
             </div>

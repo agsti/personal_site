@@ -29,12 +29,12 @@ const BookmarkList = ({ bookmarks }) => {
           <>
             {date_el}
             <div className="bookmark-container">
-              <a href={url} target="_blank" className="bookmark-link">
-                {title}
+              <a href={url} target="_blank">
+                <div className="bookmark-link">{title}</div>
+                {description && (
+                  <div className="bookmark-desc">{description}</div>
+                )}
               </a>
-              {description && (
-                <div className="bookmark-desc">{description}</div>
-              )}
             </div>
           </>
         )

@@ -14,7 +14,6 @@ import "../css/base.scss"
 const BookmarkIndex = props => {
   const { data, location, pageContext } = props
   const bookmarks = data.allBookmark.nodes
-  console.log(props)
 
   const { numPages, currentPage } = pageContext
   return (
@@ -45,8 +44,12 @@ const BookmarkIndex = props => {
       />
       <Layout location={location}>
         <SEO title="Bookmarks" />
-        <Header title={"Bookmarks"} links_to="/" className="blog-header" />
+        <Header title="Best of internet" links_to="/" className="blog-header" />
         <Content>
+          <div className="bookmark-intro">
+            This is a list of interesting websites I've found. Maybe you find
+            them interesting too.
+          </div>
           <BookmarkNavigation numPages={numPages} currentPage={currentPage} />
           <BookmarkList bookmarks={bookmarks} />
 
