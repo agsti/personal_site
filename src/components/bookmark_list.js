@@ -10,10 +10,10 @@ const BookmarkList = ({ bookmarks }) => {
   return (
     <div>
       <div className="bookmark-date">on {first_date_str}...</div>
-      {bookmarks.map(bookmark => {
-        const title = bookmark.website_title || bookmark.url
+      {bookmarks.map((bookmark) => {
+        const title = bookmark.title || bookmark.website_title || bookmark.url
         const url = bookmark.url
-        const description = bookmark.website_description
+        const description = bookmark.description || bookmark.website_description
         const bookmark_added = Moment(bookmark.date_added)
         var duration = Moment.duration(last_date_found.diff(bookmark_added))
         var days = duration.asDays()
