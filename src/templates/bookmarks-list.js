@@ -11,7 +11,7 @@ import BookmarkList from "../components/bookmark_list"
 import "../css/bookmarks.scss"
 import "../css/base.scss"
 
-const BookmarkIndex = props => {
+const BookmarkIndex = (props) => {
   const { data, location, pageContext } = props
   const bookmarks = data.allBookmark.nodes
 
@@ -81,6 +81,8 @@ export const pageQuery = graphql`
         website_title
         website_description
         date_added
+        title
+        description
       }
     }
   }
