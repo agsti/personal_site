@@ -8,32 +8,25 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 30%;
-    background-color: $light-3;
-    box-shadow: 0 0 100px 100px $light-3;
-    transition-property: box-shadow, background-color;
-    transition-duration: 1s;
-    color: $light-1;
 }
 
-@-moz-document url-prefix() {
-    .greeter-box:hover {
-        box-shadow: 0 0 300px 300px $light-2;
-        background-color: $light-2;
-    }
-}
 
 .greeter-text {
+    padding: 10px;
+    background-color: white;
     margin-bottom: 20px;
+    border: 5px solid $accent-2;
 }
 
 .section-list {
+    padding: 10px;
+    background-color: white;
     margin-top: 40px;
     list-style-type: none;
     font-size: 1.5em;
-    padding-left: 0px;
     font-weight: bold;
     text-align: center;
+    border: 5px solid $accent-1;
 }
 
 .section-bookmarks {
@@ -68,7 +61,6 @@ em.name {
     color: $light-1;
     background-color: $accent-1;
     margin-left: -20px;
-    padding-left: 20px;
 }
 
 .contact-container > a {

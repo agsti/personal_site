@@ -4,7 +4,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import { Layout, Content } from "../components/layout"
 import SEO from "../components/seo"
 import Contact from "../components/contact"
-import { BackgroundSet } from "../components/background"
+import { NewBackground } from "../components/3d_background"
 
 import "../css/index.scss"
 
@@ -28,36 +28,13 @@ const Index = ({ location }) => {
 
   const [contactVisible, setContactVisible] = useState(false)
   const onContactClick = () => {
-    setContactVisible(prev => !prev)
+    setContactVisible((prev) => !prev)
   }
 
   const cvPdf = "/AgustiBau-CV.pdf"
   return (
     <div className="root">
-      <BackgroundSet
-        light1props={{
-          n_elements: 30,
-          size: 50,
-          opacity: 0.4,
-          animationDuration: 3000,
-        }}
-        accent1props={{
-          n_elements: 5,
-          size: 50,
-          opacity: 0.6,
-        }}
-        accent2props={{
-          n_elements: 2,
-          size: 50,
-          opacity: 0.6,
-        }}
-        darkprops={{
-          n_elements: 3,
-          size: 50,
-          opacity: 0.5,
-          animationDuration: 1000,
-        }}
-      />
+      <NewBackground />
       <Layout location={location}>
         <SEO title="My corner of the internet" />
         <Content>
