@@ -12,6 +12,7 @@ import colors from "../../css/colors"
 import { SparkStorm } from "./spark_storm.js"
 
 export const Background2 = () => {
+  const [sparkSize, setSparksize] = useState(1)
   return (
     <Canvas
       style={{
@@ -20,12 +21,11 @@ export const Background2 = () => {
         left: 0,
         width: "100%",
         zIndex: -1,
+        height: "100%",
       }}
       camera={{ fov: 100, position: [0, 0, 30] }}
       onCreated={({ gl, size, camera }) => {
-        if (size.width < 600) {
-          camera.position.z = 45
-        }
+        setSparksize(10)
       }}
     >
       <ambientLight intensity={0.5} />
@@ -36,6 +36,7 @@ export const Background2 = () => {
         castShadow
       >
         <SparkStorm
+          size={sparkSize}
           count={50}
           colors={[colors.accent1, "white", colors.accent2]}
         />

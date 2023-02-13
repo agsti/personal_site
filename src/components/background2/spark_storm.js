@@ -43,13 +43,13 @@ function StormLine({ radius, simulation, width, color }) {
   )
 }
 
-export function SparkStorm({ count, colors, radius = 10 }) {
+export function SparkStorm({ count, colors, radius = 10, size = 1 }) {
   const lines = useMemo(
     () =>
       new Array(count).fill().map(() => {
         return {
           color: Random.pick(colors),
-          width: Random.range(0.1, 0.2),
+          width: Random.range(0.1, 0.2) * size,
           speed: Random.range(0.0001, 0.0002),
           simulation: simulation(),
           radius: Random.range(2, 2.25) * radius,

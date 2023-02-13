@@ -52,7 +52,7 @@ const Index = ({ location }) => {
                 />
                 <h2>
                   I'm a software engineer. <br />
-                  Currently working at{" "}
+                  Currently @{" "}
                   <a href="https://www.clovrlabs.com/">Clovr Labs</a>
                 </h2>
               </div>
