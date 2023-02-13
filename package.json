@@ -16,6 +16,7 @@
     "@react-three/drei": "^9.56.24",
     "@react-three/fiber": "^8.11.0",
     "@react-three/postprocessing": "^2.7.0",
+    "canvas-sketch-util": "^1.10.0",
     "gatsby": "^5.1.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-feed": "^5.1.0",

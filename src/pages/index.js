@@ -5,10 +5,11 @@ import { Layout, Content } from "../components/layout"
 import SEO from "../components/seo"
 import Contact from "../components/contact"
 import { NewBackground } from "../components/3d_background"
+import { Background2 } from "../components/background2/background2.js"
 
 import "../css/index.scss"
 
-const Index = ({ location }) => {
+const Index = ({}) => {
   const data = useStaticQuery(graphql`
     query IndexQuery {
       site {
@@ -34,8 +35,8 @@ const Index = ({ location }) => {
   const cvPdf = "/AgustiBau-CV.pdf"
   return (
     <div className="root">
-      <NewBackground />
-      <Layout location={location}>
+      <Background2 />
+      <Layout location={window.location}>
         <SEO title="My corner of the internet" />
         <Content>
           <div className="greeter-container">
