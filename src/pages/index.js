@@ -9,7 +9,7 @@ import { Background2 } from "../components/background2/background2.js"
 
 import "../css/index.scss"
 
-const Index = ({}) => {
+const Index = ({ location }) => {
   const data = useStaticQuery(graphql`
     query IndexQuery {
       site {
@@ -36,7 +36,7 @@ const Index = ({}) => {
   return (
     <div className="root">
       <Background2 />
-      <Layout location={window.location}>
+      <Layout location={location}>
         <SEO title="My corner of the internet" />
         <Content>
           <div className="greeter-container">
