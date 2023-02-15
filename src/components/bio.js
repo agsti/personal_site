@@ -28,7 +28,7 @@ const Bio = () => {
             summary
           }
           social {
-            twitter
+            linkedin
           }
         }
       }
@@ -49,6 +49,9 @@ const Bio = () => {
       <p>
         Written by <strong>{author.name}</strong> <br />
         {` `}
+        <strong>I'd love</strong> to know your thoughts about this post.
+        <br />
+        <a href={social.linkedin}>Here's my linkedin</a>
       </p>
     </div>
   )

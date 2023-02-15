@@ -10,23 +10,6 @@ import { Background2 } from "../components/background2/background2.js"
 import "../css/index.scss"
 
 const Index = ({ location }) => {
-  const data = useStaticQuery(graphql`
-    query IndexQuery {
-      site {
-        siteMetadata {
-          author {
-            name
-          }
-          social {
-            github
-            email
-          }
-        }
-      }
-    }
-  `)
-  const { github, email } = data.site.siteMetadata.social
-
   const [contactVisible, setContactVisible] = useState(false)
   const onContactClick = () => {
     setContactVisible((prev) => !prev)
@@ -45,11 +28,7 @@ const Index = ({ location }) => {
                 <h1>
                   Hey, <em className="name">I'm Agusti.</em>
                 </h1>
-                <Contact
-                  isShown={contactVisible}
-                  github={github}
-                  emailAddress={email}
-                />
+                <Contact isShown={contactVisible} />
                 <h2>
                   I'm a software engineer. <br />
                   Currently @{" "}

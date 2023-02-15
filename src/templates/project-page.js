@@ -51,7 +51,7 @@ const ProjectPageTemplate = ({ data, pageContext, location }) => {
               </p>
             </header>
             <section dangerouslySetInnerHTML={{ __html: post.html }} />
-            {/* <Bio /> */}
+            <Bio />
           </article>
 
           <nav>
