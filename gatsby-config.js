@@ -8,6 +8,7 @@ module.exports = {
     description: `My online presence.`,
     siteUrl: `https://agustibau.com/`,
     social: {
+      linkedin: "https://www.linkedin.com/in/agustibau/",
       twitter: `agstib`,
       github: `agsti`,
       email: `agustibau@gmail.com`,
@@ -88,6 +89,18 @@ module.exports = {
       options: {
         fonts: [`Merriweather Sans\:400,700`],
         display: "swap",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-gitalk`,
+      options: {
+        config: {
+          clientID: "68c3e0fd9ae7090937cb",
+          clientSecret: "9d3fe253f123d2b31db4f3c09384021edd8775d2",
+          repo: "personal_site",
+          owner: "Agusti Bau",
+          admin: ["Agusti Bau"],
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

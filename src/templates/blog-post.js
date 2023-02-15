@@ -1,12 +1,15 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
+import Gitalk from "gatsby-plugin-gitalk"
+
 import Bio from "../components/bio"
 import Header from "../components/header"
 import { Layout, Content } from "../components/layout"
 import SEO from "../components/seo"
 import { BackgroundSet } from "../components/background"
 
+import "@suziwen/gitalk/dist/gitalk.css"
 import "../css/blog.scss"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
@@ -14,6 +17,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
   console.log(post)
+  const { slug } = data
+  const gitalkConfig = {
+    id: slug || post.id,
+    title: post.frontmatter.title,
+  }
   return (
     <div class="root">
       <BackgroundSet
@@ -42,11 +50,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               </div>
             </header>
             <section dangerouslySetInnerHTML={{ __html: post.html }} />
-            <hr
-              style={{
-                marginBottom: "1.75rem",
-              }}
-            />
+            <Gitalk options={gitalkConfig} />
             <Bio />
           </article>
 
