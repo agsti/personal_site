@@ -23,7 +23,7 @@ export const Background2 = () => {
         zIndex: -1,
         height: "100%",
       }}
-      camera={{ fov: 100, position: [-30, 0, 30] }}
+      camera={{ fov: 100, position: [-30, 10, 30] }}
       onCreated={({ gl, size, camera }) => {
         setSparksize(10)
       }}

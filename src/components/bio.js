@@ -9,7 +9,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
-import '../css/base.scss';
+import "../css/base.scss"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -37,9 +37,7 @@ const Bio = () => {
 
   const { author, social } = data.site.siteMetadata
   return (
-    <div
-      class='bio-container'
-    >
+    <div class="bio-container">
       <Image
         fixed={data.avatar.childImageSharp.fixed}
         alt={author.name}
@@ -49,12 +47,8 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author.name}</strong> <br/>
+        Written by <strong>{author.name}</strong> <br />
         {` `}
-        <strong>I'll love</strong> to know your thoughts about this post.<br/>
-        <a href={`https://twitter.com/${social.twitter}`}>
-          Here's my twitter
-        </a>
       </p>
     </div>
   )

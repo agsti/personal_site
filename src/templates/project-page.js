@@ -51,12 +51,7 @@ const ProjectPageTemplate = ({ data, pageContext, location }) => {
               </p>
             </header>
             <section dangerouslySetInnerHTML={{ __html: post.html }} />
-            <hr
-              style={{
-                marginBottom: "1.75rem",
-              }}
-            />
-            <Bio />
+            {/* <Bio /> */}
           </article>
 
           <nav>
