@@ -96,10 +96,10 @@ module.exports = {
       options: {
         config: {
           clientID: "68c3e0fd9ae7090937cb",
-          clientSecret: "9d3fe253f123d2b31db4f3c09384021edd8775d2",
+          clientSecret: `${process.env.GITHUB_SECRET}`,
           repo: "personal_site",
-          owner: "Agusti Bau",
-          admin: ["Agusti Bau"],
+          owner: "agsti",
+          admin: ["agsti"],
         },
       },
     },
