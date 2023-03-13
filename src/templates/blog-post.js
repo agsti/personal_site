@@ -50,7 +50,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               </div>
             </header>
             <section dangerouslySetInnerHTML={{ __html: post.html }} />
-            <Gitalk options={gitalkConfig} />
             <Bio />
           </article>
 

@@ -91,18 +91,18 @@ module.exports = {
         display: "swap",
       },
     },
-    {
-      resolve: `gatsby-plugin-gitalk`,
-      options: {
-        config: {
-          clientID: "68c3e0fd9ae7090937cb",
-          clientSecret: `${process.env.GITHUB_SECRET}`,
-          repo: "personal_site",
-          owner: "agsti",
-          admin: ["agsti"],
-        },
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-gitalk`,
+    //   options: {
+    //     config: {
+    //       clientID: "68c3e0fd9ae7090937cb",
+    //       clientSecret: `${process.env.GITHUB_SECRET}`,
+    //       repo: "personal_site",
+    //       owner: "agsti",
+    //       admin: ["agsti"],
+    //     },
+    //   },
+    // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
