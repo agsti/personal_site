@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import Contact from "../components/contact"
 import { NewBackground } from "../components/3d_background"
 import Modal from "../components/modal"
-import { Background2 } from "../components/background2/background2.js"
+import { Background } from "../components/3d_background"
 
 import "../css/index.scss"
 
@@ -22,7 +22,6 @@ const Index = ({ location }) => {
   return (
     <div className="root">
       {cvModalVisible && <Modal closeModal={() => setCvModalVisible(false)} />}
-      <Background2 />
       <Layout location={location}>
         <SEO title="My corner of the internet" />
         <Content>
