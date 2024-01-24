@@ -1,102 +1,100 @@
 @import "colors";
 
-
-
 .greeter-box {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-
 .greeter-text {
-    padding: 10px;
-    background-color: white;
-    margin-bottom: 20px;
-    border: 5px solid $accent-2;
+  padding: 10px;
+  background-color: white;
+  margin-bottom: 20px;
+  border: 5px solid $accent-2;
 }
 
 .section-list {
-    padding: 10px;
-    background-color: white;
-    margin-top: 40px;
-    list-style-type: none;
-    font-size: 1.5em;
-    font-weight: bold;
-    text-align: center;
-    border: 5px solid $accent-1;
+  padding: 10px;
+  background-color: white;
+  margin-top: 40px;
+  list-style-type: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  border: 5px solid $accent-1;
 }
 
 .section-bookmarks {
-    margin-top: 20px;
-    box-shadow: none;
+  margin-top: 20px;
+  box-shadow: none;
 }
 
 .section-list > li {
-    display: inline;
-    margin: 20px;
+  display: inline;
+  margin: 20px;
 }
 
 .section-list > li > a {
-    box-shadow: 0 12px 0px -6px $accent-2;
-    transition-property: box-shadow;
-    transition-duration: 0.5s;
+  box-shadow: 0 12px 0px -6px $accent-2;
+  transition-property: box-shadow;
+  transition-duration: 0.5s;
 }
 
 .section-list > li > a:hover {
-    box-shadow: 0 12px 0px 0px $accent-2;
+  box-shadow: 0 12px 0px 0px $accent-2;
 }
 
 em.name {
-    font-style: normal;
-    background-color: $accent-1;
-    color: $light-1;
-    outline: 5px solid $accent-1;
-    white-space: nowrap;
+  font-style: normal;
+  background-color: $accent-1;
+  color: $light-1;
+  outline: 5px solid $accent-1;
+  white-space: nowrap;
 }
 
 .contact-container {
-    color: $light-1;
-    background-color: $accent-1;
-    margin-left: -20px;
+  color: $light-1;
+  background-color: $accent-1;
+  padding-left: 1rem;
+  text-align: center;
 }
 
 .contact-container > a {
-    transition-property: box-shadow;
-    transition-duration: 0.5s;
-    box-shadow: 0 6px 0px 0px $accent-2;
+  transition-property: box-shadow;
+  transition-duration: 0.5s;
+  box-shadow: 0 6px 0px 0px $accent-2;
 }
 
 .contact-container a:hover {
-    box-shadow: 0 12px 0px 0px $accent-2;
+  box-shadow: 0 12px 0px 0px $accent-2;
 }
 
 .cb-icon {
-    visibility: hidden;
-    font-size: 0.6em;
-    margin-left: 5px;
+  visibility: hidden;
+  font-size: 0.6em;
+  margin-left: 5px;
 }
 
 .contact-container a:hover ~ .cb-icon {
-    visibility: visible;
+  visibility: visible;
 }
 
 @media only screen and (max-width: 480px) {
-    .section-list > li {
-        display: block;
-    }
+  .section-list > li {
+    display: block;
+  }
 
-    .greeter-text {
-        font-size: 1rem;
-    }
+  .greeter-text {
+    font-size: 1rem;
+  }
 
-    .greeter-container {
-        height: 100%;
-    }
+  .greeter-container {
+    height: 100%;
+  }
 
-    .cb-icon {
-        visibility: visible;
-    }
-}	
+  .cb-icon {
+    visibility: visible;
+  }
+}

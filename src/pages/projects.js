@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import { Link, graphql, Image } from "gatsby"
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faHeart } from "@fortawesome/free-solid-svg-icons"
 
 import { BackgroundSet } from "../components/background"
-import {Layout, Content} from "../components/layout"
+import { Layout, Content } from "../components/layout"
 import Header from "../components/header"
 import SEO from "../components/seo"
 
@@ -14,11 +14,10 @@ import "../css/projects.scss"
 
 const ProjectsIndex = ({ data, location }) => {
   const Projects = data.allMarkdownRemark.edges
-  const title = "Projects";
-
+  const title = "Projects"
 
   return (
-    <div className='root'>
+    <div className="root">
       <BackgroundSet
         light1props={{
           n_elements: 10,
@@ -49,52 +48,54 @@ const ProjectsIndex = ({ data, location }) => {
         <Header title={title} links_to="/" className="projects-header" />
         <Content>
           <div className="main-container">
-        <p className="p-brief">Showcase of stuff I've built</p>
-        <div className='project-container'>
-          {
-            Projects.map((p, i) => {
-              const { title, thumbnail, technologies } = p.node.frontmatter;
-              console.log(thumbnail.childImageSharp)
-              return <Link className="p-item-link" to={p.node.fields.slug} >
-                <div
-                  className={"project-item-g"}
-                  >
-                  <img src={thumbnail.childImageSharp.fixed.src} />
-                  <div className="project-card">
-                    <div className="project-left-card">
-                      <div className="project-item-title">
-                        <span>
-                          {title}
-                        </span>
-                      </div>
-                      <ul className="project-tech">
-                        {
-                          technologies.map(t => <li>{t}</li>)
-                        }
-                      </ul>
-                    </div>
-                    {/* <div className="project-right-card">
+            <p className="p-brief">
+              THIS IS MOSTLY A GRAVEYARD OF STUFF I'VE BUILT A LONG TIME AGO,
+              MOST OF MY WORK HAS BEEN PRIVATE FOR A WHILE NOW
+            </p>
+            <p className="p-brief">Showcase of stuff I've built</p>
+            <div className="project-container">
+              {Projects.map((p, i) => {
+                const { title, thumbnail, technologies } = p.node.frontmatter
+                console.log(thumbnail.childImageSharp)
+                return (
+                  <Link className="p-item-link" to={p.node.fields.slug}>
+                    <div className={"project-item-g"}>
+                      <img src={thumbnail.childImageSharp.fixed.src} />
+                      <div className="project-card">
+                        <div className="project-left-card">
+                          <div className="project-item-title">
+                            <span>{title}</span>
+                          </div>
+                          <ul className="project-tech">
+                            {technologies.map((t) => (
+                              <li>{t}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        {/* <div className="project-right-card">
                       <FontAwesomeIcon icon={faHeart} />
                     </div> */}
-                  </div>
-
-                </div>
-            </Link>
-            })
-          }
-        </div>
-        </div>
+                      </div>
+                    </div>
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
         </Content>
       </Layout>
-    </div>);
+    </div>
+  )
 }
 
-export default ProjectsIndex;
-
+export default ProjectsIndex
 
 export const pageQuery = graphql`
-{
-    allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___project_index]}, filter: {frontmatter: {project: {eq: true}}}) {
+  {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___project_index] }
+      filter: { frontmatter: { project: { eq: true } } }
+    ) {
       edges {
         node {
           excerpt
@@ -110,8 +111,13 @@ export const pageQuery = graphql`
             thumbnail {
               id
               childImageSharp {
-                fixed(height: 300, width: 300, fit: CONTAIN, background:"#f9f8f8") {
-                    src
+                fixed(
+                  height: 300
+                  width: 300
+                  fit: CONTAIN
+                  background: "#f9f8f8"
+                ) {
+                  src
                 }
               }
             }
@@ -120,5 +126,5 @@ export const pageQuery = graphql`
         }
       }
     }
-  }   
+  }
 `

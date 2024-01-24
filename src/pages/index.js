@@ -35,31 +35,27 @@ const Index = ({ location }) => {
                 <Contact isShown={contactVisible} />
                 <h2>
                   I'm a software engineer. <br />
-                  Currently @{" "}
-                  <a href="https://www.clovrlabs.com/">Clovr Labs</a>
                 </h2>
               </div>
               <ul className="section-list">
+                {/* <li> */}
+                {/*   <Link to="/projects">Projects</Link> */}
+                {/* </li> */}
                 <li>
-                  <Link to="/projects">Projects</Link>
-                </li>
-                <li>
-                  <a href="#" onClick={() => setCvModalVisible(true)}>
-                    CV
-                  </a>
+                  <a href={cvPdf}>CV</a>
                 </li>
                 <li>
                   <Link to="/blog">Writings</Link>
                 </li>
                 <li>
-                  <a href="#" onClick={onContactClick}>
-                    Contact
-                  </a>
+                  <Link to="/bookmarks">Bookmarks</Link>
                 </li>
               </ul>
               <ul className="section-list section-bookmarks">
                 <li>
-                  <Link to="/bookmarks">Best of the internet</Link>
+                  <a href="#" onClick={onContactClick}>
+                    Contact
+                  </a>
                 </li>
               </ul>
             </div>
