@@ -99,13 +99,17 @@ em.name {
   }
 }
 
-.root {
+.greeter-bg {
   background: linear-gradient(359deg, $dark, $light-2, $light-3);
   background-size: 600% 600%;
 
-  -webkit-animation: background 10s ease infinite;
-  -moz-animation: background 10s ease infinite;
-  animation: background 10s ease infinite;
+  -webkit-animation: background 20s ease infinite;
+  -moz-animation: background 20s ease infinite;
+  animation: background 20s ease infinite;
+  min-height: 100vh;
+  min-width: 100vw;
+  position: absolute;
+  z-index: -1;
 }
 
 @-webkit-keyframes background {
@@ -140,4 +144,9 @@ em.name {
   100% {
     background-position: 50% 0%;
   }
+}
+
+.footnote {
+  text-align: center;
+  color: $light-1;
 }

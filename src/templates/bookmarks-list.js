@@ -48,7 +48,7 @@ const BookmarkIndex = (props) => {
         <Content>
           <div className="bookmark-intro">
             This is a list of interesting websites I've found. Maybe you find
-            them interesting too.
+            them interesting too. (Updates daily)
           </div>
           <BookmarkNavigation numPages={numPages} currentPage={currentPage} />
           <BookmarkList bookmarks={bookmarks} />

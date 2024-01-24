@@ -22,6 +22,7 @@ const Index = ({ location }) => {
   return (
     <div className="root">
       {cvModalVisible && <Modal closeModal={() => setCvModalVisible(false)} />}
+      <div className="greeter-bg" />
       <Layout location={location}>
         <SEO title="My corner of the internet" />
         <Content>
@@ -58,6 +59,7 @@ const Index = ({ location }) => {
                 </li>
               </ul>
             </div>
+            <div className="footnote">welcome to my little garden🌱</div>
           </div>
         </Content>
       </Layout>
