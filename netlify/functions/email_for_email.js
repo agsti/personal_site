@@ -59,7 +59,7 @@ const handler = async (event) => {
   if (!process.env.SMTP_HOST) {
     return error_response("process.env.SMTP_HOST must be defined")
   }
-  const smtp_host = proccess.env.SMTP_HOST
+  const smtp_host = process.env.SMTP_HOST
   const body = JSON.parse(event.body)
 
   try {
