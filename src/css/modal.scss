@@ -18,6 +18,7 @@
   box-shadow: 0 0 0 6px $accent-2;
   text-align: center;
   position: relative;
+  z-index: 3;
 }
 .modal-card:hover {
   box-shadow: 0 0 0 12px $accent-2;
