@@ -9,6 +9,7 @@ import Modal from "../components/modal"
 import { Background } from "../components/3d_background"
 
 import "../css/index.scss"
+import { LottieBg } from "../components/bg_lottie/lottie_bg"
 
 const Index = ({ location }) => {
   const [contactVisible, setContactVisible] = useState(false)
@@ -23,6 +24,7 @@ const Index = ({ location }) => {
     <div className="root">
       {cvModalVisible && <Modal closeModal={() => setCvModalVisible(false)} />}
       <div className="greeter-bg" />
+      <LottieBg />
       <Layout location={location}>
         <SEO title="My corner of the internet" />
         <Content>
@@ -35,6 +37,8 @@ const Index = ({ location }) => {
                 <Contact isShown={contactVisible} />
                 <h2>
                   I'm a software engineer. <br />
+                  Currently @{" "}
+                  <a href="https://www.clovrlabs.com/">Clovr Labs</a>
                 </h2>
               </div>
               <ul className="section-list">

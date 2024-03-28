@@ -52,6 +52,7 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.6.0",
+    "react-lottie": "^1.2.4",
     "react-p5-wrapper": "^3.4.0",
     "react-pose": "^4.0.10",
     "react-typography": "^0.16.20",
