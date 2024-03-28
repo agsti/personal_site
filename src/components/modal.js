@@ -49,8 +49,7 @@ export default ({ closeModal }) => {
         It's a lot of information, I hope you understand.
         <br />
         <br />
-        I've setup this system where you give me your email and automagically
-        you'll receive it.
+        I will need your email and automagically it will appear in your inbox
         <br />
         <br />
         <div className="input-container">
@@ -63,7 +62,7 @@ export default ({ closeModal }) => {
             onChange={(el) => setEmail(el.target.value)}
           />
           <button className="contact-button" onClick={onSubmit}>
-            Give it to me!
+            Get CV
           </button>
         </div>
         <a href={linkedin}>Linkedin </a>
