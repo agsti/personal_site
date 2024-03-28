@@ -17,7 +17,6 @@ export const LottieBg = () => {
         position: "absolute",
         zIndex: "-2",
         minHeight: "100vh",
-        backgroundColor: "blue",
       }}
       options={defaultOptions}
     />
