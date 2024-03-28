@@ -23,7 +23,6 @@ const Index = ({ location }) => {
   return (
     <div className="root">
       {cvModalVisible && <Modal closeModal={() => setCvModalVisible(false)} />}
-      <div className="greeter-bg" />
       <LottieBg />
       <Layout location={location}>
         <SEO title="My corner of the internet" />
