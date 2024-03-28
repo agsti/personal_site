@@ -15,7 +15,9 @@ export const LottieBg = () => {
     <Lottie
       style={{
         position: "absolute",
-        zIndex: "-1",
+        zIndex: "-2",
+        minHeight: "100vh",
+        backgroundColor: "blue",
       }}
       options={defaultOptions}
     />
