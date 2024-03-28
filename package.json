@@ -39,6 +39,7 @@
     "gatsby-source-filesystem": "^5.1.0",
     "gatsby-transformer-remark": "^6.1.0",
     "gatsby-transformer-sharp": "^5.1.0",
+    "lottie": "^0.0.1",
     "moment": "^2.29.4",
     "node-fetch": "^3.3.0",
     "node-sass": "^8.0",
