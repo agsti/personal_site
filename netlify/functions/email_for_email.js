@@ -24,25 +24,19 @@ const send_email = async (host, username, password, dest_email) => {
   })
   transporter.use("compile", htmlToText())
 
-  try {
-    let info = await transporter.sendMail({
-      from: '"Agusti Bau" <agusti@briefalert.io>',
-      to: dest_email,
-      subject: "Agusti's Bau CV",
-      attachments: [
-        {
-          filename: "AgustiBau-CV.pdf",
-          path: "https://www.agustibau.com/AgustiBau-CV.pdf",
-        },
-      ],
-      html: `What is promised is promised.<br>Sorry to make you go through this process.<br><br>
+  return await transporter.sendMail({
+    from: '"Agusti Bau" <agusti@briefalert.io>',
+    to: dest_email,
+    subject: "Agusti's Bau CV",
+    attachments: [
+      {
+        filename: "AgustiBau-CV.pdf",
+        path: "https://www.agustibau.com/AgustiBau-CV.pdf",
+      },
+    ],
+    html: `What is promised is promised.<br>Sorry to make you go through this process.<br><br>
         I have not stored your email in any other way than this email itself in my sent folder. It's probably fair<br>Hit me up, I'm nice`,
-    })
-    console.log("Email sent", info)
-    return { statusCode: 200, body: "" }
-  } catch (error) {
-    return { statusCode: 500, body: error.message }
-  }
+  })
 }
 
 const handler = async (event) => {
@@ -64,12 +58,11 @@ const handler = async (event) => {
 
   try {
     validateEmail("body.email", body.email)
-    await send_email(smtp_host, smtp_username, smtp_password)
+    const info = await send_email(smtp_host, smtp_username, smtp_password)
+    console.log("Email sent", info)
+    return { statusCode: 200, body: "" }
   } catch (error) {
-    return {
-      statusCode: 403,
-      body: error.message,
-    }
+    return { statusCode: 500, body: error.message }
   }
 }
 
