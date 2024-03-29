@@ -58,7 +58,12 @@ const handler = async (event) => {
 
   try {
     validateEmail("body.email", body.email)
-    const info = await send_email(smtp_host, smtp_username, smtp_password)
+    const info = await send_email(
+      smtp_host,
+      smtp_username,
+      smtp_password,
+      body.email
+    )
     console.log("Email sent", info)
     return { statusCode: 200, body: "" }
   } catch (error) {
