@@ -9,6 +9,7 @@
 }
 
 .greeter-text {
+  text-align: center;
   padding: 10px;
   background-color: white;
   margin-bottom: 20px;
@@ -51,6 +52,14 @@ em.name {
   background-color: $accent-1;
   color: $light-1;
   outline: 5px solid $accent-1;
+  white-space: nowrap;
+}
+
+em.emph {
+  font-style: normal;
+  background-color: $accent-2;
+  color: $light-1;
+  outline: 5px solid $accent-2;
   white-space: nowrap;
 }
 

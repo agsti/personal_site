@@ -31,15 +31,11 @@ const Index = ({ location }) => {
             <div className="greeter-container">
               <div className="greeter-box">
                 <div className="greeter-text">
-                  <h1>
-                    Hey, <em className="name">I'm Agusti.</em>
-                  </h1>
                   <Contact isShown={contactVisible} />
-                  <h2>
-                    I'm a software engineer. <br />
-                    Currently @{" "}
-                    <a href="https://www.clovrlabs.com/">Clovr Labs</a>
-                  </h2>
+                  <h1>Found a problem?</h1>
+                  <h1>
+                    Build <em className="emph">a solution</em>
+                  </h1>
                 </div>
                 <ul className="section-list">
                   {/* <li> */}
