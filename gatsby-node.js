@@ -177,7 +177,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
     const { project } = node.frontmatter
-    let slug = project ? `/projects${value}` : `/blog${value}`
+    let slug = project ? `/case-studies${value}` : `/blog${value}`
     createNodeField({
       name: `slug`,
       node,

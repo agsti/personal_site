@@ -1,8 +1,5 @@
 import React, { useState } from "react"
-import { Link, graphql, Image } from "gatsby"
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHeart } from "@fortawesome/free-solid-svg-icons"
+import { Link, graphql } from "gatsby"
 
 import { BackgroundSet } from "../components/background"
 import { Layout, Content } from "../components/layout"
@@ -14,7 +11,7 @@ import "../css/projects.scss"
 
 const ProjectsIndex = ({ data, location }) => {
   const Projects = data.allMarkdownRemark.edges
-  const title = "Projects"
+  const title = "Case studies"
 
   return (
     <div className="root">
@@ -48,15 +45,10 @@ const ProjectsIndex = ({ data, location }) => {
         <Header title={title} links_to="/" className="projects-header" />
         <Content>
           <div className="main-container">
-            <p className="p-brief">
-              THIS IS MOSTLY A GRAVEYARD OF STUFF I'VE BUILT A LONG TIME AGO,
-              MOST OF MY WORK HAS BEEN PRIVATE FOR A WHILE NOW
-            </p>
-            <p className="p-brief">Showcase of stuff I've built</p>
+            <p className="p-brief">Successful recent projects</p>
             <div className="project-container">
               {Projects.map((p, i) => {
                 const { title, thumbnail, technologies } = p.node.frontmatter
-                console.log(thumbnail.childImageSharp)
                 return (
                   <Link className="p-item-link" to={p.node.fields.slug}>
                     <div className={"project-item-g"}>

@@ -1,12 +1,10 @@
 import React, { useState } from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 
 import { Layout, Content } from "../components/layout"
 import SEO from "../components/seo"
 import Contact from "../components/contact"
-import { NewBackground } from "../components/3d_background"
 import Modal from "../components/modal"
-import { Background } from "../components/3d_background"
 
 import "../css/index.scss"
 import { LottieBg } from "../components/bg_lottie/lottie_bg"
@@ -19,7 +17,6 @@ const Index = ({ location }) => {
     setContactVisible((prev) => !prev)
   }
 
-  const cvPdf = "/AgustiBau-CV.pdf"
   return (
     <>
       {cvModalVisible && <Modal closeModal={() => setCvModalVisible(false)} />}
@@ -32,15 +29,17 @@ const Index = ({ location }) => {
               <div className="greeter-box">
                 <div className="greeter-text">
                   <Contact isShown={contactVisible} />
-                  <h1>Found a problem?</h1>
                   <h1>
-                    Build <em className="emph">a solution</em>
+                    Found a <em className="emph">problem?</em>
+                  </h1>
+                  <h1>
+                    Build <em className="name">a solution</em>
                   </h1>
                 </div>
                 <ul className="section-list">
-                  {/* <li> */}
-                  {/*   <Link to="/projects">Projects</Link> */}
-                  {/* </li> */}
+                  <li>
+                    <Link to="/case-studies">Case studies</Link>
+                  </li>
                   <li>
                     <a href="#" onClick={() => setCvModalVisible(true)}>
                       cv
