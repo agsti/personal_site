@@ -44,35 +44,32 @@ const ProjectsIndex = ({ data, location }) => {
         <SEO title={title} />
         <Header title={title} links_to="/" className="projects-header" />
         <Content>
-          <div className="main-container">
-            <p className="p-brief">Successful recent projects</p>
-            <div className="project-container">
-              {Projects.map((p, i) => {
-                const { title, thumbnail, technologies } = p.node.frontmatter
-                return (
-                  <Link className="p-item-link" to={p.node.fields.slug}>
-                    <div className={"project-item-g"}>
-                      <img src={thumbnail.childImageSharp.fixed.src} />
-                      <div className="project-card">
-                        <div className="project-left-card">
-                          <div className="project-item-title">
-                            <span>{title}</span>
-                          </div>
-                          <ul className="project-tech">
-                            {technologies.map((t) => (
-                              <li>{t}</li>
-                            ))}
-                          </ul>
+          <div className="project-container">
+            {Projects.map((p, i) => {
+              const { title, thumbnail, technologies } = p.node.frontmatter
+              return (
+                <Link className="p-item-link" to={p.node.fields.slug}>
+                  <div className={"project-item-g"}>
+                    <img src={thumbnail.childImageSharp.fixed.src} />
+                    <div className="project-card">
+                      <div className="project-left-card">
+                        <div className="project-item-title">
+                          <span>{title}</span>
                         </div>
-                        {/* <div className="project-right-card">
+                        <ul className="project-tech">
+                          {technologies.map((t) => (
+                            <li>{t}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      {/* <div className="project-right-card">
                       <FontAwesomeIcon icon={faHeart} />
                     </div> */}
-                      </div>
                     </div>
-                  </Link>
-                )
-              })}
-            </div>
+                  </div>
+                </Link>
+              )
+            })}
           </div>
         </Content>
       </Layout>
@@ -98,7 +95,6 @@ export const pageQuery = graphql`
           frontmatter {
             title
             technologies
-            link
             status
             thumbnail {
               id

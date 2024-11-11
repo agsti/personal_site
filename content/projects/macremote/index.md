@@ -12,16 +12,20 @@ thumbnail: ./featured.png
 
 ![macremote first screenshot](./featured.png)
 
-## The pain-point
-Apple remotes were getting discontinued after the Macbook Retinas. All the remote controlling apps needed some software running on the computer and I was not comfortable with that.
+## Problem
+- Android doesn't have a [Remote](https://apps.apple.com/us/app/remote/id1459548957) app.
+- Apple remotes getting discontinued after 2011.
+- Existing apps need some software running on the computer.
+- Existing app did not support a lot of common media playing software.
 
-## What it did
-It was an Android app made to control OSX devices from said smartphones. Media controls, volume control, remote shutdown... among those lines.
-The neat trick that it had, was that it didn't need any specific software running on the mac itself! It used a combination of SSH access and inlining AppleScript commands. 
-But it required ssh credentials, which I would not recommend anyone to share.
+## Solution
+An Android app made to control OSX devices. Offering features such as media controls, volume control, remote shutdown.
 
-## Experience
-This was my first experience at self-developing something and releasing it into the wild.
+Relying on an ssh connection to the computer to send commands. Because OSx already has an ssh server running, it's a simple solution.
 
-It got [some](https://lifehacker.com/mac-remote-controls-your-mac-from-the-comfort-of-your-a-5991748) [press](https://www.xda-developers.com/use-your-android-as-a-remote-control-on-mac/) attention and got about 200k downloads. After a 3 year run and about 20 updates. Eventually, better solutions appeared and I lost interest.
-Maybe I will get back to it one of those days, at least to release the source code or something.
+
+## Outcome
+- 200k total downloads.
+- 20 updates
+- [some](https://lifehacker.com/mac-remote-controls-your-mac-from-the-comfort-of-your-a-5991748) [press](https://www.xda-developers.com/use-your-android-as-a-remote-control-on-mac/) attention
+- 6000€ in total revenue

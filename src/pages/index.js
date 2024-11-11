@@ -28,12 +28,10 @@ const Index = ({ location }) => {
             <div className="greeter-container">
               <div className="greeter-box">
                 <div className="greeter-text">
+                  <h1>Agusti Bau</h1>
                   <Contact isShown={contactVisible} />
                   <h1>
-                    Found a <em className="emph">problem?</em>
-                  </h1>
-                  <h1>
-                    Build <em className="name">a solution</em>
+                    <em className="name">Software solutions</em>
                   </h1>
                 </div>
                 <ul className="section-list">
@@ -60,7 +58,7 @@ const Index = ({ location }) => {
                   </li>
                 </ul>
               </div>
-              <div className="footnote">welcome to my little garden🌱</div>
+              <div className="footnote">🚀</div>
             </div>
           </Content>
         </Layout>

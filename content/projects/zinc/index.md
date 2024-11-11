@@ -1,6 +1,6 @@
 ---
-title: Next-trial/Proacto
-technologies: 
+title: Proacto
+technologies:
     - react-native
     - nodejs
 status: active
@@ -9,21 +9,17 @@ project_index: 1
 thumbnail: ./thumbnail.jpg
 ---
 
-## Background
-This is not a personal project, but as I was the only developer it would be very close to one.
-This project took place while I was part of [Zinc.vc](http://www.zinc.vc), a startup incubator with a social mission. 
+## Problem
+4th phase clinical trials are used to measure the effect of drugs on the public for a long period of time.
+They require a lot of time and money to be conducted
+Proacto wanted to conduct them remotely in order to reduce the cost.
 
-I tried to kickstar this venture with my good friend [Tom Hedley](https://www.linkedin.com/in/hedleyconsulting/). 
+The assumption was that by performing timely questionaires to the patients and allowing a researcher to monitor their responses, patients would not need to be visited.
 
-We wanted to reduce the price of running clinical trials by conducting part of the trial remotely.
+## Solution
+The product was a data driven questionaire platform. It allowed multiple kinds of questionaires.
 
-## Pain-point
-What we wanted to do was to was to help conduct 4th phase clinical trials remotely. Those kind of trials are done for a long time, when the treatment has already been tested, and its main purpose is to watch its effect on the public.
-
-We assumed that by performing timely questionaires to the patients and allowing a researcher to monitor their responses we would be able to reduce the cost of running a clinical trial.
-
-## Product
-The product that we built was a data driven questionaire platform. We allowed multiple kinds of questionaires. The features I implemented were the following:
+The following features were built:
 - Onboarding registering screens
 - Data driven questionaires. At some point would have been obtained from an api
 - Dashboard where questionaires would be queued, and general overview would be provided

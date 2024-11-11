@@ -35,20 +35,20 @@ const ProjectPageTemplate = ({ data, pageContext, location }) => {
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <Header
           title={siteTitle}
-          links_to="/projects"
+          links_to="/case-studies"
           className="blog-header"
         />
         <Content>
           <article className="blog-content">
             <header className="project-header">
               <h1>{post.frontmatter.title}</h1>
-              <p>
-                {project_link && (
-                  <a className="project-link" href={project_link}>
-                    Visit project
-                  </a>
-                )}
-              </p>
+              {/* <p> */}
+              {/*   {project_link && ( */}
+              {/*     <a className="project-link" href={project_link}> */}
+              {/*       Visit project */}
+              {/*     </a> */}
+              {/*   )} */}
+              {/* </p> */}
             </header>
             <section dangerouslySetInnerHTML={{ __html: post.html }} />
             <Bio />
@@ -94,7 +94,6 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        link
       }
     }
   }

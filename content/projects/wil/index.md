@@ -1,34 +1,23 @@
 ---
 title: TubeHabit
-technologies: 
+technologies:
     - react
     - django
     - Docker
 status: active
-link: http://maps.agustibau.com
 project: true
 project_index: 2
 thumbnail: ./thumbnail2.png
 ---
 
 ![TubeHabit thumbnail](./thumbnail2.png)
-## The pain-point
-This is my latest project! I'm trying to look at my nuances when I was looking for a place to live in London.
+## Problem
+- Looking for a place to live in big cities is hard
+- One wants to live near friends, near work, near hobbies, and in certain areas
+- No real state portal offered a way to search for properties within a commute time from a point
 
-I noticed a pattern when looking for flats online. I would __Input all the parameters__ that every portal would allow me, budget, area, number of flatmates... __then go to google maps and check commute times__ to a couple of places I'd go frequently. I would make sure were reasonable, and if so I'd move ahead.
-It was painful enough for me, so I assume it might be annoying to someone else.
+## Solution
+- A system that calculates isochronic areas around a point
+- Precalculating and caching distances for every 5min time, and rounding latitude and longitude to a certain floating point
+- A search engine where areas can be combined. (e.g. 30min from work, 15min from friends)
 
-Therefore I'm building a website that allows us to search properties within a commute time from a point. 
-
-## So far I've...
-- Chosen technologies, Django + react will be
-- Infrastructure based on Docker + Docker-machine
-- Created a dev environment that hot reloads most of the code (except dependencies) BE&FE
-- Created deployment 
-- FE: Basically what you can see [here](http://maps.agustibau.com)
-- BE: I'm able to get Isochronic areas, register users and get listings, I scrap data from multiple sources.
-
-
-## I still have to...
-- Make infrastructure scalable using Kubernetes
-- Add analytics with a matomo instance.
