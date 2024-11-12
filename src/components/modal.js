@@ -45,13 +45,8 @@ export default ({ closeModal }) => {
           onClick={closeModal}
           icon={faXmark}
         />
-        <h3>I no longer share my CV freely😥</h3>
-        It's a lot of information, I hope you understand.
-        <br />
-        <br />
-        I will need your email and automagically it will appear in your inbox
-        <br />
-        <br />
+        <h3>I no longer share my CV openly😥</h3>
+        <br />I can send it to you in exchange for your email
         <div className="input-container">
           <input
             type="text"

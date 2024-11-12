@@ -28,11 +28,8 @@ const Index = ({ location }) => {
             <div className="greeter-container">
               <div className="greeter-box">
                 <div className="greeter-text">
-                  <h1>Agusti Bau</h1>
+                  <h1>Software solutions</h1>
                   <Contact isShown={contactVisible} />
-                  <h1>
-                    <em className="name">Software solutions</em>
-                  </h1>
                 </div>
                 <ul className="section-list">
                   <li>
@@ -40,7 +37,7 @@ const Index = ({ location }) => {
                   </li>
                   <li>
                     <a href="#" onClick={() => setCvModalVisible(true)}>
-                      cv
+                      Experience
                     </a>
                   </li>
                   <li>
