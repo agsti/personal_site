@@ -28,12 +28,19 @@ const Index = ({ location }) => {
             <div className="greeter-container">
               <div className="greeter-box">
                 <div className="greeter-text">
-                  <h1>Software solutions</h1>
+                  <h1>
+                    Hey, <em className="name">I'm Agusti.</em>
+                  </h1>
                   <Contact isShown={contactVisible} />
+                  <h2>
+                    I'm a software engineer. <br />
+                    Currently @{" "}
+                    <a href="https://www.clovrlabs.com/">Clovr Labs</a>
+                  </h2>
                 </div>
                 <ul className="section-list">
                   <li>
-                    <Link to="/case-studies">Case studies</Link>
+                    <Link to="/projects">Projects</Link>
                   </li>
                   <li>
                     <a href="#" onClick={() => setCvModalVisible(true)}>
