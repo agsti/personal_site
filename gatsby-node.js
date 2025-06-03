@@ -52,7 +52,7 @@ exports.sourceNodes = async ({
   if (linkding_token) {
     console.log(`Found linkding_token: ${linkding_token}`)
     const response = await axios.get(
-      `https://links.agustibau.com/api/bookmarks?limit=9999`,
+      `https://links.vps.agustibau.com/api/bookmarks?limit=9999`,
       {
         headers: {
           Authorization: `Token ${linkding_token}`,
