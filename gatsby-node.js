@@ -30,7 +30,6 @@ const createFakeBookmarkData = () => {
       id: `id_${index}`,
       tag_names: `tag_names_${index}`,
       url: `url_${index}`,
-      website_title: `website_title_${index}`,
       website_description: `website_description_${index}`,
       date_added: `date_added_${index}`,
       title: `title_${index}`,

@@ -5,7 +5,7 @@ const do_request = async (method, url, post_body = null) => {
   const linkding_token = process.env.LINKDING_TOKEN
   const { data } = await axios({
     method: method,
-    url: `https://links.agustibau.com/${url}`,
+    url: `https://links.vps.agustibau.com/${url}`,
     headers: {
       Authorization: `Token ${linkding_token}`,
     },

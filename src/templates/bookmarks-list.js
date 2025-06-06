@@ -44,10 +44,10 @@ const BookmarkIndex = (props) => {
       />
       <Layout location={location}>
         <SEO title="Bookmarks" />
-        <Header title="Best of internet" links_to="/" className="blog-header" />
+        <Header title="Bookmarks" links_to="/bookmarks" className="blog-header" />
         <Content>
           <div className="bookmark-intro">
-            This is a list of interesting websites I've found. Maybe you find
+            This is a list of interesting websites I've found. Maybe you will find
             them interesting too. (Updates daily)
           </div>
           <BookmarkNavigation numPages={numPages} currentPage={currentPage} />
@@ -78,8 +78,6 @@ export const pageQuery = graphql`
         id
         tag_names
         url
-        website_title
-        website_description
         date_added
         title
         description
