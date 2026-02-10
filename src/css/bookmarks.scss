@@ -28,3 +28,57 @@
 .bookmark-intro{
     color: $light-1;
 }
+
+.bookmark-search-container {
+    margin: 20px 5px;
+}
+
+.bookmark-search-input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 3px solid $accent-2;
+    background-color: $light-1;
+    color: $dark;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+
+    &:focus {
+        border-color: $accent-1;
+    }
+
+    &::placeholder {
+        color: rgba($dark, 0.5);
+    }
+}
+
+.search-results {
+    margin-top: 20px;
+}
+
+.search-status {
+    color: $light-1;
+    font-size: 1.2em;
+    margin: 10px 5px;
+}
+
+.bookmark-meta {
+    margin-top: 8px;
+    font-size: 0.85em;
+    color: rgba($dark, 0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bookmark-tags {
+    background-color: rgba($accent-1, 0.2);
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.bookmark-date-small {
+    color: rgba($dark, 0.6);
+}

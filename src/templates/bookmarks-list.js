@@ -7,6 +7,7 @@ import Header from "../components/header"
 import SEO from "../components/seo"
 import BookmarkNavigation from "../components/bookmark_navigation"
 import BookmarkList from "../components/bookmark_list"
+import BookmarkSearch from "../components/bookmark_search"
 
 import "../css/bookmarks.scss"
 import "../css/base.scss"
@@ -50,6 +51,7 @@ const BookmarkIndex = (props) => {
             This is a list of interesting websites I've found. Maybe you will find
             them interesting too. (Updates daily)
           </div>
+          <BookmarkSearch />
           <BookmarkNavigation numPages={numPages} currentPage={currentPage} />
           <BookmarkList bookmarks={bookmarks} />
 

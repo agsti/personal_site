@@ -1,5 +1,6 @@
 const path = require(`path`)
 const axios = require("axios")
+const fs = require("fs")
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 const is_dev = process.env["NODE_ENV"] == "development"
@@ -183,4 +184,51 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: slug,
     })
   }
+}
+
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html" || stage === "develop-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /react-lottie/,
+            use: loaders.null(),
+          },
+          {
+            test: /lottie-web/,
+            use: loaders.null(),
+          },
+          {
+            test: /gitalk/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
+}
+
+exports.onPostBuild = async ({ graphql }) => {
+  const result = await graphql(`
+    {
+      allBookmark(sort: { order: DESC, fields: date_added }) {
+        nodes {
+          id
+          tag_names
+          url
+          date_added
+          title
+          description
+        }
+      }
+    }
+  `)
+
+  const bookmarks = result.data.allBookmark.nodes
+  fs.writeFileSync(
+    "./public/bookmarks-data.json",
+    JSON.stringify(bookmarks, null, 2)
+  )
+  console.log(`✅ Exported ${bookmarks.length} bookmarks to bookmarks-data.json`)
 }

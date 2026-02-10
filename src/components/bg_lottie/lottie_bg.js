@@ -3,6 +3,11 @@ import Lottie from "react-lottie"
 import * as animationData from "./bg_anim.json"
 
 export const LottieBg = () => {
+  // Check if we're in the browser (not SSR)
+  if (typeof window === "undefined") {
+    return null
+  }
+
   const defaultOptions = {
     loop: false,
     autoplay: true,
