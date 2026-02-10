@@ -18,7 +18,7 @@
     "@react-three/postprocessing": "^2.7.0",
     "canvas-sketch-util": "^1.10.0",
     "flexsearch": "^0.8.212",
-    "gatsby": "^5.1.0",
+    "gatsby": "^5.16.1",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-feed": "^5.1.0",
     "gatsby-plugin-gitalk": "^1.2.6",
