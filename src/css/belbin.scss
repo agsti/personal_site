@@ -1,0 +1,563 @@
+@import "colors";
+
+.belbin-header {
+  border: 5px $light-1 solid;
+  font-style: normal;
+  background-color: $accent-1;
+  color: $light-1;
+  padding: 10px;
+  margin: 20px 0px;
+}
+
+.belbin-intro {
+  background-color: $light-1;
+  border: 5px solid $accent-2;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  p {
+    margin: 0 0 0.5rem 0;
+  }
+
+  .belbin-progress {
+    font-size: 0.95rem;
+    color: $light-3;
+  }
+}
+
+.belbin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.belbin-section {
+  background-color: $light-1;
+  border: 5px solid $accent-2;
+  padding: 1rem 1.5rem 1.5rem;
+  margin: 0;
+  transition: border-color 0.2s ease;
+
+  legend {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    width: 100%;
+    font-size: 1.15rem;
+    font-weight: bold;
+    padding: 0.25rem 0.75rem;
+    background-color: $light-1;
+    border: 3px solid $accent-2;
+
+    .sec-num {
+      color: $accent-1;
+    }
+
+    .sec-sum {
+      margin-left: auto;
+      font-variant-numeric: tabular-nums;
+      font-size: 1rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background-color: $light-1;
+      border: 2px solid $light-3;
+      color: $light-3;
+    }
+  }
+
+  &.state-ok {
+    border-color: $accent-1;
+    legend {
+      border-color: $accent-1;
+      .sec-sum {
+        background-color: $accent-1;
+        color: $light-1;
+        border-color: $accent-1;
+      }
+    }
+  }
+
+  &.state-over {
+    border-color: #c0392b;
+    legend .sec-sum {
+      background-color: #c0392b;
+      color: $light-1;
+      border-color: #c0392b;
+    }
+  }
+}
+
+.belbin-statements {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed lighten($light-3, 50%);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  label {
+    display: grid;
+    grid-template-columns: 60px 1.5rem 1fr;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+
+  input[type="number"] {
+    width: 60px;
+    padding: 6px 8px;
+    font-size: 1rem;
+    border: 2px solid $light-3;
+    background-color: $light-1;
+    color: $base-font;
+    font-variant-numeric: tabular-nums;
+
+    &:focus {
+      outline: none;
+      border-color: $accent-1;
+    }
+  }
+
+  .letter {
+    font-weight: bold;
+    color: $accent-1;
+  }
+
+  .text {
+    color: $base-font;
+  }
+}
+
+.belbin-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+
+  button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    border: 5px solid $light-1;
+    cursor: pointer;
+    font-family: inherit;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .btn-submit {
+    background-color: $accent-1;
+    color: $light-1;
+
+    &:hover:not(:disabled) {
+      background-color: darken($accent-1, 5%);
+    }
+  }
+
+  .btn-reset {
+    background-color: $light-1;
+    color: $light-3;
+    border: 5px solid $light-3;
+
+    &:hover {
+      background-color: darken($light-1, 5%);
+    }
+  }
+}
+
+.belbin-hint {
+  text-align: right;
+  color: #c0392b;
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0;
+}
+
+// Results panel
+.belbin-results {
+  background-color: $light-1;
+  border: 5px solid $accent-1;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+
+  h2 {
+    margin-top: 0;
+    border-bottom: 2px solid $accent-1;
+    padding-bottom: 0.5rem;
+  }
+
+  h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h4 {
+    margin: 0 0 0.5rem 0;
+    color: $accent-1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.9rem;
+  }
+}
+
+.belbin-radar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0 1.5rem;
+}
+
+.belbin-radar {
+  display: block;
+  max-width: 780px;
+  width: 100%;
+  height: auto;
+
+  .ring {
+    fill: rgba(247, 247, 247, 0.35);
+    stroke: lighten($light-3, 50%);
+    stroke-width: 1;
+
+    &.ring-0 { fill: rgba(247, 247, 247, 0.5); }
+    &.ring-3 { fill: rgba(66, 184, 131, 0.04); stroke: $light-3; stroke-width: 1.5; }
+  }
+
+  .axis {
+    stroke: lighten($light-3, 40%);
+    stroke-width: 1;
+  }
+
+  .data-polygon {
+    fill: rgba(66, 184, 131, 0.25);
+    stroke: $accent-1;
+    stroke-width: 2;
+    stroke-linejoin: round;
+  }
+
+  .data-point {
+    stroke: $light-1;
+    stroke-width: 2;
+    fill: $accent-1;
+
+    &.point-low { fill: lighten($light-3, 35%); }
+    &.point-med { fill: $accent-2; }
+    &.point-high { fill: $accent-1; }
+    &.point-vhigh { fill: $dark; }
+  }
+
+  .axis-label text {
+    font-size: 13px;
+    font-weight: bold;
+    fill: $base-font;
+  }
+
+  .axis-label-value {
+    font-weight: normal !important;
+    fill: $light-3 !important;
+    font-size: 12px !important;
+  }
+}
+
+.radar-legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  color: $light-3;
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid $light-1;
+    box-shadow: 0 0 0 1px lighten($light-3, 40%);
+  }
+
+  .dot-0 { background-color: lighten($light-3, 35%); }
+  .dot-1 { background-color: $accent-2; }
+  .dot-2 { background-color: $accent-1; }
+  .dot-3 { background-color: $dark; }
+}
+
+.results-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  .summary-block {
+    background-color: lighten($accent-1, 45%);
+    border-left: 5px solid $accent-1;
+    padding: 0.75rem 1rem;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        padding: 0.25rem 0;
+      }
+    }
+  }
+}
+
+.family-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  .family-block {
+    border: 2px solid lighten($light-3, 40%);
+    padding: 0.75rem 1rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 0.4rem 0.5rem;
+    border-bottom: 1px dashed lighten($light-3, 50%);
+  }
+
+  th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: $light-3;
+    letter-spacing: 0.05em;
+  }
+
+  td.num {
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    width: 60px;
+  }
+
+  td.muted,
+  .muted {
+    color: $light-3;
+    font-size: 0.85rem;
+    font-weight: normal;
+  }
+}
+
+.rango {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  white-space: nowrap;
+
+  &.rango-low {
+    background-color: lighten($light-3, 55%);
+    color: $light-3;
+  }
+
+  &.rango-med {
+    background-color: lighten($accent-2, 20%);
+    color: darken($accent-2, 25%);
+  }
+
+  &.rango-high {
+    background-color: $accent-1;
+    color: $light-1;
+  }
+
+  &.rango-vhigh {
+    background-color: $dark;
+    color: $light-1;
+  }
+}
+
+.breakdown-hint {
+  font-size: 0.9rem;
+  color: $light-3;
+  margin: 0 0 0.75rem;
+}
+
+.breakdown-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+  gap: 1.25rem;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+
+.breakdown-table-wrap {
+  overflow-x: auto;
+  border: 2px solid lighten($light-3, 40%);
+}
+
+.answers-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.95rem;
+
+  th,
+  td {
+    text-align: center;
+    padding: 0.35rem 0.4rem;
+    border-bottom: 1px dashed lighten($light-3, 50%);
+    border-right: 1px dashed lighten($light-3, 50%);
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  th:last-child,
+  td:last-child {
+    border-right: none;
+  }
+
+  thead th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: $light-3;
+    letter-spacing: 0.05em;
+    background-color: lighten($light-3, 55%);
+    border-bottom: 2px solid lighten($light-3, 40%);
+  }
+
+  tbody th {
+    color: $accent-1;
+    font-weight: bold;
+    background-color: lighten($light-3, 55%);
+    border-right: 2px solid lighten($light-3, 40%);
+  }
+
+  td.zero {
+    color: lighten($light-3, 30%);
+  }
+
+  td.highlighted {
+    background-color: $accent-1;
+    color: $light-1;
+    font-weight: bold;
+  }
+
+  tr.total-row {
+    th,
+    td {
+      border-top: 2px solid lighten($light-3, 40%);
+      border-bottom: none;
+    }
+    th {
+      color: $light-3;
+    }
+  }
+}
+
+.breakdown-roles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.4rem 0.75rem;
+    border: 2px solid lighten($light-3, 45%);
+    background-color: $light-1;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+
+    &:hover,
+    &:focus,
+    &.active {
+      outline: none;
+      background-color: lighten($accent-1, 45%);
+      border-color: $accent-1;
+    }
+  }
+
+  .role-name {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .role-total {
+    font-variant-numeric: tabular-nums;
+    font-weight: bold;
+    color: $accent-1;
+    padding: 1px 8px;
+    border: 2px solid $accent-1;
+    border-radius: 999px;
+    font-size: 0.9rem;
+  }
+}
+
+.results-note {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  background-color: lighten($accent-2, 25%);
+  border-left: 4px solid $accent-2;
+  font-size: 0.9rem;
+  color: $base-font;
+}
+
+@media only screen and (max-width: 70rem) {
+  .belbin-intro,
+  .belbin-section,
+  .belbin-results {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+@media only screen and (max-device-width: 480px) {
+  .belbin-section {
+    padding: 0.75rem;
+  }
+
+  .belbin-statements label {
+    grid-template-columns: 50px 1.25rem 1fr;
+    gap: 0.4rem;
+  }
+
+  .belbin-statements input[type="number"] {
+    width: 50px;
+    padding: 4px 6px;
+  }
+
+  .results-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .breakdown-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .belbin-actions {
+    flex-direction: column-reverse;
+
+    button {
+      width: 100%;
+    }
+  }
+}
