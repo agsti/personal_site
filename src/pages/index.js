@@ -32,11 +32,7 @@ const Index = ({ location }) => {
                     Hey, <em className="name">I'm Agusti.</em>
                   </h1>
                   <Contact isShown={contactVisible} />
-                  <h2>
-                    I'm a software engineer. <br />
-                    Currently @{" "}
-                    <a href="https://www.clovrlabs.com/">Clovr Labs</a>
-                  </h2>
+                  <h2>I'm a software engineer.</h2>
                 </div>
                 <ul className="section-list">
                   <li>
@@ -47,9 +43,9 @@ const Index = ({ location }) => {
                       Experience
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link to="/blog">Writings</Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link to="/bookmarks">Bookmarks</Link>
                   </li>
@@ -61,6 +57,9 @@ const Index = ({ location }) => {
                     </a>
                   </li>
                 </ul>
+                <div className="contact-availability">
+                  open to select freelance & contract work
+                </div>
               </div>
               <div className="footnote">🚀</div>
             </div>
