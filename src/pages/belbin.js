@@ -217,6 +217,28 @@ const classify = (total, [lowMax, medMax, highMax]) => {
   return { label: "Muy alto", key: "vhigh" }
 }
 
+const computeRoleResults = (answers) =>
+  ROLES.map((role) => {
+    const total = role.letters.reduce(
+      (sum, letter, idx) => sum + toInt(answers[idx][letter]),
+      0
+    )
+    const range = classify(total, role.bands)
+    return { ...role, total, range }
+  })
+
+// Agusti's own results, used as a comparison baseline at the end of the page.
+const AGUSTI_ANSWERS = [
+  { a: "3", b: "1", c: "3", d: "", e: "", f: "", g: "3", h: "", i: "" },
+  { a: "2", b: "0", c: "", d: "1", e: "2", f: "2", g: "", h: "3", i: "" },
+  { a: "", b: "", c: "2", d: "", e: "3", f: "", g: "2", h: "2", i: "1" },
+  { a: "3", b: "", c: "", d: "", e: "", f: "3", g: "1", h: "", i: "3" },
+  { a: "4", b: "4", c: "", d: "", e: "", f: "", g: "", h: "", i: "2" },
+  { a: "", b: "", c: "5", d: "", e: "", f: "", g: "1", h: "3", i: "1" },
+  { a: "", b: "3", c: "", d: "", e: "3", f: "1", g: "1", h: "2", i: "0" },
+]
+const AGUSTI_ROLE_RESULTS = computeRoleResults(AGUSTI_ANSWERS)
+
 const STORAGE_KEY = "belbin_last_answers"
 
 const isValidStoredAnswers = (parsed) =>
@@ -301,30 +323,29 @@ const BelbinPage = ({ location }) => {
   const handleCalculate = (e) => {
     e.preventDefault()
     if (!allValid) return
-    console.log(
-      "Belbin responses:",
-      JSON.parse(JSON.stringify(answers))
-    )
-    console.log("Belbin responses (JSON):", JSON.stringify(answers))
+    const snapshot = JSON.parse(JSON.stringify(answers))
+    console.log("Belbin responses:", snapshot)
+    console.log("Belbin responses (JSON):", JSON.stringify(snapshot))
     try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(answers))
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(snapshot))
     } catch (err) {
       // ignore quota / disabled storage
+    }
+    const results = computeRoleResults(snapshot)
+    if (typeof window !== "undefined" && typeof window.fetch === "function") {
+      window
+        .fetch("/.netlify/functions/email_belbin", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ answers: snapshot, roleResults: results }),
+        })
+        .catch((err) => console.warn("Belbin email POST failed", err))
     }
     setShowResults(true)
     setShouldScrollTop(true)
   }
 
-  const roleResults = useMemo(() => {
-    return ROLES.map((role) => {
-      const total = role.letters.reduce(
-        (sum, letter, idx) => sum + toInt(answers[idx][letter]),
-        0
-      )
-      const range = classify(total, role.bands)
-      return { ...role, total, range }
-    })
-  }, [answers])
+  const roleResults = useMemo(() => computeRoleResults(answers), [answers])
 
   const sortedRoleResults = useMemo(
     () => [...roleResults].sort((a, b) => b.total - a.total),
@@ -362,7 +383,6 @@ const BelbinPage = ({ location }) => {
 
           {showResults && (
             <ResultsPanel
-              answers={answers}
               roleResults={roleResults}
               sortedRoleResults={sortedRoleResults}
               byFamily={byFamily}
@@ -453,7 +473,7 @@ const normalizeRoleValue = (total, bands) => {
   return 1
 }
 
-const RadarChart = ({ roleResults }) => {
+const RadarChart = ({ roleResults, compareRoleResults, compareLabel }) => {
   const width = 780
   const height = 520
   const cx = width / 2
@@ -475,13 +495,19 @@ const RadarChart = ({ roleResults }) => {
       })
       .join(" ")
 
-  const dataPoints = roleResults
-    .map((r, i) => {
-      const v = normalizeRoleValue(r.total, r.bands)
-      const p = pointAt(i, R * v)
-      return `${p.x.toFixed(2)},${p.y.toFixed(2)}`
-    })
-    .join(" ")
+  const polygonPoints = (results) =>
+    results
+      .map((r, i) => {
+        const v = normalizeRoleValue(r.total, r.bands)
+        const p = pointAt(i, R * v)
+        return `${p.x.toFixed(2)},${p.y.toFixed(2)}`
+      })
+      .join(" ")
+
+  const dataPoints = polygonPoints(roleResults)
+  const comparePoints = compareRoleResults
+    ? polygonPoints(compareRoleResults)
+    : null
 
   const rings = [0.25, 0.5, 0.75, 1]
 
@@ -515,7 +541,31 @@ const RadarChart = ({ roleResults }) => {
           )
         })}
 
+        {comparePoints && (
+          <polygon points={comparePoints} className="compare-polygon" />
+        )}
+
         <polygon points={dataPoints} className="data-polygon" />
+
+        {compareRoleResults &&
+          compareRoleResults.map((r, i) => {
+            const v = normalizeRoleValue(r.total, r.bands)
+            const p = pointAt(i, R * v)
+            return (
+              <circle
+                key={`cmp-${r.abbr}`}
+                cx={p.x}
+                cy={p.y}
+                r={4}
+                className="compare-data-point"
+              >
+                <title>
+                  {compareLabel || "Comparación"} · {r.es}: {r.total} —{" "}
+                  {r.range.label}
+                </title>
+              </circle>
+            )
+          })}
 
         {roleResults.map((r, i) => {
           const v = normalizeRoleValue(r.total, r.bands)
@@ -553,6 +603,9 @@ const RadarChart = ({ roleResults }) => {
                 className="axis-label-value"
               >
                 {r.total}
+                {compareRoleResults
+                  ? ` / ${compareRoleResults[i].total}`
+                  : ""}
               </text>
             </g>
           )
@@ -565,112 +618,85 @@ const RadarChart = ({ roleResults }) => {
             {label}
           </li>
         ))}
+        {compareRoleResults && (
+          <>
+            <li>
+              <span className="swatch swatch-self" /> Tú
+            </li>
+            <li>
+              <span className="swatch swatch-compare" />{" "}
+              {compareLabel || "Comparación"}
+            </li>
+          </>
+        )}
       </ul>
     </div>
   )
 }
 
-const AnswersBreakdown = ({ answers, roleResults }) => {
-  const [hoveredRole, setHoveredRole] = useState(null)
-
-  const activeRole = roleResults.find((r) => r.abbr === hoveredRole)
-
-  const isHighlighted = (sectionIdx, letter) =>
-    activeRole && activeRole.letters[sectionIdx] === letter
+const ComparisonPanel = ({ roleResults }) => {
+  const compareRows = useMemo(
+    () =>
+      roleResults
+        .map((r, i) => {
+          const mine = AGUSTI_ROLE_RESULTS[i]
+          const delta = r.total - mine.total
+          return { role: r, mine, delta }
+        })
+        .sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta)),
+    [roleResults]
+  )
 
   return (
-    <>
-      <h3>Desglose de respuestas</h3>
-      <p className="breakdown-hint">
-        Pasa el ratón (o enfoca con teclado) sobre un rol para ver qué celdas de
-        tus respuestas suman a su puntuación.
+    <div className="comparison-panel">
+      <h3>Comparación con los resultados de Agustí</h3>
+      <p className="comparison-hint">
+        Tu perfil (verde) sobre el mío (naranja). La tabla está ordenada por
+        diferencia absoluta para resaltar dónde diferimos más.
       </p>
-      <div className="breakdown-layout">
-        <div className="breakdown-table-wrap">
-          <table className="answers-table">
-            <thead>
-              <tr>
-                <th scope="col">Sec.</th>
-                {LETTERS.map((l) => (
-                  <th key={l} scope="col">
-                    {l}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {answers.map((section, idx) => (
-                <tr key={idx}>
-                  <th scope="row">{idx + 1}</th>
-                  {LETTERS.map((l) => {
-                    const val = toInt(section[l])
-                    const highlighted = isHighlighted(idx, l)
-                    return (
-                      <td
-                        key={l}
-                        className={
-                          (highlighted ? "highlighted " : "") +
-                          (val === 0 ? "zero" : "")
-                        }
-                      >
-                        {val === 0 ? "·" : val}
-                      </td>
-                    )
-                  })}
+
+      <RadarChart
+        roleResults={roleResults}
+        compareRoleResults={AGUSTI_ROLE_RESULTS}
+        compareLabel="Agustí"
+      />
+
+      <div className="comparison-table-wrap">
+        <table className="comparison-table">
+          <thead>
+            <tr>
+              <th>Rol</th>
+              <th className="num">Tú</th>
+              <th className="num">Agustí</th>
+              <th className="num">Δ</th>
+            </tr>
+          </thead>
+          <tbody>
+            {compareRows.map(({ role, mine, delta }) => {
+              const dir =
+                delta > 0 ? "delta-pos" : delta < 0 ? "delta-neg" : "delta-zero"
+              return (
+                <tr key={role.abbr}>
+                  <td>
+                    <strong>{role.es}</strong>
+                    <span className="muted"> ({role.en})</span>
+                  </td>
+                  <td className="num">{role.total}</td>
+                  <td className="num muted">{mine.total}</td>
+                  <td className={`num ${dir}`}>
+                    {delta > 0 ? `+${delta}` : delta}
+                  </td>
                 </tr>
-              ))}
-              {activeRole && (
-                <tr className="total-row">
-                  <th scope="row">Σ</th>
-                  {LETTERS.map((l) => {
-                    const sum = answers.reduce((acc, section, idx) => {
-                      return (
-                        acc +
-                        (activeRole.letters[idx] === l
-                          ? toInt(section[l])
-                          : 0)
-                      )
-                    }, 0)
-                    return (
-                      <td key={l} className={sum > 0 ? "highlighted" : "zero"}>
-                        {sum > 0 ? sum : ""}
-                      </td>
-                    )
-                  })}
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
-        <ul className="breakdown-roles">
-          {roleResults.map((role) => {
-            const active = hoveredRole === role.abbr
-            return (
-              <li
-                key={role.abbr}
-                className={active ? "active" : ""}
-                onMouseEnter={() => setHoveredRole(role.abbr)}
-                onMouseLeave={() => setHoveredRole(null)}
-                onFocus={() => setHoveredRole(role.abbr)}
-                onBlur={() => setHoveredRole(null)}
-                tabIndex={0}
-              >
-                <span className="role-name">
-                  <strong>{role.es}</strong>
-                  <span className="muted"> ({role.en})</span>
-                </span>
-                <span className="role-total">{role.total}</span>
-              </li>
-            )
-          })}
-        </ul>
+              )
+            })}
+          </tbody>
+        </table>
       </div>
-    </>
+    </div>
   )
 }
 
 const ResultsPanel = ({
-  answers,
   roleResults,
   sortedRoleResults,
   byFamily,
@@ -751,13 +777,13 @@ const ResultsPanel = ({
         ))}
       </div>
 
-      <AnswersBreakdown answers={answers} roleResults={roleResults} />
-
       <p className="results-note">
         Los rangos son específicos de cada rol: una puntuación bruta no significa
         lo mismo entre roles distintos (p. ej. Impulsor promedia 11.6 mientras
         Finalizador promedia 5.5).
       </p>
+
+      <ComparisonPanel roleResults={roleResults} />
 
       <div className="belbin-actions">
         <button type="button" className="btn-reset" onClick={onReset}>

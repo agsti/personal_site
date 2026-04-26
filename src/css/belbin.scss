@@ -253,6 +253,20 @@
     &.point-vhigh { fill: $dark; }
   }
 
+  .compare-polygon {
+    fill: rgba(255, 126, 103, 0.18);
+    stroke: $accent-2;
+    stroke-width: 2;
+    stroke-dasharray: 6 4;
+    stroke-linejoin: round;
+  }
+
+  .compare-data-point {
+    stroke: $light-1;
+    stroke-width: 2;
+    fill: $accent-2;
+  }
+
   .axis-label text {
     font-size: 13px;
     font-weight: bold;
@@ -295,6 +309,91 @@
   .dot-1 { background-color: $accent-2; }
   .dot-2 { background-color: $accent-1; }
   .dot-3 { background-color: $dark; }
+
+  .swatch {
+    display: inline-block;
+    width: 18px;
+    height: 4px;
+    border-radius: 2px;
+  }
+
+  .swatch-self {
+    background-color: $accent-1;
+  }
+
+  .swatch-compare {
+    background-color: $accent-2;
+    background-image: linear-gradient(
+      to right,
+      $accent-2 60%,
+      transparent 60%
+    );
+    background-size: 8px 4px;
+  }
+}
+
+.comparison-panel {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px dashed lighten($light-3, 40%);
+
+  h3 {
+    margin: 0 0 0.25rem;
+  }
+}
+
+.comparison-hint {
+  font-size: 0.9rem;
+  color: $light-3;
+  margin: 0 0 0.75rem;
+}
+
+.comparison-table-wrap {
+  overflow-x: auto;
+  border: 2px solid lighten($light-3, 40%);
+  margin-top: 0.5rem;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+
+  th,
+  td {
+    text-align: left;
+    padding: 0.4rem 0.75rem;
+    border-bottom: 1px dashed lighten($light-3, 50%);
+  }
+
+  thead th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: $light-3;
+    letter-spacing: 0.05em;
+    background-color: lighten($light-3, 55%);
+  }
+
+  td.num,
+  th.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    width: 70px;
+  }
+
+  .delta-pos {
+    color: $accent-1;
+    font-weight: bold;
+  }
+
+  .delta-neg {
+    color: $accent-2;
+    font-weight: bold;
+  }
+
+  .delta-zero {
+    color: $light-3;
+  }
 }
 
 .results-summary {
@@ -392,126 +491,6 @@
   }
 }
 
-.breakdown-hint {
-  font-size: 0.9rem;
-  color: $light-3;
-  margin: 0 0 0.75rem;
-}
-
-.breakdown-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
-  gap: 1.25rem;
-  align-items: start;
-  margin-bottom: 1rem;
-}
-
-.breakdown-table-wrap {
-  overflow-x: auto;
-  border: 2px solid lighten($light-3, 40%);
-}
-
-.answers-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-variant-numeric: tabular-nums;
-  font-size: 0.95rem;
-
-  th,
-  td {
-    text-align: center;
-    padding: 0.35rem 0.4rem;
-    border-bottom: 1px dashed lighten($light-3, 50%);
-    border-right: 1px dashed lighten($light-3, 50%);
-    transition: background-color 0.15s ease, color 0.15s ease;
-  }
-
-  th:last-child,
-  td:last-child {
-    border-right: none;
-  }
-
-  thead th {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    color: $light-3;
-    letter-spacing: 0.05em;
-    background-color: lighten($light-3, 55%);
-    border-bottom: 2px solid lighten($light-3, 40%);
-  }
-
-  tbody th {
-    color: $accent-1;
-    font-weight: bold;
-    background-color: lighten($light-3, 55%);
-    border-right: 2px solid lighten($light-3, 40%);
-  }
-
-  td.zero {
-    color: lighten($light-3, 30%);
-  }
-
-  td.highlighted {
-    background-color: $accent-1;
-    color: $light-1;
-    font-weight: bold;
-  }
-
-  tr.total-row {
-    th,
-    td {
-      border-top: 2px solid lighten($light-3, 40%);
-      border-bottom: none;
-    }
-    th {
-      color: $light-3;
-    }
-  }
-}
-
-.breakdown-roles {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-
-  li {
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
-    padding: 0.4rem 0.75rem;
-    border: 2px solid lighten($light-3, 45%);
-    background-color: $light-1;
-    cursor: pointer;
-    transition: background-color 0.15s ease, border-color 0.15s ease;
-
-    &:hover,
-    &:focus,
-    &.active {
-      outline: none;
-      background-color: lighten($accent-1, 45%);
-      border-color: $accent-1;
-    }
-  }
-
-  .role-name {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .role-total {
-    font-variant-numeric: tabular-nums;
-    font-weight: bold;
-    color: $accent-1;
-    padding: 1px 8px;
-    border: 2px solid $accent-1;
-    border-radius: 999px;
-    font-size: 0.9rem;
-  }
-}
-
 .results-note {
   margin-top: 1.5rem;
   padding: 0.75rem 1rem;
@@ -546,10 +525,6 @@
   }
 
   .results-summary {
-    grid-template-columns: 1fr;
-  }
-
-  .breakdown-layout {
     grid-template-columns: 1fr;
   }
 
