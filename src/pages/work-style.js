@@ -186,7 +186,6 @@ const ROLES = [
 ]
 
 const LETTERS = ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
-const POINT_OPTIONS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 const emptySection = () =>
   LETTERS.reduce((acc, l) => ({ ...acc, [l]: "" }), {})
@@ -393,6 +392,8 @@ const WorkStylePage = ({ location }) => {
                     {LETTERS.map((letter) => {
                       const selected = answers[idx][letter]
                       const numericValue = toInt(selected)
+                      const canDecrement = numericValue > 0
+                      const canIncrement = numericValue < 10
                       return (
                         <li key={letter}>
                           <div className="statement-row">
@@ -400,34 +401,37 @@ const WorkStylePage = ({ location }) => {
                             <span className="text">
                               {section.statements[letter]}
                             </span>
-                            <div
-                              className="point-buttons"
-                              role="radiogroup"
-                              aria-label={`Points for statement ${letter}`}
-                            >
-                              {POINT_OPTIONS.map((n) => {
-                                const isSelected = selected !== "" && numericValue === n
-                                return (
-                                  <button
-                                    key={n}
-                                    type="button"
-                                    role="radio"
-                                    aria-checked={isSelected}
-                                    className={`point-btn${
-                                      isSelected ? " selected" : ""
-                                    }`}
-                                    onClick={() =>
-                                      handleChange(
-                                        idx,
-                                        letter,
-                                        isSelected ? "" : String(n)
-                                      )
-                                    }
-                                  >
-                                    {n}
-                                  </button>
-                                )
-                              })}
+                            <div className="point-stepper">
+                              <button
+                                type="button"
+                                className="step-btn"
+                                aria-label={`Decrease points for statement ${letter}`}
+                                disabled={!canDecrement}
+                                onClick={() =>
+                                  handleChange(
+                                    idx,
+                                    letter,
+                                    String(numericValue - 1)
+                                  )
+                                }
+                              >
+                                −1
+                              </button>
+                              <button
+                                type="button"
+                                className="step-btn"
+                                aria-label={`Increase points for statement ${letter}`}
+                                disabled={!canIncrement}
+                                onClick={() =>
+                                  handleChange(
+                                    idx,
+                                    letter,
+                                    String(numericValue + 1)
+                                  )
+                                }
+                              >
+                                +1
+                              </button>
                             </div>
                             <span
                               className={`statement-value${
