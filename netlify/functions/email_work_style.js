@@ -28,7 +28,7 @@ const render_role_rows = (roleResults) =>
     .map(
       (r) => `
         <tr>
-          <td>${escape_html(r.es)} <em>(${escape_html(r.en)})</em></td>
+          <td>${escape_html(r.name || r.en || "")}</td>
           <td style="text-align:right">${escape_html(r.total)}</td>
           <td>${escape_html(r.range && r.range.label ? r.range.label : "")}</td>
         </tr>`
@@ -38,18 +38,18 @@ const render_role_rows = (roleResults) =>
 const build_html = ({ answers, roleResults }) => {
   const sorted = [...roleResults].sort((a, b) => b.total - a.total)
   return `
-    <h2>Nuevo resultado del cuestionario Belbin</h2>
-    <p>Alguien acaba de completar el cuestionario en agustibau.com/belbin.</p>
+    <h2>New work style questionnaire result</h2>
+    <p>Someone just completed the questionnaire on agustibau.com/work-style.</p>
 
-    <h3>Roles ordenados por puntuación</h3>
+    <h3>Roles ordered by score</h3>
     <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse">
       <thead>
-        <tr><th align="left">Rol</th><th align="right">Total</th><th align="left">Rango</th></tr>
+        <tr><th align="left">Role</th><th align="right">Total</th><th align="left">Range</th></tr>
       </thead>
       <tbody>${render_role_rows(sorted)}</tbody>
     </table>
 
-    <h3>Respuestas en bruto</h3>
+    <h3>Raw answers</h3>
     <pre style="font-family:monospace; font-size:12px">${escape_html(
       JSON.stringify(answers, null, 2)
     )}</pre>
@@ -69,9 +69,9 @@ const send_email = async (host, username, password, html) => {
   transporter.use("compile", htmlToText())
 
   return await transporter.sendMail({
-    from: '"Belbin Form" <agusti@briefalert.io>',
+    from: '"Work Style Form" <agusti@briefalert.io>',
     to: "agustibau@gmail.com",
-    subject: "Nuevo resultado del cuestionario Belbin",
+    subject: "New work style questionnaire result",
     html,
   })
 }
@@ -109,7 +109,7 @@ const handler = async (event) => {
       process.env.SMTP_PASSWORD,
       build_html({ answers, roleResults })
     )
-    console.log("Belbin email sent", info)
+    console.log("Work style email sent", info)
     return { statusCode: 200, body: "" }
   } catch (error) {
     return { statusCode: 500, body: error.message }

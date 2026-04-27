@@ -1,6 +1,6 @@
 @import "colors";
 
-.belbin-header {
+.ws-header {
   border: 5px $light-1 solid;
   font-style: normal;
   background-color: $accent-1;
@@ -9,7 +9,7 @@
   margin: 20px 0px;
 }
 
-.belbin-intro {
+.ws-intro {
   background-color: $light-1;
   border: 5px solid $accent-2;
   padding: 1.5rem;
@@ -19,19 +19,19 @@
     margin: 0 0 0.5rem 0;
   }
 
-  .belbin-progress {
+  .ws-progress {
     font-size: 0.95rem;
     color: $light-3;
   }
 }
 
-.belbin-form {
+.ws-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-.belbin-section {
+.ws-section {
   background-color: $light-1;
   border: 5px solid $accent-2;
   padding: 1rem 1.5rem 1.5rem;
@@ -87,7 +87,7 @@
   }
 }
 
-.belbin-statements {
+.ws-statements {
   list-style: none;
   margin: 1rem 0 0;
   padding: 0;
@@ -135,7 +135,7 @@
   }
 }
 
-.belbin-actions {
+.ws-actions {
   display: flex;
   gap: 1rem;
   justify-content: flex-end;
@@ -174,7 +174,7 @@
   }
 }
 
-.belbin-hint {
+.ws-hint {
   text-align: right;
   color: #c0392b;
   font-size: 0.95rem;
@@ -182,7 +182,7 @@
 }
 
 // Results panel
-.belbin-results {
+.ws-results {
   background-color: $light-1;
   border: 5px solid $accent-1;
   padding: 1.5rem;
@@ -208,14 +208,14 @@
   }
 }
 
-.belbin-radar-wrap {
+.ws-radar-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 1rem 0 1.5rem;
 }
 
-.belbin-radar {
+.ws-radar {
   display: block;
   max-width: 780px;
   width: 100%;
@@ -462,7 +462,7 @@
   }
 }
 
-.rango {
+.range-tag {
   display: inline-block;
   padding: 2px 8px;
   border-radius: 999px;
@@ -470,22 +470,22 @@
   font-weight: bold;
   white-space: nowrap;
 
-  &.rango-low {
+  &.range-low {
     background-color: lighten($light-3, 55%);
     color: $light-3;
   }
 
-  &.rango-med {
+  &.range-med {
     background-color: lighten($accent-2, 20%);
     color: darken($accent-2, 25%);
   }
 
-  &.rango-high {
+  &.range-high {
     background-color: $accent-1;
     color: $light-1;
   }
 
-  &.rango-vhigh {
+  &.range-vhigh {
     background-color: $dark;
     color: $light-1;
   }
@@ -501,25 +501,25 @@
 }
 
 @media only screen and (max-width: 70rem) {
-  .belbin-intro,
-  .belbin-section,
-  .belbin-results {
+  .ws-intro,
+  .ws-section,
+  .ws-results {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
   }
 }
 
 @media only screen and (max-device-width: 480px) {
-  .belbin-section {
+  .ws-section {
     padding: 0.75rem;
   }
 
-  .belbin-statements label {
+  .ws-statements label {
     grid-template-columns: 50px 1.25rem 1fr;
     gap: 0.4rem;
   }
 
-  .belbin-statements input[type="number"] {
+  .ws-statements input[type="number"] {
     width: 50px;
     padding: 4px 6px;
   }
@@ -528,7 +528,7 @@
     grid-template-columns: 1fr;
   }
 
-  .belbin-actions {
+  .ws-actions {
     flex-direction: column-reverse;
 
     button {
