@@ -16,6 +16,8 @@
     color: $dark;
     padding: 10px;
     text-align: center;
+    min-width: 0;
+    overflow-wrap: break-word;
 }
 
 .back {
@@ -39,7 +41,7 @@
     width: 200px;
 }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 768px) {
     .back, .filler {
         display: none;
     }
