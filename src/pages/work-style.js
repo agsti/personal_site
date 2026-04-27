@@ -186,6 +186,7 @@ const ROLES = [
 ]
 
 const LETTERS = ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
+const POINT_OPTIONS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 const emptySection = () =>
   LETTERS.reduce((acc, l) => ({ ...acc, [l]: "" }), {})
@@ -389,26 +390,57 @@ const WorkStylePage = ({ location }) => {
                     </span>
                   </legend>
                   <ul className="ws-statements">
-                    {LETTERS.map((letter) => (
-                      <li key={letter}>
-                        <label>
-                          <input
-                            type="number"
-                            min="0"
-                            max="10"
-                            inputMode="numeric"
-                            value={answers[idx][letter]}
-                            onChange={(e) =>
-                              handleChange(idx, letter, e.target.value)
-                            }
-                          />
-                          <span className="letter">{letter})</span>
-                          <span className="text">
-                            {section.statements[letter]}
-                          </span>
-                        </label>
-                      </li>
-                    ))}
+                    {LETTERS.map((letter) => {
+                      const selected = answers[idx][letter]
+                      const numericValue = toInt(selected)
+                      return (
+                        <li key={letter}>
+                          <div className="statement-row">
+                            <span className="letter">{letter})</span>
+                            <span className="text">
+                              {section.statements[letter]}
+                            </span>
+                            <div
+                              className="point-buttons"
+                              role="radiogroup"
+                              aria-label={`Points for statement ${letter}`}
+                            >
+                              {POINT_OPTIONS.map((n) => {
+                                const isSelected = selected !== "" && numericValue === n
+                                return (
+                                  <button
+                                    key={n}
+                                    type="button"
+                                    role="radio"
+                                    aria-checked={isSelected}
+                                    className={`point-btn${
+                                      isSelected ? " selected" : ""
+                                    }`}
+                                    onClick={() =>
+                                      handleChange(
+                                        idx,
+                                        letter,
+                                        isSelected ? "" : String(n)
+                                      )
+                                    }
+                                  >
+                                    {n}
+                                  </button>
+                                )
+                              })}
+                            </div>
+                            <span
+                              className={`statement-value${
+                                selected === "" ? " empty" : ""
+                              }`}
+                              aria-label={`Selected points for statement ${letter}`}
+                            >
+                              {selected === "" ? 0 : numericValue}
+                            </span>
+                          </div>
+                        </li>
+                      )
+                    })}
                   </ul>
                 </fieldset>
               )
