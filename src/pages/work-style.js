@@ -389,26 +389,67 @@ const WorkStylePage = ({ location }) => {
                     </span>
                   </legend>
                   <ul className="ws-statements">
-                    {LETTERS.map((letter) => (
-                      <li key={letter}>
-                        <label>
-                          <input
-                            type="number"
-                            min="0"
-                            max="10"
-                            inputMode="numeric"
-                            value={answers[idx][letter]}
-                            onChange={(e) =>
-                              handleChange(idx, letter, e.target.value)
-                            }
-                          />
-                          <span className="letter">{letter})</span>
-                          <span className="text">
-                            {section.statements[letter]}
-                          </span>
-                        </label>
-                      </li>
-                    ))}
+                    {LETTERS.map((letter) => {
+                      const selected = answers[idx][letter]
+                      const numericValue = toInt(selected)
+                      const isEmpty = selected === ""
+                      const canDecrement = numericValue > 0
+                      const canIncrement = numericValue < 10
+                      return (
+                        <li key={letter}>
+                          <div className="statement-row">
+                            <span className="letter">{letter})</span>
+                            <span className="text">
+                              {section.statements[letter]}
+                            </span>
+                            <div
+                              className={`point-stepper${
+                                isEmpty ? " is-empty" : ""
+                              }`}
+                            >
+                              <button
+                                type="button"
+                                className="step-btn step-down"
+                                aria-label={`Decrease points for statement ${letter}`}
+                                disabled={!canDecrement}
+                                onClick={() =>
+                                  handleChange(
+                                    idx,
+                                    letter,
+                                    String(numericValue - 1)
+                                  )
+                                }
+                              >
+                                −
+                              </button>
+                              <span
+                                key={numericValue}
+                                className="step-value"
+                                aria-live="polite"
+                                aria-label={`Selected points for statement ${letter}`}
+                              >
+                                {isEmpty ? 0 : numericValue}
+                              </span>
+                              <button
+                                type="button"
+                                className="step-btn step-up"
+                                aria-label={`Increase points for statement ${letter}`}
+                                disabled={!canIncrement}
+                                onClick={() =>
+                                  handleChange(
+                                    idx,
+                                    letter,
+                                    String(numericValue + 1)
+                                  )
+                                }
+                              >
+                                +
+                              </button>
+                            </div>
+                          </div>
+                        </li>
+                      )
+                    })}
                   </ul>
                 </fieldset>
               )
