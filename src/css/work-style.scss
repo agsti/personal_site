@@ -500,9 +500,14 @@
   grid-template-columns: 1fr;
   gap: 1rem;
 
+  > * {
+    min-width: 0;
+  }
+
   .family-block {
     border: 2px solid lighten($light-3, 40%);
     padding: 0.75rem 1rem;
+    overflow-x: auto;
   }
 
   table {
