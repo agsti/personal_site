@@ -5,170 +5,163 @@ import Header from "../components/header"
 import SEO from "../components/seo"
 
 import "../css/base.scss"
-import "../css/belbin.scss"
+import "../css/work-style.scss"
 
 const SECTIONS = [
   {
-    title: "Qué creo que puedo aportar a un equipo",
+    title: "What I believe I can contribute to a team",
     statements: {
-      a: "Detecto y aprovecho rápidamente nuevas oportunidades.",
-      b: "Trabajo bien con personas de muy diversa índole.",
-      c: "Uno de mis talentos naturales es crear ideas.",
-      d: "Atraigo a quienes pueden aportar algo valioso para los objetivos del grupo.",
-      e: "Mi capacidad de seguimiento me hace eficaz.",
-      f: "Asumo impopularidad temporal si conduce a resultados que valen la pena.",
-      g: "Detecto rápidamente lo que puede funcionar en situaciones familiares.",
-      h: "Presento alternativas razonadas sin prejuicios.",
-      i: "Mis comentarios generales y específicos son siempre bien recibidos.",
+      a: "I quickly spot and seize new opportunities.",
+      b: "I work well with people of very different kinds.",
+      c: "Generating ideas is one of my natural talents.",
+      d: "I attract people who can contribute something valuable to the group's goals.",
+      e: "My follow-through makes me effective.",
+      f: "I am willing to face temporary unpopularity if it leads to worthwhile results.",
+      g: "I quickly sense what will work in familiar situations.",
+      h: "I present reasoned alternatives without bias.",
+      i: "My general and specific feedback is always well received.",
     },
   },
   {
-    title: "Si tengo un defecto para el trabajo en equipo, es que…",
+    title: "If I have a shortcoming when working in a team, it is that…",
     statements: {
-      a: "No estoy a gusto si las reuniones no están bien organizadas y dirigidas.",
-      b: "Soy demasiado generoso con quienes defienden puntos de vista válidos no considerados.",
-      c: "Hablo mucho cuando el grupo trata ideas nuevas.",
-      d: "Mi objetividad me hace difícil unirme con entusiasmo a los colegas.",
-      e: "A veces se me considera enérgico y autoritario cuando hay que hacer algo.",
-      f: "Me cuesta tomar el liderazgo; reacciono fuertemente al ambiente del grupo.",
-      g: "Me engancho demasiado con mis ideas y pierdo contacto con lo que pasa.",
-      h: "Se me considera preocupado en exceso por los detalles y por que algo salga mal.",
-      i: "Me cuesta contribuir salvo que el tema sea algo que conozca bien.",
+      a: "I am uneasy when meetings are not well organised and led.",
+      b: "I am too generous with people who hold valid views that haven't been considered.",
+      c: "I talk too much when the group discusses new ideas.",
+      d: "My objectivity makes it hard for me to join my colleagues with enthusiasm.",
+      e: "I'm sometimes seen as forceful and authoritarian when something needs to get done.",
+      f: "I find it hard to take the lead; I react strongly to the mood of the group.",
+      g: "I get caught up in my own ideas and lose touch with what's going on.",
+      h: "I'm seen as overly concerned with details and with things going wrong.",
+      i: "I struggle to contribute unless the topic is something I know well.",
     },
   },
   {
-    title: "Cuando participo con otras personas en un proyecto",
+    title: "When working with others on a project",
     statements: {
-      a: "Influyo sobre las personas sin presionarlas.",
-      b: "Mi vigilancia general evita omisiones y errores por descuido.",
-      c: "Presiono a favor de la acción para que el grupo no pierda su objetivo.",
-      d: "Siempre aporto algo original.",
-      e: "Respaldo cualquier buena sugerencia por el interés general.",
-      f: "Me entusiasma buscar lo último en ideas y adelantos.",
-      g: "Los demás aprecian mi capacidad para juzgar fríamente.",
-      h: "Se confía en mí para comprobar que el trabajo esencial está organizado.",
-      i: "Siempre actúo como un buen profesional.",
+      a: "I influence people without putting pressure on them.",
+      b: "My general vigilance prevents oversights and careless errors.",
+      c: "I push for action so the group doesn't lose sight of its goal.",
+      d: "I always bring something original.",
+      e: "I back any good suggestion that serves the broader interest.",
+      f: "I am keen to find the latest ideas and developments.",
+      g: "Others appreciate my ability to judge things coolly.",
+      h: "I can be trusted to make sure the essential work is organised.",
+      i: "I always behave as a true professional.",
     },
   },
   {
-    title: "Mi actitud característica ante el trabajo en equipo consiste en",
+    title: "My characteristic approach to teamwork is",
     statements: {
-      a: "Me interesa conocer mejor a mis colegas.",
-      b: "No rechazo desafiar puntos de vista ajenos o defender el mío en minoría.",
-      c: "Encuentro argumentos para refutar propuestas que no me parecen bien.",
-      d: "Tengo talento para hacer funcionar las cosas una vez puesto en marcha el plan.",
-      e: "Evito lo obvio y presento lo inesperado.",
-      f: "Aporto un toque de perfeccionismo a cualquier tarea.",
-      g: "Uso los contactos que tengo fuera del grupo.",
-      h: "Adopto una opinión propia al decidir, aunque escuche todas las opiniones.",
-      i: "Contribuyo cuando realmente sé del tema.",
+      a: "I'm interested in getting to know my colleagues better.",
+      b: "I'm not afraid to challenge others' views or defend my own when I'm in the minority.",
+      c: "I can find arguments to refute proposals I don't think are sound.",
+      d: "I have a knack for making things work once a plan is in motion.",
+      e: "I avoid the obvious and put forward the unexpected.",
+      f: "I bring a touch of perfectionism to any task.",
+      g: "I make use of contacts I have outside the group.",
+      h: "I form my own view when deciding, even after listening to all opinions.",
+      i: "I contribute when I really know the topic.",
     },
   },
   {
-    title: "Obtengo satisfacción en el trabajo porque",
+    title: "I get satisfaction from my work because",
     statements: {
-      a: "Disfruto analizando situaciones y sopesando opciones.",
-      b: "Me interesa encontrar soluciones prácticas.",
-      c: "Me gusta fomentar buenas relaciones en el trabajo.",
-      d: "Puedo influir fuertemente en las decisiones.",
-      e: "Me gusta conocer a personas que ofrecen algo nuevo.",
-      f: "Pongo de acuerdo a los compañeros sobre las acciones a tomar.",
-      g: "Me encuentro en mi elemento dedicando toda mi atención a una tarea.",
-      h: "Me gusta encontrar un campo que amplíe mi imaginación.",
-      i: "Siento que uso mis cualidades y me entreno para mejorar.",
+      a: "I enjoy analysing situations and weighing options.",
+      b: "I'm interested in finding practical solutions.",
+      c: "I like to foster good working relationships.",
+      d: "I can have a strong influence on decisions.",
+      e: "I enjoy meeting people who offer something new.",
+      f: "I get colleagues to agree on what action to take.",
+      g: "I feel in my element when I can give my full attention to a task.",
+      h: "I like to find areas that stretch my imagination.",
+      i: "I feel that I'm using my strengths and training to improve.",
     },
   },
   {
-    title: "Si me asignaran de repente una tarea difícil con gente desconocida",
+    title: "If I were suddenly given a difficult task with people I don't know",
     statements: {
-      a: "Me retiraría a un rincón a pensar la forma de abordarla.",
-      b: "Trabajaría con quien tuviera el enfoque más positivo, aunque su carácter sea difícil.",
-      c: "Reduciría el volumen de la tarea determinando la mejor aportación de cada uno.",
-      d: "Mi sentido de la urgencia aseguraría que no nos retrasáramos.",
-      e: "Permanecería sereno y pensaría con claridad.",
-      f: "Me mantendría firme en mis propósitos pese a las presiones.",
-      g: "Tomaría la iniciativa si el grupo no progresa.",
-      h: "Abriría discusiones para buscar nuevas ideas.",
-      i: "Me informaría sobre el tema tanto como pudiera.",
+      a: "I'd retreat to a corner to think through how to tackle it.",
+      b: "I'd team up with whoever had the most positive outlook, even if their personality is difficult.",
+      c: "I'd cut the task down to size by working out each person's best contribution.",
+      d: "My sense of urgency would make sure we didn't fall behind.",
+      e: "I'd stay calm and think clearly.",
+      f: "I'd hold firm to my goals despite pressure.",
+      g: "I'd take the initiative if the group wasn't making progress.",
+      h: "I'd open up discussion to find new ideas.",
+      i: "I'd read up on the topic as much as I could.",
     },
   },
   {
-    title: "Problemas que suelo padecer cuando trabajo en grupo",
+    title: "Problems I tend to run into when working in a group",
     statements: {
-      a: "Me impaciento con quienes obstaculizan el avance.",
-      b: "Me critican por ser demasiado analítico y poco intuitivo.",
-      c: "Mi afán de hacer el trabajo bien puede frenar al grupo.",
-      d: "Me aburro fácilmente y me apoyo en otros para que me estimulen.",
-      e: "Me cuesta ponerme en marcha si no veo claros los objetivos.",
-      f: "Soy torpe explicando ideas complejas que se me ocurren.",
-      g: "Pido a los demás cosas que yo mismo no puedo hacer.",
-      h: "Dudo en defender mis puntos de vista ante oposición real.",
-      i: "Pienso que pierdo el tiempo y que lo haría mejor yo solo.",
+      a: "I get impatient with people who slow things down.",
+      b: "I'm criticised for being too analytical and not intuitive enough.",
+      c: "My drive to get things done well can hold the group back.",
+      d: "I get bored easily and rely on others to keep me stimulated.",
+      e: "I find it hard to get going if the goals aren't clear.",
+      f: "I'm clumsy at explaining the complex ideas that come to me.",
+      g: "I ask others for things I can't do myself.",
+      h: "I hesitate to defend my views in the face of real opposition.",
+      i: "I think I'm wasting my time and that I'd do better on my own.",
     },
   },
 ]
 
-// Section-by-section letter that maps to each role (Table A.2).
+// Section-by-section letter that maps to each role.
 // Order: [section1, section2, ..., section7]
 const ROLES = [
   {
     abbr: "PL",
-    es: "Creativo",
-    en: "Plant",
-    family: "Mental",
+    name: "Plant",
+    family: "Thinking",
     letters: ["c", "g", "d", "e", "h", "a", "f"],
     bands: [4, 8, 12, 29],
     average: 7.3,
   },
   {
     abbr: "ME",
-    es: "Evaluador",
-    en: "Monitor Evaluator",
-    family: "Mental",
+    name: "Monitor Evaluator",
+    family: "Thinking",
     letters: ["h", "d", "g", "c", "a", "e", "b"],
     bands: [5, 9, 12, 19],
     average: 8.2,
   },
   {
     abbr: "SP",
-    es: "Especialista",
-    en: "Specialist",
-    family: "Mental",
+    name: "Specialist",
+    family: "Thinking",
     letters: ["i", "i", "i", "i", "i", "i", "i"],
     bands: [4, 7, 12, 29],
     average: 5.6,
   },
   {
     abbr: "SH",
-    es: "Impulsor",
-    en: "Shaper",
-    family: "Acción",
+    name: "Shaper",
+    family: "Action",
     letters: ["f", "e", "c", "b", "d", "g", "a"],
     bands: [8, 13, 17, 36],
     average: 11.6,
   },
   {
     abbr: "IM",
-    es: "Implementador",
-    en: "Implementer",
-    family: "Acción",
+    name: "Implementer",
+    family: "Action",
     letters: ["g", "a", "h", "d", "b", "f", "e"],
     bands: [6, 11, 16, 23],
     average: 10.0,
   },
   {
     abbr: "CF",
-    es: "Finalizador",
-    en: "Completer-Finisher",
-    family: "Acción",
+    name: "Completer-Finisher",
+    family: "Action",
     letters: ["e", "h", "b", "f", "g", "d", "c"],
     bands: [3, 6, 9, 17],
     average: 5.5,
   },
   {
     abbr: "CO",
-    es: "Coordinador",
-    en: "Coordinator",
+    name: "Coordinator",
     family: "Social",
     letters: ["d", "b", "a", "h", "f", "c", "g"],
     bands: [6, 10, 13, 18],
@@ -176,8 +169,7 @@ const ROLES = [
   },
   {
     abbr: "TW",
-    es: "Cohesionador",
-    en: "Teamworker",
+    name: "Teamworker",
     family: "Social",
     letters: ["b", "f", "e", "a", "c", "b", "h"],
     bands: [8, 12, 16, 25],
@@ -185,8 +177,7 @@ const ROLES = [
   },
   {
     abbr: "RI",
-    es: "Buscador de Recursos",
-    en: "Resource Investigator",
+    name: "Resource Investigator",
     family: "Social",
     letters: ["a", "c", "f", "g", "e", "h", "d"],
     bands: [6, 9, 11, 21],
@@ -211,10 +202,10 @@ const sectionSum = (section) =>
   LETTERS.reduce((acc, l) => acc + toInt(section[l]), 0)
 
 const classify = (total, [lowMax, medMax, highMax]) => {
-  if (total <= lowMax) return { label: "Bajo", key: "low" }
-  if (total <= medMax) return { label: "Medio", key: "med" }
-  if (total <= highMax) return { label: "Alto", key: "high" }
-  return { label: "Muy alto", key: "vhigh" }
+  if (total <= lowMax) return { label: "Low", key: "low" }
+  if (total <= medMax) return { label: "Medium", key: "med" }
+  if (total <= highMax) return { label: "High", key: "high" }
+  return { label: "Very high", key: "vhigh" }
 }
 
 const computeRoleResults = (answers) =>
@@ -239,7 +230,7 @@ const AGUSTI_ANSWERS = [
 ]
 const AGUSTI_ROLE_RESULTS = computeRoleResults(AGUSTI_ANSWERS)
 
-const STORAGE_KEY = "belbin_last_answers"
+const STORAGE_KEY = "work_style_last_answers"
 
 const isValidStoredAnswers = (parsed) =>
   Array.isArray(parsed) &&
@@ -251,7 +242,7 @@ const isValidStoredAnswers = (parsed) =>
       LETTERS.every((l) => l in s)
   )
 
-const BelbinPage = ({ location }) => {
+const WorkStylePage = ({ location }) => {
   const [answers, setAnswers] = useState(emptyAnswers)
   const [showResults, setShowResults] = useState(false)
   const [shouldScrollTop, setShouldScrollTop] = useState(false)
@@ -264,11 +255,6 @@ const BelbinPage = ({ location }) => {
       if (isValidStoredAnswers(parsed)) {
         setAnswers(parsed)
         setShowResults(true)
-        console.log("Belbin responses (restored):", parsed)
-        console.log(
-          "Belbin responses (restored, JSON):",
-          JSON.stringify(parsed)
-        )
       }
     } catch (e) {
       // ignore malformed storage
@@ -324,8 +310,6 @@ const BelbinPage = ({ location }) => {
     e.preventDefault()
     if (!allValid) return
     const snapshot = JSON.parse(JSON.stringify(answers))
-    console.log("Belbin responses:", snapshot)
-    console.log("Belbin responses (JSON):", JSON.stringify(snapshot))
     try {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(snapshot))
     } catch (err) {
@@ -334,12 +318,12 @@ const BelbinPage = ({ location }) => {
     const results = computeRoleResults(snapshot)
     if (typeof window !== "undefined" && typeof window.fetch === "function") {
       window
-        .fetch("/.netlify/functions/email_belbin", {
+        .fetch("/.netlify/functions/email_work_style", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ answers: snapshot, roleResults: results }),
         })
-        .catch((err) => console.warn("Belbin email POST failed", err))
+        .catch((err) => console.warn("Work style email POST failed", err))
     }
     setShowResults(true)
     setShouldScrollTop(true)
@@ -353,31 +337,31 @@ const BelbinPage = ({ location }) => {
   )
 
   const byFamily = useMemo(() => {
-    const groups = { Mental: [], Acción: [], Social: [] }
+    const groups = { Thinking: [], Action: [], Social: [] }
     roleResults.forEach((r) => groups[r.family].push(r))
     return groups
   }, [roleResults])
 
   return (
-    <div className="root belbin-root">
+    <div className="root ws-root">
       <Layout location={location}>
-        <SEO title="Cuestionario Belbin" />
+        <SEO title="Work Style Questionnaire" />
         <Header
-          title="Cuestionario Belbin"
+          title="Work Style Questionnaire"
           links_to="/"
-          className="belbin-header"
+          className="ws-header"
         />
         <Content>
-          <div className="belbin-intro">
+          <div className="ws-intro">
             <p>
-              Auto-evaluación que mapea tu comportamiento en equipos a los{" "}
-              <strong>9 roles de Belbin</strong>. En cada una de las 7
-              secciones, reparte <strong>10 puntos</strong> entre las
-              afirmaciones (a–i) según cuánto te describan. Puedes concentrarlos
-              en una sola afirmación o distribuirlos entre varias.
+              A self-assessment that maps how you behave in teams to{" "}
+              <strong>9 team roles</strong>. In each of the 7 sections,
+              distribute <strong>10 points</strong> across the statements (a–i)
+              based on how well they describe you. You can put them all on a
+              single statement or spread them across several.
             </p>
-            <p className="belbin-progress">
-              Total acumulado: <strong>{grandTotal}</strong> / 70
+            <p className="ws-progress">
+              Running total: <strong>{grandTotal}</strong> / 70
             </p>
           </div>
 
@@ -390,13 +374,13 @@ const BelbinPage = ({ location }) => {
             />
           )}
 
-          <form onSubmit={handleCalculate} className="belbin-form">
+          <form onSubmit={handleCalculate} className="ws-form">
             {SECTIONS.map((section, idx) => {
               const sum = sums[idx]
               const state =
                 sum === 10 ? "ok" : sum > 10 ? "over" : sum === 0 ? "empty" : "under"
               return (
-                <fieldset key={idx} className={`belbin-section state-${state}`}>
+                <fieldset key={idx} className={`ws-section state-${state}`}>
                   <legend>
                     <span className="sec-num">{idx + 1}.</span>{" "}
                     {section.title}
@@ -404,7 +388,7 @@ const BelbinPage = ({ location }) => {
                       {sum}/10
                     </span>
                   </legend>
-                  <ul className="belbin-statements">
+                  <ul className="ws-statements">
                     {LETTERS.map((letter) => (
                       <li key={letter}>
                         <label>
@@ -430,9 +414,9 @@ const BelbinPage = ({ location }) => {
               )
             })}
 
-            <div className="belbin-actions">
+            <div className="ws-actions">
               <button type="button" className="btn-reset" onClick={handleReset}>
-                Reiniciar
+                Reset
               </button>
               <button
                 type="submit"
@@ -440,16 +424,16 @@ const BelbinPage = ({ location }) => {
                 disabled={!allValid}
                 title={
                   allValid
-                    ? "Calcular resultados"
-                    : "Cada sección debe sumar exactamente 10"
+                    ? "Calculate results"
+                    : "Each section must total exactly 10"
                 }
               >
-                Calcular resultados
+                Calculate results
               </button>
             </div>
             {!allValid && (
-              <p className="belbin-hint">
-                Cada sección tiene que sumar exactamente 10 puntos.
+              <p className="ws-hint">
+                Each section has to add up to exactly 10 points.
               </p>
             )}
           </form>
@@ -459,9 +443,9 @@ const BelbinPage = ({ location }) => {
   )
 }
 
-const FAMILY_ORDER = ["Mental", "Acción", "Social"]
+const FAMILY_ORDER = ["Thinking", "Action", "Social"]
 
-const RING_LABELS = ["Bajo", "Medio", "Alto", "Muy alto"]
+const RING_LABELS = ["Low", "Medium", "High", "Very high"]
 
 const normalizeRoleValue = (total, bands) => {
   const [b0, b1, b2, b3] = bands
@@ -512,12 +496,12 @@ const RadarChart = ({ roleResults, compareRoleResults, compareLabel }) => {
   const rings = [0.25, 0.5, 0.75, 1]
 
   return (
-    <div className="belbin-radar-wrap">
+    <div className="ws-radar-wrap">
       <svg
-        className="belbin-radar"
+        className="ws-radar"
         viewBox={`0 0 ${width} ${height}`}
         role="img"
-        aria-label="Perfil Belbin en gráfico radar"
+        aria-label="Work style radar chart"
       >
         {rings.map((frac, idx) => (
           <polygon
@@ -560,7 +544,7 @@ const RadarChart = ({ roleResults, compareRoleResults, compareLabel }) => {
                 className="compare-data-point"
               >
                 <title>
-                  {compareLabel || "Comparación"} · {r.es}: {r.total} —{" "}
+                  {compareLabel || "Comparison"} · {r.name}: {r.total} —{" "}
                   {r.range.label}
                 </title>
               </circle>
@@ -579,7 +563,7 @@ const RadarChart = ({ roleResults, compareRoleResults, compareLabel }) => {
               className={`data-point point-${r.range.key}`}
             >
               <title>
-                {r.es} ({r.en}): {r.total} — {r.range.label}
+                {r.name}: {r.total} — {r.range.label}
               </title>
             </circle>
           )
@@ -594,7 +578,7 @@ const RadarChart = ({ roleResults, compareRoleResults, compareLabel }) => {
           return (
             <g key={r.abbr} className="axis-label">
               <text x={p.x} y={p.y - 4} textAnchor={anchor}>
-                {r.abbr} · {r.es}
+                {r.abbr} · {r.name}
               </text>
               <text
                 x={p.x}
@@ -621,11 +605,11 @@ const RadarChart = ({ roleResults, compareRoleResults, compareLabel }) => {
         {compareRoleResults && (
           <>
             <li>
-              <span className="swatch swatch-self" /> Tú
+              <span className="swatch swatch-self" /> You
             </li>
             <li>
               <span className="swatch swatch-compare" />{" "}
-              {compareLabel || "Comparación"}
+              {compareLabel || "Comparison"}
             </li>
           </>
         )}
@@ -649,10 +633,10 @@ const ComparisonPanel = ({ roleResults }) => {
 
   return (
     <div className="comparison-panel">
-      <h3>Comparación con los resultados de Agustí</h3>
+      <h3>Comparison with Agustí's results</h3>
       <p className="comparison-hint">
-        Tu perfil (verde) sobre el mío (naranja). La tabla está ordenada por
-        diferencia absoluta para resaltar dónde diferimos más.
+        Your profile (green) over mine (orange). The table is sorted by
+        absolute difference to highlight where we differ most.
       </p>
 
       <RadarChart
@@ -665,8 +649,8 @@ const ComparisonPanel = ({ roleResults }) => {
         <table className="comparison-table">
           <thead>
             <tr>
-              <th>Rol</th>
-              <th className="num">Tú</th>
+              <th>Role</th>
+              <th className="num">You</th>
               <th className="num">Agustí</th>
               <th className="num">Δ</th>
             </tr>
@@ -678,8 +662,7 @@ const ComparisonPanel = ({ roleResults }) => {
               return (
                 <tr key={role.abbr}>
                   <td>
-                    <strong>{role.es}</strong>
-                    <span className="muted"> ({role.en})</span>
+                    <strong>{role.name}</strong>
                   </td>
                   <td className="num">{role.total}</td>
                   <td className="num muted">{mine.total}</td>
@@ -706,19 +689,19 @@ const ResultsPanel = ({
   const secondary = sortedRoleResults.slice(2, 4)
 
   return (
-    <div className="belbin-results">
-      <h2>Tus resultados</h2>
+    <div className="ws-results">
+      <h2>Your results</h2>
 
       <RadarChart roleResults={roleResults} />
 
       <div className="results-summary">
         <div className="summary-block">
-          <h3>Roles principales</h3>
+          <h3>Primary roles</h3>
           <ul>
             {primary.map((r) => (
               <li key={r.abbr}>
-                <strong>{r.es}</strong> ({r.en}) — {r.total} pts ·{" "}
-                <span className={`rango rango-${r.range.key}`}>
+                <strong>{r.name}</strong> — {r.total} pts ·{" "}
+                <span className={`range-tag range-${r.range.key}`}>
                   {r.range.label}
                 </span>
               </li>
@@ -726,12 +709,12 @@ const ResultsPanel = ({
           </ul>
         </div>
         <div className="summary-block">
-          <h3>Roles secundarios</h3>
+          <h3>Secondary roles</h3>
           <ul>
             {secondary.map((r) => (
               <li key={r.abbr}>
-                <strong>{r.es}</strong> ({r.en}) — {r.total} pts ·{" "}
-                <span className={`rango rango-${r.range.key}`}>
+                <strong>{r.name}</strong> — {r.total} pts ·{" "}
+                <span className={`range-tag range-${r.range.key}`}>
                   {r.range.label}
                 </span>
               </li>
@@ -740,7 +723,7 @@ const ResultsPanel = ({
         </div>
       </div>
 
-      <h3>Desglose por familia</h3>
+      <h3>Breakdown by family</h3>
       <div className="family-grid">
         {FAMILY_ORDER.map((family) => (
           <div key={family} className="family-block">
@@ -748,24 +731,22 @@ const ResultsPanel = ({
             <table>
               <thead>
                 <tr>
-                  <th>Rol</th>
+                  <th>Role</th>
                   <th>Total</th>
-                  <th>Media</th>
-                  <th>Rango</th>
+                  <th>Average</th>
+                  <th>Range</th>
                 </tr>
               </thead>
               <tbody>
                 {byFamily[family].map((r) => (
                   <tr key={r.abbr}>
                     <td>
-                      <strong>{r.es}</strong>
-                      <br />
-                      <span className="muted">{r.en}</span>
+                      <strong>{r.name}</strong>
                     </td>
                     <td className="num">{r.total}</td>
                     <td className="num muted">{r.average}</td>
                     <td>
-                      <span className={`rango rango-${r.range.key}`}>
+                      <span className={`range-tag range-${r.range.key}`}>
                         {r.range.label}
                       </span>
                     </td>
@@ -778,20 +759,20 @@ const ResultsPanel = ({
       </div>
 
       <p className="results-note">
-        Los rangos son específicos de cada rol: una puntuación bruta no significa
-        lo mismo entre roles distintos (p. ej. Impulsor promedia 11.6 mientras
-        Finalizador promedia 5.5).
+        The ranges are role-specific: the same raw score doesn't mean the same
+        thing across roles (e.g. Shaper averages 11.6 while Completer-Finisher
+        averages 5.5).
       </p>
 
       <ComparisonPanel roleResults={roleResults} />
 
-      <div className="belbin-actions">
+      <div className="ws-actions">
         <button type="button" className="btn-reset" onClick={onReset}>
-          Reiniciar cuestionario
+          Reset questionnaire
         </button>
       </div>
     </div>
   )
 }
 
-export default BelbinPage
+export default WorkStylePage

@@ -49,6 +49,9 @@ const Index = ({ location }) => {
                   <li>
                     <Link to="/bookmarks">Bookmarks</Link>
                   </li>
+                  <li>
+                    <Link to="/work-style">Compare work style</Link>
+                  </li>
                 </ul>
                 <ul className="section-list section-bookmarks">
                   <li>
