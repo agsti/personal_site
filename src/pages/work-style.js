@@ -392,6 +392,7 @@ const WorkStylePage = ({ location }) => {
                     {LETTERS.map((letter) => {
                       const selected = answers[idx][letter]
                       const numericValue = toInt(selected)
+                      const isEmpty = selected === ""
                       const canDecrement = numericValue > 0
                       const canIncrement = numericValue < 10
                       return (
@@ -401,10 +402,14 @@ const WorkStylePage = ({ location }) => {
                             <span className="text">
                               {section.statements[letter]}
                             </span>
-                            <div className="point-stepper">
+                            <div
+                              className={`point-stepper${
+                                isEmpty ? " is-empty" : ""
+                              }`}
+                            >
                               <button
                                 type="button"
-                                className="step-btn"
+                                className="step-btn step-down"
                                 aria-label={`Decrease points for statement ${letter}`}
                                 disabled={!canDecrement}
                                 onClick={() =>
@@ -415,11 +420,19 @@ const WorkStylePage = ({ location }) => {
                                   )
                                 }
                               >
-                                −1
+                                −
                               </button>
+                              <span
+                                key={numericValue}
+                                className="step-value"
+                                aria-live="polite"
+                                aria-label={`Selected points for statement ${letter}`}
+                              >
+                                {isEmpty ? 0 : numericValue}
+                              </span>
                               <button
                                 type="button"
-                                className="step-btn"
+                                className="step-btn step-up"
                                 aria-label={`Increase points for statement ${letter}`}
                                 disabled={!canIncrement}
                                 onClick={() =>
@@ -430,17 +443,9 @@ const WorkStylePage = ({ location }) => {
                                   )
                                 }
                               >
-                                +1
+                                +
                               </button>
                             </div>
-                            <span
-                              className={`statement-value${
-                                selected === "" ? " empty" : ""
-                              }`}
-                              aria-label={`Selected points for statement ${letter}`}
-                            >
-                              {selected === "" ? 0 : numericValue}
-                            </span>
                           </div>
                         </li>
                       )
